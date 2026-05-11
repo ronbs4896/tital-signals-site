@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Trading Calculators · Tital Signals</title>
+<meta name="description" content="Free XAUUSD calculators: Lot Size, Position Size, Pip Value, Profit/Loss, Risk Reward. Professional trading tools."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.calc-wrap{max-width:640px;margin:0 auto;}
+.calc-card-inner{background:var(--bg-card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:var(--radius);padding:36px;}
+.edu-note{background:rgba(0,212,160,.06);border:1px solid var(--green-border);border-radius:var(--radius-xs);padding:14px 18px;font-size:13px;color:var(--text-secondary);line-height:1.7;margin-top:20px;display:flex;gap:10px;}
+.edu-note i{color:var(--green);flex-shrink:0;font-size:16px;margin-top:2px;}
+.tool-card{background:var(--bg-card);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-align:center;cursor:pointer;transition:border-color .2s,transform .2s;}
+.tool-card:hover,.tool-card.active-tool{border-color:var(--gold-border);transform:translateY(-2px);}
+.tool-card.active-tool{background:rgba(212,168,67,.06);}
+.tool-card i{font-size:32px;color:var(--gold);display:block;margin-bottom:10px;}
+.tool-card h4{font-size:13px;font-weight:700;margin-bottom:4px;}
+.tool-card p{font-size:11px;color:var(--text-muted);}
+</style>
+</head>
+<body>
+<div id="banner"><i class="ph ph-flame"></i> Limited Time: 50% OFF Lifetime <span>|</span> Code: <strong>TITAL50</strong></div>
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Tital<span>Signals</span></a>
+    <ul class="nav-links">
+      <li><a href="signals.html" data-i18n="nav.signals">Signals</a></li>
+      <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="calculator.html" class="active" data-i18n="nav.calculator">Calculator</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="results.html" data-i18n="nav.results">Results</a></li>
+      <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="lang-switcher"><button class="lang-btn" id="langBtn"><i class="ph ph-globe"></i><span id="langLabel">English</span><i class="ph ph-caret-down lang-caret"></i></button><div class="lang-dropdown" id="langDropdown"></div></div>
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline btn-sm" data-i18n="btn.join_telegram">Join Telegram</a>
+      <a href="pricing.html" class="btn btn-gold btn-sm">Get Signals</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero text-center">
+  <div class="container">
+    <div class="badge reveal" style="margin-bottom:20px;justify-content:center;"><i class="ph ph-calculator"></i> 5 Free Professional Tools</div>
+    <h1 class="page-title reveal" data-i18n="hero.title" style="font-size:clamp(32px,5vw,52px);">Free Trading Calculators</h1>
+    <p class="section-sub mx-auto text-center reveal" style="margin-bottom:16px;">Professional-grade tools for Gold & Forex traders. Calculate your exact risk, lot size, and pip value before every trade.</p>
+  </div>
+</section>
+
+<!-- Tool Selector -->
+<section style="padding:32px 0 0;">
+  <div class="container">
+    <div class="grid-4 reveal" style="margin-bottom:40px;max-width:860px;margin-left:auto;margin-right:auto;">
+      <div class="tool-card active-tool" onclick="switchTab('lot',this)"><i class="ph ph-calculator"></i><h4>Lot Size</h4><p>Risk-based sizing</p></div>
+      <div class="tool-card" onclick="switchTab('position',this)"><i class="ph ph-chart-bar"></i><h4>Position Size</h4><p>Units from risk $</p></div>
+      <div class="tool-card" onclick="switchTab('pip',this)"><i class="ph ph-currency-dollar"></i><h4>Pip Value</h4><p>$ per pip movement</p></div>
+      <div class="tool-card" onclick="switchTab('pl',this)"><i class="ph ph-trend-up"></i><h4>Profit / Loss</h4><p>P&L before entry</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;background:var(--bg-surface);">
+  <div class="container">
+    <div class="calc-wrap">
+      <div class="calc-tabs reveal">
+        <button class="calc-tab active" data-tab="lot"><i class="ph ph-calculator"></i> Lot Size</button>
+        <button class="calc-tab" data-tab="position"><i class="ph ph-chart-bar"></i> Position Size</button>
+        <button class="calc-tab" data-tab="pip"><i class="ph ph-currency-dollar"></i> Pip Value</button>
+        <button class="calc-tab" data-tab="pl"><i class="ph ph-trend-up"></i> Profit/Loss</button>
+        <button class="calc-tab" data-tab="rr"><i class="ph ph-scales"></i> Risk/Reward</button>
+      </div>
+
+      <!-- LOT SIZE -->
+      <div class="calc-card-inner calc-card active" id="tab-lot">
+        <div class="calc-card-title">XAUUSD Lot Size Calculator</div>
+        <div class="calc-card-sub">Find the optimal lot size based on your account balance, risk %, and stop loss distance.</div>
+        <div class="calc-fields">
+          <div class="form-field"><label>Account Balance (USD)</label><input type="number" id="lot-balance" value="10000" min="100" step="100" oninput="calcLot()"/></div>
+          <div class="form-field"><label>Risk Per Trade (%)</label><input type="number" id="lot-risk" value="2" min="0.1" max="10" step="0.1" oninput="calcLot()"/></div>
+          <div class="form-field"><label>Stop Loss (pips)</label><input type="number" id="lot-sl" value="50" min="1" step="1" oninput="calcLot()"/></div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-label">Recommended Lot Size</div>
+          <div class="calc-result-num" id="lot-result">4.00</div>
+          <div class="calc-result-unit">standard lots</div>
+          <div class="calc-metrics">
+            <div class="calc-metric"><div class="calc-metric-label">Risk Amount</div><div class="calc-metric-val" id="lot-risk-amt">$200.00</div></div>
+            <div class="calc-metric"><div class="calc-metric-label">Pip Value</div><div class="calc-metric-val" id="lot-pip-val">$4.00</div></div>
+          </div>
+        </div>
+        <div class="edu-note"><i class="ph ph-lightbulb"></i><div>Professional traders risk <strong>1–2% per trade</strong>. At 2% on a $10,000 account you risk $200 per signal · sustainable through drawdowns.</div></div>
+      </div>
+
+      <!-- POSITION SIZE -->
+      <div class="calc-card-inner calc-card" id="tab-position">
+        <div class="calc-card-title">Position Size Calculator</div>
+        <div class="calc-card-sub">Calculate position size from your entry price, stop loss level, and maximum dollar risk.</div>
+        <div class="calc-fields">
+          <div class="form-field"><label>Account Balance (USD)</label><input type="number" id="pos-balance" value="10000" min="100" step="100" oninput="calcPosition()"/></div>
+          <div class="form-field"><label>Risk Amount (USD)</label><input type="number" id="pos-risk" value="200" min="1" step="10" oninput="calcPosition()"/></div>
+          <div class="form-field"><label>Entry Price</label><input type="number" id="pos-entry" value="3124.50" step="0.01" oninput="calcPosition()"/></div>
+          <div class="form-field"><label>Stop Loss Price</label><input type="number" id="pos-stop" value="3108.00" step="0.01" oninput="calcPosition()"/></div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-label">Position Size</div>
+          <div class="calc-result-num" id="pos-result">0.12</div>
+          <div class="calc-result-unit">lots</div>
+          <div class="calc-metrics">
+            <div class="calc-metric"><div class="calc-metric-label">% of Account</div><div class="calc-metric-val" id="pos-risk-pct">2.00%</div></div>
+            <div class="calc-metric"><div class="calc-metric-label">SL Distance</div><div class="calc-metric-val" id="pos-sl-dist">16.50 pts</div></div>
+          </div>
+        </div>
+        <div class="edu-note"><i class="ph ph-lightbulb"></i><div>More precise than pip-based sizing for XAUUSD. Uses the actual price difference between entry and stop loss.</div></div>
+      </div>
+
+      <!-- PIP VALUE -->
+      <div class="calc-card-inner calc-card" id="tab-pip">
+        <div class="calc-card-title">Pip Value Calculator</div>
+        <div class="calc-card-sub">Calculate the exact dollar value of each pip movement for your lot size on XAUUSD.</div>
+        <div class="calc-fields">
+          <div class="form-field"><label>Account Currency</label><select id="pip-currency" onchange="calcPip()"><option value="1">USD</option><option value="0.92">EUR (~0.92)</option><option value="0.79">GBP (~0.79)</option><option value="1.52">AUD (~1.52)</option></select></div>
+          <div class="form-field"><label>Lot Size</label><input type="number" id="pip-lots" value="1.00" min="0.01" step="0.01" oninput="calcPip()"/></div>
+          <div class="form-field"><label>Number of Pips</label><input type="number" id="pip-pips" value="100" min="1" oninput="calcPip()"/></div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-label">Total Profit / Loss</div>
+          <div class="calc-result-num" id="pip-result">$1,000</div>
+          <div class="calc-result-unit">for 1.00 lot × 100 pips</div>
+          <div class="calc-metrics">
+            <div class="calc-metric"><div class="calc-metric-label">Value Per Pip</div><div class="calc-metric-val" id="pip-per-pip">$10.00</div></div>
+            <div class="calc-metric"><div class="calc-metric-label">Total Value</div><div class="calc-metric-val" id="pip-per-lot">$1,000</div></div>
+          </div>
+        </div>
+        <div class="edu-note"><i class="ph ph-lightbulb"></i><div>For XAUUSD: 1 standard lot = 100 troy oz. Each $1 Gold move = $100 on 1 lot. A 10-pip move = $10 per 0.01 micro lot.</div></div>
+      </div>
+
+      <!-- PROFIT/LOSS -->
+      <div class="calc-card-inner calc-card" id="tab-pl">
+        <div class="calc-card-title">Profit / Loss Calculator</div>
+        <div class="calc-card-sub">Calculate your exact profit or loss before entering a trade. Know your numbers first.</div>
+        <div class="calc-fields">
+          <div class="form-field"><label>Direction</label><select id="pl-dir" onchange="calcPL()"><option value="buy">BUY (Long)</option><option value="sell">SELL (Short)</option></select></div>
+          <div class="form-field"><label>Entry Price</label><input type="number" id="pl-entry" value="3124.50" step="0.01" oninput="calcPL()"/></div>
+          <div class="form-field"><label>Exit / TP Price</label><input type="number" id="pl-exit" value="3148.00" step="0.01" oninput="calcPL()"/></div>
+          <div class="form-field"><label>Lot Size</label><input type="number" id="pl-lots" value="0.10" min="0.01" step="0.01" oninput="calcPL()"/></div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-label">Estimated Profit</div>
+          <div class="calc-result-num" id="pl-result" style="color:var(--green);">+$235</div>
+          <div class="calc-result-unit" id="pl-unit">BUY 0.10 lot · TP $3,148.00</div>
+          <div class="calc-metrics">
+            <div class="calc-metric"><div class="calc-metric-label">Pip Gain</div><div class="calc-metric-val" id="pl-pips">+23.50 pips</div></div>
+            <div class="calc-metric"><div class="calc-metric-label">% Gain</div><div class="calc-metric-val" id="pl-pct">+2.35%</div></div>
+          </div>
+        </div>
+        <div class="edu-note"><i class="ph ph-lightbulb"></i><div>Always calculate profit AND stop loss before entering. If potential profit doesn't justify the risk (minimum 1.5:1), wait for a better setup.</div></div>
+      </div>
+
+      <!-- RISK/REWARD -->
+      <div class="calc-card-inner calc-card" id="tab-rr">
+        <div class="calc-card-title">Risk / Reward Calculator</div>
+        <div class="calc-card-sub">Calculate your R:R ratio. We only send signals with a minimum 1.5:1 risk-to-reward.</div>
+        <div class="calc-fields">
+          <div class="form-field"><label>Entry Price</label><input type="number" id="rr-entry" value="3124.50" step="0.01" oninput="calcRR()"/></div>
+          <div class="form-field"><label>Stop Loss Price</label><input type="number" id="rr-sl" value="3108.00" step="0.01" oninput="calcRR()"/></div>
+          <div class="form-field"><label>Take-Profit Price</label><input type="number" id="rr-tp" value="3148.00" step="0.01" oninput="calcRR()"/></div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-label">Risk : Reward Ratio</div>
+          <div class="calc-result-num" id="rr-result">1 : 1.42</div>
+          <div class="calc-result-unit" id="rr-verdict" style="color:var(--green);">✓ Good setup</div>
+          <div class="calc-metrics">
+            <div class="calc-metric"><div class="calc-metric-label">Risk (pips)</div><div class="calc-metric-val" id="rr-risk-pips">16.50</div></div>
+            <div class="calc-metric"><div class="calc-metric-label">Reward (pips)</div><div class="calc-metric-val" id="rr-reward-pips">23.50</div></div>
+          </div>
+        </div>
+        <div class="edu-note"><i class="ph ph-lightbulb"></i><div>Our analysts require minimum <strong>1.5:1 R:R</strong> before sending any signal. At 50% win rate with 2:1 R:R, the strategy is profitable over time.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section text-center">
+  <div class="container reveal">
+    <div class="section-label" style="justify-content:center;"><i class="ph ph-telegram-logo"></i> Ready-Calculated Signals</div>
+    <h2 class="section-title">We Do This Math For You</h2>
+    <p class="section-sub mx-auto text-center" style="margin-bottom:32px;">Our analysts use these tools before every signal. Join and receive pre-calculated, risk-managed signals with entry, TP, and SL already set.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="pricing.html" class="btn btn-gold btn-lg"><i class="ph ph-crown-simple"></i> Get Signal Access</a>
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline btn-lg"><i class="ph ph-telegram-logo"></i> Free Preview</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">Tital<span>Signals</span></a><p class="footer-desc" data-i18n="footer.desc">Tital Signals delivers premium Forex &amp; Gold trading signals to traders worldwide.</p><div class="footer-social"><a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank"><i class="ph ph-telegram-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a><a href="#"><i class="ph ph-tiktok-logo"></i></a><a href="#"><i class="ph ph-instagram-logo"></i></a></div></div>
+      <div class="footer-col"><h4 data-i18n="footer.services">Services</h4><ul><li><a href="forex-signals.html">Forex Signals</a></li><li><a href="gold-signals.html">Gold Signals</a></li><li><a href="crypto-signals.html">Crypto Signals</a></li><li><a href="trading-education.html">Trading Education</a></li><li><a href="trading-ebook.html">Trading Ebook</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.company">Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="results.html">Results</a></li><li><a href="contact.html">Contact</a></li><li><a href="blog.html">Blog</a></li><li><a href="pricing.html">Pricing</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.tools">Free Tools</h4><ul><li><a href="calculator.html">XAUUSD Calculator</a></li><li><a href="calculator.html">Pip Calculator</a></li><li><a href="calculator.html">Lot Size Calculator</a></li><li><a href="calculator.html">Profit Calculator</a></li><li><a href="calculator.html">Risk Reward Calculator</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.legal">Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="refund.html">Refund Policy</a></li><li><a href="risk.html">Risk Disclaimer</a></li><li><a href="methodology.html">Signal Methodology</a></li></ul><h4 style="margin-top:24px;">Contact</h4><a href="https://t.me/+xtJ_XeoX-bU0NjZk" class="footer-contact-link" target="_blank"><i class="ph ph-telegram-logo"></i> @titalsignals on Telegram <i class="ph ph-arrow-right"></i></a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-seo-line"><span class="footer-seo" data-i18n="footer.seo">Tital Signals · Forex &amp; Gold XAUUSD Trading Alerts</span><div class="footer-lang"><button class="footer-lang-btn" id="footerLangBtn"><i class="ph ph-globe"></i><span id="footerLangLabel">English</span><i class="ph ph-caret-up" style="font-size:11px;"></i></button><div class="footer-lang-dropdown lang-dropdown" id="footerLangDropdown"></div></div></div><p class="footer-disclaimer-text" data-i18n="footer.disclaimer">Trading involves risk. Past performance is not indicative of future results.</p><p style="font-size:11px;color:var(--text-muted);">© 2025 Tital Signals. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30),{passive:true});
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+function switchTab(id,el){
+  document.querySelectorAll('.tool-card').forEach(c=>c.classList.remove('active-tool'));
+  el.classList.add('active-tool');
+  document.querySelectorAll('.calc-tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));
+  document.querySelectorAll('.calc-card').forEach(c=>c.classList.toggle('active',c.id==='tab-'+id));
+}
+document.querySelectorAll('.calc-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.calc-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.calc-card').forEach(c=>c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
+  });
+});
+
+const fmt=v=>'$'+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+function calcLot(){const b=+document.getElementById('lot-balance').value||10000,r=+document.getElementById('lot-risk').value||2,s=+document.getElementById('lot-sl').value||50,ra=b*(r/100),lots=ra/(s*100);document.getElementById('lot-result').textContent=lots.toFixed(2);document.getElementById('lot-risk-amt').textContent=fmt(ra);document.getElementById('lot-pip-val').textContent=fmt(lots);}
+function calcPosition(){const b=+document.getElementById('pos-balance').value||10000,ra=+document.getElementById('pos-risk').value||200,e=+document.getElementById('pos-entry').value||3124.5,s=+document.getElementById('pos-stop').value||3108,sl=Math.abs(e-s),lots=sl>0?ra/(sl*100):0;document.getElementById('pos-result').textContent=lots.toFixed(2);document.getElementById('pos-risk-pct').textContent=((ra/b)*100).toFixed(2)+'%';document.getElementById('pos-sl-dist').textContent=sl.toFixed(2)+' pts';}
+function calcPip(){const rate=+document.getElementById('pip-currency').value||1,lots=+document.getElementById('pip-lots').value||1,pips=+document.getElementById('pip-pips').value||100,ppv=lots*10/rate,total=ppv*pips;document.getElementById('pip-result').textContent=fmt(total);document.getElementById('pip-per-pip').textContent=fmt(ppv);document.getElementById('pip-per-lot').textContent=fmt(total);}
+function calcPL(){const dir=document.getElementById('pl-dir').value,e=+document.getElementById('pl-entry').value||3124.5,ex=+document.getElementById('pl-exit').value||3148,lots=+document.getElementById('pl-lots').value||0.1,diff=dir==='buy'?(ex-e):(e-ex),pl=diff*lots*100,el=document.getElementById('pl-result');el.textContent=(pl>=0?'+':'')+fmt(pl);el.style.color=pl>=0?'var(--green)':'var(--red)';document.getElementById('pl-unit').textContent=dir.toUpperCase()+' '+lots+' lot · TP $'+ex.toFixed(2);document.getElementById('pl-pips').textContent=(diff>=0?'+':'')+diff.toFixed(2)+' pips';document.getElementById('pl-pct').textContent=((pl/10000)*100>=0?'+':'')+((pl/10000)*100).toFixed(2)+'%';}
+function calcRR(){const e=+document.getElementById('rr-entry').value||3124.5,sl=+document.getElementById('rr-sl').value||3108,tp=+document.getElementById('rr-tp').value||3148,risk=Math.abs(e-sl),reward=Math.abs(tp-e),ratio=risk>0?reward/risk:0;document.getElementById('rr-result').textContent='1 : '+ratio.toFixed(2);document.getElementById('rr-risk-pips').textContent=risk.toFixed(2);document.getElementById('rr-reward-pips').textContent=reward.toFixed(2);const vd=document.getElementById('rr-verdict');if(ratio>=2){vd.style.color='var(--green)';vd.textContent='✓ Excellent setup ('+ratio.toFixed(2)+':1)';}else if(ratio>=1.5){vd.style.color='var(--green)';vd.textContent='✓ Good setup';}else if(ratio>=1){vd.style.color='var(--gold)';vd.textContent='⚠ Borderline · consider skipping';}else{vd.style.color='var(--red)';vd.textContent='✕ Poor R:R · skip this trade';}}
+calcLot();calcPosition();calcPip();calcPL();calcRR();
+</script>
+</body>
+</html>

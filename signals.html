@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signals · Tital Signals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="index.html" /> <!-- shares same CSS via inline in index, so we embed: -->
+  <style>
+    /* Base tokens · same as index.html */
+    :root{--bg-primary:#080E17;--bg-surface:#0F1A28;--bg-elevated:#162032;--bg-card:rgba(15,26,40,0.7);--gold:#D4A843;--gold-bright:#E8BA4A;--gold-muted:rgba(212,168,67,.18);--gold-border:rgba(212,168,67,.22);--green:#00D4A0;--green-muted:rgba(0,212,160,.12);--green-border:rgba(0,212,160,.25);--red:#F04D4D;--text-primary:#EEF2F7;--text-secondary:#8A9BBE;--text-muted:#4A5A74;--border:rgba(255,255,255,.06);--border-strong:rgba(255,255,255,.1);--radius:14px;--radius-sm:9px;--radius-xs:6px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;-webkit-font-smoothing:antialiased;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px 200px;}
+    body>*{position:relative;z-index:1;}
+    a{color:inherit;text-decoration:none;}
+    .container{max-width:1140px;margin:0 auto;padding:0 28px;}
+    .section{padding:88px 0;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--radius-sm);font-size:15px;font-family:'Inter',sans-serif;font-weight:700;cursor:pointer;border:none;transition:all .22s;}
+    .btn-gold{background:linear-gradient(135deg,#E0B340 0%,#D4A843 55%,#B8922A 100%);color:#0A0C10;box-shadow:0 4px 20px rgba(212,168,67,.28);}
+    .btn-gold:hover{box-shadow:0 8px 36px rgba(212,168,67,.48);transform:translateY(-2px);}
+    .btn-outline{background:rgba(255,255,255,.04);color:var(--text-primary);border:1px solid var(--border-strong);}
+    .btn-outline:hover{background:rgba(255,255,255,.08);}
+    .card{background:var(--bg-card);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:var(--radius);}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+    .section-title{font-size:clamp(26px,4vw,42px);font-weight:800;line-height:1.18;letter-spacing:-.02em;margin-bottom:16px;}
+    .section-sub{font-size:17px;color:var(--text-secondary);line-height:1.75;max-width:560px;}
+    .text-center{text-align:center;}
+    .mx-auto{margin-left:auto;margin-right:auto;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .gold-text{color:var(--gold);}
+    .green-text{color:var(--green);}
+    .red-text{color:var(--red);}
+    /* Nav */
+    #banner{background:linear-gradient(90deg,rgba(212,168,67,.12) 0%,rgba(212,168,67,.2) 50%,rgba(212,168,67,.12) 100%);border-bottom:1px solid var(--gold-border);color:var(--gold);font-size:12px;font-weight:600;text-align:center;padding:10px 24px;letter-spacing:.03em;}
+    #banner span{opacity:.5;margin:0 10px;}
+    #banner strong{color:var(--gold-bright);}
+    nav{position:sticky;top:0;z-index:100;background:rgba(8,14,23,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:15px 28px;max-width:1140px;margin:0 auto;}
+    .nav-logo{font-size:19px;font-weight:900;letter-spacing:-.03em;color:var(--text-primary);}
+    .nav-logo span{color:var(--gold);}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+    .nav-links a{font-size:14px;font-weight:500;color:var(--text-secondary);transition:color .2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text-primary);}
+    .nav-links a.active{color:var(--gold);}
+    .nav-cta{display:flex;align-items:center;gap:10px;}
+    .lang-switcher{position:relative;}
+    .lang-btn{display:flex;align-items:center;gap:7px;padding:9px 14px;background:rgba(255,255,255,.05);border:1px solid var(--border-strong);border-radius:var(--radius-xs);color:var(--text-secondary);font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;}
+    .lang-btn:hover{background:rgba(255,255,255,.09);color:var(--text-primary);}
+    .lang-caret{font-size:12px;}
+    .lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;min-width:180px;background:#0D1929;border:1px solid var(--border-strong);border-radius:var(--radius-sm);overflow:hidden;z-index:999;display:none;box-shadow:0 16px 48px rgba(0,0,0,.5);}
+    .lang-dropdown.open{display:block;}
+    .lang-option{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 16px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text-secondary);font-size:14px;font-family:'Inter',sans-serif;cursor:pointer;text-align:left;transition:background .15s;}
+    .lang-option:last-child{border-bottom:none;}
+    .lang-option:hover{background:rgba(255,255,255,.06);color:var(--text-primary);}
+    .lang-option.active{background:rgba(212,168,67,.12);color:var(--gold);}
+    /* Footer */
+    footer{background:#050A12;border-top:1px solid var(--border);padding:44px 0;}
+    .footer-main{display:grid;grid-template-columns:220px 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--border);}
+    .footer-brand .nav-logo{display:block;margin-bottom:12px;}
+    .footer-desc{font-size:13px;color:var(--text-muted);line-height:1.75;margin-bottom:20px;}
+    .footer-social{display:flex;gap:10px;}
+    .footer-social a{width:36px;height:36px;border-radius:var(--radius-xs);background:rgba(255,255,255,.05);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:16px;transition:all .2s;}
+    .footer-social a:hover{background:rgba(255,255,255,.1);color:var(--text-primary);}
+    .footer-col h4{font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:16px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:13px;color:var(--text-muted);transition:color .2s;}
+    .footer-col ul li a:hover{color:var(--text-secondary);}
+    .footer-contact-link{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--gold);font-weight:600;}
+    .footer-contact-link:hover{color:var(--gold-bright);}
+    .footer-bottom{padding-top:28px;display:flex;flex-direction:column;gap:14px;}
+    .footer-seo-line{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+    .footer-seo{font-size:13px;font-weight:600;color:var(--text-secondary);}
+    .footer-disclaimer-text{font-size:11px;color:var(--text-muted);line-height:1.8;}
+    .footer-lang{position:relative;}
+    .footer-lang-btn{display:flex;align-items:center;gap:7px;padding:8px 14px;background:rgba(255,255,255,.04);border:1px solid var(--border-strong);border-radius:var(--radius-xs);color:var(--text-muted);font-size:12px;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;}
+    .footer-lang-dropdown{position:absolute;bottom:calc(100% + 8px);right:0;min-width:180px;background:#0D1929;border:1px solid var(--border-strong);border-radius:var(--radius-sm);overflow:hidden;z-index:999;display:none;box-shadow:0 -16px 48px rgba(0,0,0,.5);}
+    .footer-lang-dropdown.open{display:block;}
+    @media(max-width:1000px){.footer-main{grid-template-columns:1fr 1fr 1fr;}.footer-brand{grid-column:1/-1;}}
+    @media(max-width:900px){.nav-links{display:none;}}
+    @media(max-width:640px){.footer-main{grid-template-columns:1fr 1fr;}.grid-3{grid-template-columns:1fr;}}
+    /* Signal card */
+    .signal-card{background:#060C14;border:1px solid var(--gold-border);border-radius:var(--radius);overflow:hidden;box-shadow:0 0 60px rgba(212,168,67,.07),0 24px 64px rgba(0,0,0,.5);}
+    .signal-header{background:rgba(212,168,67,.07);border-bottom:1px solid var(--gold-border);padding:16px 22px;display:flex;align-items:center;justify-content:space-between;}
+    .signal-pair{font-size:17px;font-weight:800;font-family:'IBM Plex Mono',monospace;}
+    .signal-type{background:var(--green);color:#040A10;font-size:11px;font-weight:800;padding:4px 12px;border-radius:100px;letter-spacing:.08em;text-transform:uppercase;}
+    .signal-body{padding:18px 22px;}
+    .signal-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px;}
+    .signal-row:last-child{border-bottom:none;}
+    .signal-lbl{color:var(--text-muted);display:flex;align-items:center;gap:6px;}
+    .signal-val{font-weight:600;font-family:'IBM Plex Mono',monospace;font-size:13px;}
+    .page-hero{padding:80px 0 60px;background:radial-gradient(ellipse 75% 55% at 50% -5%,rgba(212,168,67,.1) 0%,transparent 68%);}
+    .badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-muted);border:1px solid var(--gold-border);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.08em;padding:5px 14px;border-radius:100px;text-transform:uppercase;}
+    .check-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:13px;font-size:15px;color:var(--text-secondary);}
+    .check-item i{color:var(--green);margin-top:3px;flex-shrink:0;}
+    .icon-box{width:46px;height:46px;border-radius:var(--radius-sm);background:var(--gold-muted);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:22px;}
+  </style>
+</head>
+<body>
+
+<div id="banner">
+  <i class="ph ph-flame"></i> Limited Time: 50% OFF Lifetime Access
+  <span>|</span> Use Code: <strong>TITAL50</strong>
+  <span>|</span> Offer Expires Soon
+</div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Tital<span>Signals</span></a>
+    <ul class="nav-links">
+      <li><a href="signals.html"    class="active" data-i18n="nav.signals">Signals</a></li>
+      <li><a href="pricing.html"    data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="calculator.html" data-i18n="nav.calculator">Calculator</a></li>
+      <li><a href="faq.html"        data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="results.html"    data-i18n="nav.results">Results</a></li>
+      <li><a href="blog.html"       data-i18n="nav.blog">Blog</a></li>
+      <li><a href="contact.html"    data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="lang-switcher">
+        <button class="lang-btn" id="langBtn"><i class="ph ph-globe"></i><span id="langLabel">English</span><i class="ph ph-caret-down lang-caret"></i></button>
+        <div class="lang-dropdown" id="langDropdown"></div>
+      </div>
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline" style="padding:10px 20px;font-size:13px;" data-i18n="btn.join_telegram">Join Telegram</a>
+      <a href="pricing.html" class="btn btn-gold" style="padding:10px 20px;font-size:13px;" data-i18n="btn.get_signals">Get Signals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container text-center">
+    <div class="badge" style="margin-bottom:20px;"><i class="ph ph-chart-line-up"></i> Live Signal Feed</div>
+    <h1 class="section-title" style="font-size:clamp(32px,5vw,56px);">Our Trading Signals</h1>
+    <p class="section-sub mx-auto" style="margin-bottom:32px;">Professional Forex & Gold signals delivered to Telegram in real time. Each alert includes a full breakdown · entry, take-profit, stop-loss, and the analysis behind the trade.</p>
+    <a href="pricing.html" class="btn btn-gold" style="font-size:16px;padding:16px 36px;"><i class="ph ph-telegram-logo"></i> Get Signal Access</a>
+  </div>
+</section>
+
+<!-- Signal Types -->
+<section class="section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px;">
+      <div class="section-label">What We Trade</div>
+      <h2 class="section-title">Three Signal Categories</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card" style="padding:32px;">
+        <div class="icon-box" style="margin-bottom:18px;"><i class="ph ph-currency-dollar"></i></div>
+        <h3 style="font-size:20px;font-weight:800;margin-bottom:10px;">Forex Signals</h3>
+        <p style="color:var(--text-secondary);font-size:14px;line-height:1.75;margin-bottom:16px;">Major and minor currency pairs: EUR/USD, GBP/USD, USD/JPY, GBP/JPY, and more. We focus on high-liquidity pairs with clear technical setups.</p>
+        <div class="check-item"><i class="ph ph-check-circle"></i> 3–5 signals per week per pair</div>
+        <div class="check-item"><i class="ph ph-check-circle"></i> Entry, TP1, TP2, and SL</div>
+        <div class="check-item"><i class="ph ph-check-circle"></i> Clear directional bias</div>
+      </div>
+      <div class="card" style="padding:32px;border-color:var(--gold-border);">
+        <div class="icon-box" style="margin-bottom:18px;"><i class="ph ph-coins"></i></div>
+        <h3 style="font-size:20px;font-weight:800;margin-bottom:10px;">Gold (XAUUSD) Signals</h3>
+        <p style="color:var(--text-secondary);font-size:14px;line-height:1.75;margin-bottom:16px;">Our primary specialty. XAUUSD offers unmatched consistency in technical patterns. Our analysts study Gold across all major timeframes daily.</p>
+        <div class="check-item"><i class="ph ph-check-circle"></i> Up to 5 Gold signals per day</div>
+        <div class="check-item"><i class="ph ph-check-circle"></i> Full analysis rationale</div>
+        <div class="check-item"><i class="ph ph-check-circle"></i> Multiple TP levels</div>
+      </div>
+      <div class="card" style="padding:32px;">
+        <div class="icon-box" style="margin-bottom:18px;"><i class="ph ph-chart-bar"></i></div>
+        <h3 style="font-size:20px;font-weight:800;margin-bottom:10px;">Index Signals</h3>
+        <p style="color:var(--text-secondary);font-size:14px;line-height:1.75;margin-bottom:16px;">US30, NAS100, and SPX500 signals on high-conviction days. Index signals are reserved for clear macro setups and key technical levels.</p>
+        <div class="check-item"><i class="ph ph-check-circle"></i> Selective, high-conviction only</div>
+        <div class="check-item"><i class="ph ph-check-circle"></i> Macro-driven analysis</div>
+        <div class="check-item"><i class="ph ph-check-circle"></i> Precise entry zones</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live Example -->
+<section class="section" style="background:var(--bg-surface);">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px;">
+      <div class="section-label">Live Example</div>
+      <h2 class="section-title">What Every Signal Looks Like</h2>
+      <p class="section-sub mx-auto">Every signal is formatted identically so you can execute in under 60 seconds. Below is a real signal sent to members.</p>
+    </div>
+    <div style="display:flex;justify-content:center;">
+      <div class="signal-card" style="width:100%;max-width:420px;">
+        <div class="signal-header">
+          <div>
+            <div class="signal-pair">XAUUSD / Gold</div>
+            <div style="font-size:11px;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;">Spot Gold · USD · May 2025</div>
+          </div>
+          <div class="signal-type">BUY</div>
+        </div>
+        <div class="signal-body">
+          <div class="signal-row"><span class="signal-lbl"><i class="ph ph-crosshair"></i> Entry Price</span><span class="signal-val gold-text">$3,124.50</span></div>
+          <div class="signal-row"><span class="signal-lbl"><i class="ph ph-target"></i> Take-Profit 1</span><span class="signal-val green-text">$3,148.00 (+$23.50)</span></div>
+          <div class="signal-row"><span class="signal-lbl"><i class="ph ph-target"></i> Take-Profit 2</span><span class="signal-val green-text">$3,165.00 (+$40.50)</span></div>
+          <div class="signal-row"><span class="signal-lbl"><i class="ph ph-shield-slash"></i> Stop-Loss</span><span class="signal-val red-text">$3,108.00 (-$16.50)</span></div>
+          <div class="signal-row"><span class="signal-lbl"><i class="ph ph-arrows-down-up"></i> Risk / Reward</span><span class="signal-val">1 : 2.5</span></div>
+        </div>
+        <div style="padding:14px 22px;background:rgba(0,212,160,.04);border-top:1px solid rgba(0,212,160,.1);">
+          <div style="font-size:11px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;"><i class="ph ph-lightbulb"></i> Rationale</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.7;">Bounce from strong daily support at $3,120. RSI oversold on H4. Dollar weakness · bullish for Gold short-term.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How to Execute -->
+<section class="section">
+  <div class="container text-center">
+    <div class="section-label">Ready?</div>
+    <h2 class="section-title">Get Access to All Signals</h2>
+    <p class="section-sub mx-auto" style="margin-bottom:32px;">Join 150,000+ traders already copying our signals on Telegram. Choose the plan that suits you best.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="pricing.html" class="btn btn-gold" style="font-size:16px;padding:17px 36px;"><i class="ph ph-crown-simple"></i> View Pricing Plans</a>
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline" style="font-size:16px;padding:17px 36px;"><i class="ph ph-telegram-logo"></i> Join Free Preview</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Tital<span>Signals</span></a>
+        <p class="footer-desc" data-i18n="footer.desc">Tital Signals delivers premium Forex & Gold trading signals to traders worldwide.</p>
+        <div class="footer-social">
+          <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank"><i class="ph ph-telegram-logo"></i></a>
+          <a href="#"><i class="ph ph-youtube-logo"></i></a>
+          <a href="#"><i class="ph ph-tiktok-logo"></i></a>
+          <a href="#"><i class="ph ph-instagram-logo"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.services">Services</h4>
+        <ul>
+          <li><a href="forex-signals.html" data-i18n="footer.forex">Forex Signals</a></li>
+          <li><a href="gold-signals.html" data-i18n="footer.gold">Gold Signals</a></li>
+          <li><a href="crypto-signals.html" data-i18n="footer.crypto">Crypto Signals</a></li>
+          <li><a href="trading-education.html" data-i18n="footer.education">Trading Education</a></li>
+          <li><a href="trading-ebook.html" data-i18n="footer.ebook">Trading Ebook</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.company">Company</h4>
+        <ul>
+          <li><a href="about.html" data-i18n="footer.about">About Us</a></li>
+          <li><a href="results.html" data-i18n="footer.results">Results</a></li>
+          <li><a href="contact.html" data-i18n="footer.contact_link">Contact</a></li>
+          <li><a href="blog.html" data-i18n="footer.blog">Blog</a></li>
+          <li><a href="pricing.html" data-i18n="footer.pricing">Pricing</a></li>
+          <li><a href="#" data-i18n="footer.subscription">Manage Subscription</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.tools">Free Tools</h4>
+        <ul>
+          <li><a href="calculator.html#xauusd" data-i18n="footer.xauusd_calc">XAUUSD Calculator</a></li>
+          <li><a href="calculator.html#pip" data-i18n="footer.pip_calc">Pip Calculator</a></li>
+          <li><a href="calculator.html#lot" data-i18n="footer.lot_calc">Lot Size Calculator</a></li>
+          <li><a href="calculator.html#profit" data-i18n="footer.profit_calc">Profit Calculator</a></li>
+          <li><a href="calculator.html#rr" data-i18n="footer.rr_calc">Risk Reward Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.legal">Legal</h4>
+        <ul>
+          <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+          <li><a href="terms.html" data-i18n="footer.terms">Terms & Conditions</a></li>
+          <li><a href="refund.html" data-i18n="footer.refund">Refund Policy</a></li>
+          <li><a href="risk.html" data-i18n="footer.risk">Risk Disclaimer</a></li>
+          <li><a href="methodology.html" data-i18n="footer.methodology">Signal Methodology</a></li>
+        </ul>
+        <h4 style="margin-top:24px;" data-i18n="footer.contact_col">Contact</h4>
+        <a href="https://t.me/+xtJ_XeoX-bU0NjZk" class="footer-contact-link" target="_blank">
+          <i class="ph ph-telegram-logo"></i> @titalsignals <span data-i18n="footer.telegram_on">on Telegram</span> <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-seo-line">
+        <span class="footer-seo" data-i18n="footer.seo">Tital Signals · Forex & Gold XAUUSD Trading Alerts</span>
+        <div class="footer-lang">
+          <button class="footer-lang-btn" id="footerLangBtn"><i class="ph ph-globe"></i><span id="footerLangLabel">English</span><i class="ph ph-caret-up" style="font-size:11px;"></i></button>
+          <div class="footer-lang-dropdown lang-dropdown" id="footerLangDropdown"></div>
+        </div>
+      </div>
+      <p class="footer-disclaimer-text" data-i18n="footer.disclaimer">Tital Signals provides forex and gold signals via Telegram. Trading involves risk. Past performance is not indicative of future results.</p>
+      <p style="font-size:11px;color:var(--text-muted);">© 2025 Tital Signals. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.borderColor = window.scrollY > 30 ? 'rgba(255,255,255,.1)' : '';
+  }, { passive: true });
+</script>
+</body>
+</html>

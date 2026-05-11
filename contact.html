@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact · Tital Signals</title>
+<meta name="description" content="Contact Tital Signals support via Telegram. Response within 2 hours, 24/7."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+  /* Contact Method Cards */
+  .contact-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; transition: transform .2s, border-color .2s;
+  }
+  .contact-card:hover { transform: translateY(-3px); }
+  .contact-card.primary {
+    border-color: var(--gold-border);
+    background: rgba(13,25,41,.9);
+    box-shadow: 0 0 40px rgba(212,168,67,.08), 0 12px 40px rgba(0,0,0,.4);
+  }
+  .contact-card.primary::before {
+    content: '';
+    position: absolute; inset: 0; border-radius: var(--radius); padding: 1px;
+    background: linear-gradient(135deg, var(--gold) 0%, rgba(212,168,67,.25) 50%, var(--green) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+  }
+  .contact-card { position: relative; }
+  .contact-icon-wrap {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, rgba(212,168,67,.2), rgba(212,168,67,.08));
+    border: 1px solid var(--gold-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; color: var(--gold); margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(212,168,67,.15);
+  }
+  .contact-icon-wrap.green {
+    background: linear-gradient(135deg, rgba(0,212,160,.2), rgba(0,212,160,.06));
+    border-color: var(--green-border); color: var(--green);
+    box-shadow: 0 4px 20px rgba(0,212,160,.12);
+  }
+  .contact-icon-wrap.blue {
+    background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12);
+    color: var(--text-secondary);
+  }
+  .contact-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+  }
+  .contact-title { font-size: 20px; font-weight: 900; margin-bottom: 8px; letter-spacing: -.01em; }
+  .contact-handle {
+    font-size: 16px; font-weight: 700; color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace; margin-bottom: 10px;
+  }
+  .contact-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; flex: 1; }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; border-radius: var(--radius-sm);
+    font-size: 14px; font-weight: 700; font-family: 'Inter', sans-serif;
+    cursor: pointer; border: none; transition: all .22s;
+    text-decoration: none; width: 100%; justify-content: center;
+  }
+  .contact-btn-gold {
+    background: linear-gradient(135deg, #E0B340, #D4A843, #B8922A);
+    color: #0A0C10; box-shadow: 0 4px 20px rgba(212,168,67,.3);
+  }
+  .contact-btn-gold:hover { box-shadow: 0 8px 32px rgba(212,168,67,.5); transform: translateY(-1px); }
+  .contact-btn-outline {
+    background: rgba(255,255,255,.05); color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+  }
+  .contact-btn-outline:hover { background: rgba(255,255,255,.09); }
+  .online-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 700; color: var(--green);
+    margin-bottom: 24px;
+  }
+  .online-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 1.6s infinite; }
+
+  /* Social Links */
+  .social-grid { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin: 48px 0; }
+  .social-item {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    padding: 24px 20px; border-radius: var(--radius);
+    background: var(--bg-card); backdrop-filter: blur(20px);
+    border: 1px solid var(--border); min-width: 120px;
+    transition: border-color .2s, transform .2s; text-decoration: none;
+    color: var(--text-primary);
+  }
+  .social-item:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+  .social-item i { font-size: 36px; }
+  .social-item span { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+  .social-telegram i { color: #24A1DE; }
+  .social-youtube i  { color: #FF0000; }
+  .social-tiktok i   { color: #EEF2F7; }
+  .social-instagram i{ color: #E4405F; }
+
+  /* Stats strip */
+  .stats-strip {
+    display: flex; gap: 0; margin: 40px 0;
+    background: var(--bg-card); backdrop-filter: blur(20px);
+    border: 1px solid var(--gold-border); border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .stat-item {
+    flex: 1; padding: 24px; text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-val { font-size: 28px; font-weight: 900; color: var(--gold); margin-bottom: 4px; }
+  .stat-lbl { font-size: 12px; color: var(--text-muted); }
+
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+  @media(max-width:780px){ .contact-grid{grid-template-columns:1fr !important;} .stats-strip{flex-direction:column;} .stat-item{border-right:none;border-bottom:1px solid var(--border);} .stat-item:last-child{border-bottom:none;} }
+</style>
+</head>
+<body>
+
+<div id="banner"><i class="ph ph-flame"></i> 50% OFF Annual Access <span>|</span> Code: <strong>TITAL50</strong></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Tital<span>Signals</span></a>
+    <ul class="nav-links">
+      <li><a href="signals.html" data-i18n="nav.signals">Signals</a></li>
+      <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="calculator.html" data-i18n="nav.calculator">Calculator</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="results.html" data-i18n="nav.results">Results</a></li>
+      <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="lang-switcher">
+        <button class="lang-btn" id="langBtn"><i class="ph ph-globe"></i><span id="langLabel">English</span><i class="ph ph-caret-down lang-caret"></i></button>
+        <div class="lang-dropdown" id="langDropdown"></div>
+      </div>
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline btn-sm" data-i18n="btn.join_telegram">Join Telegram</a>
+      <a href="pricing.html" class="btn btn-gold btn-sm" data-i18n="btn.get_signals">Get Signals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero text-center">
+  <div class="container">
+    <div class="badge reveal" style="margin-bottom:20px;justify-content:center;"><i class="ph ph-headset"></i> We Respond in Under 2 Hours</div>
+    <h1 class="page-title reveal">Get in Touch</h1>
+    <p class="section-sub mx-auto text-center reveal" style="margin-bottom:0;">Have a question, need support, or want to learn more? Reach us directly on Telegram — our fastest channel, available 24/7.</p>
+  </div>
+</section>
+
+<!-- Stats Strip -->
+<section style="padding:32px 0 0;">
+  <div class="container reveal">
+    <div class="stats-strip">
+      <div class="stat-item"><div class="stat-val">24/7</div><div class="stat-lbl">Support availability</div></div>
+      <div class="stat-item"><div class="stat-val">&lt;2h</div><div class="stat-lbl">Average response time</div></div>
+      <div class="stat-item"><div class="stat-val">150K+</div><div class="stat-lbl">Active community members</div></div>
+      <div class="stat-item"><div class="stat-val">4.9★</div><div class="stat-lbl">Support satisfaction</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Methods -->
+<section class="section" style="padding-top:52px;">
+  <div class="container">
+    <div class="contact-grid reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto;">
+
+      <!-- VIP Support -->
+      <div class="contact-card primary">
+        <div class="contact-icon-wrap"><i class="ph ph-telegram-logo"></i></div>
+        <div class="contact-label">VIP Support</div>
+        <div class="contact-title">Direct Analyst Chat</div>
+        <div class="contact-handle">@titalsignals</div>
+        <p class="contact-desc">Direct line to our analyst team. Signal questions, account issues, upgrade requests — anything you need, handled personally.</p>
+        <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="contact-btn contact-btn-gold">
+          <i class="ph ph-telegram-logo"></i> Message Us Now
+        </a>
+      </div>
+
+      <!-- Community Group -->
+      <div class="contact-card">
+        <div class="contact-icon-wrap green"><i class="ph ph-users-three"></i></div>
+        <div class="contact-label" style="color:var(--green);">Community</div>
+        <div class="contact-title">Trader Community</div>
+        <div class="contact-handle" style="color:var(--green);">@titalsignals</div>
+        <p class="contact-desc">Join 150,000+ traders discussing signals, sharing results, and learning together. Questions answered by our team and experienced members.</p>
+        <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="contact-btn contact-btn-outline">
+          <i class="ph ph-users-three"></i> Join Community
+        </a>
+      </div>
+
+      <!-- Response Time -->
+      <div class="contact-card">
+        <div class="contact-icon-wrap blue"><i class="ph ph-clock"></i></div>
+        <div class="contact-label" style="color:var(--text-secondary);">Availability</div>
+        <div class="contact-title">Always Available</div>
+        <div style="margin-bottom:10px;">
+          <div class="online-badge"><div class="online-dot"></div> Currently Online</div>
+        </div>
+        <p class="contact-desc">Our support team monitors Telegram around the clock. Market hours or not, weekdays or weekends — someone is always here.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);"><i class="ph ph-check-circle" style="color:var(--green);"></i> Under 2h response, always</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);"><i class="ph ph-check-circle" style="color:var(--green);"></i> 365 days a year</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);"><i class="ph ph-check-circle" style="color:var(--green);"></i> English &amp; multilingual support</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Social Links -->
+<section class="section" style="background:var(--bg-surface);padding:60px 0;">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:36px;">
+      <div class="section-label" style="justify-content:center;"><i class="ph ph-share-network"></i> Follow Us</div>
+      <h2 class="section-title">Find Us Everywhere</h2>
+      <p class="section-sub mx-auto text-center">Follow for daily market analysis, signal updates, trading education, and performance results.</p>
+    </div>
+    <div class="social-grid reveal">
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="social-item social-telegram">
+        <i class="ph ph-telegram-logo"></i>
+        <span>Telegram</span>
+        <div style="font-size:11px;color:var(--text-muted);">Live signals & support</div>
+      </a>
+      <a href="#" target="_blank" class="social-item social-youtube">
+        <i class="ph ph-youtube-logo"></i>
+        <span>YouTube</span>
+        <div style="font-size:11px;color:var(--text-muted);">Analysis videos</div>
+      </a>
+      <a href="#" target="_blank" class="social-item social-tiktok">
+        <i class="ph ph-tiktok-logo"></i>
+        <span>TikTok</span>
+        <div style="font-size:11px;color:var(--text-muted);">Trading tips & education</div>
+      </a>
+      <a href="#" target="_blank" class="social-item social-instagram">
+        <i class="ph ph-instagram-logo"></i>
+        <span>Instagram</span>
+        <div style="font-size:11px;color:var(--text-muted);">Results & updates</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container-sm">
+    <div class="text-center reveal" style="margin-bottom:36px;">
+      <div class="section-label" style="justify-content:center;"><i class="ph ph-question"></i> Quick Answers</div>
+      <h2 class="section-title">Common Questions</h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-item">
+        <button class="faq-q">How do I access signals after payment? <i class="ph ph-plus faq-icon"></i></button>
+        <div class="faq-a">Immediately after payment you'll receive a private Telegram invite link. Join the channel and signals start arriving in real time — the whole process takes under 5 minutes.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I request a refund? <i class="ph ph-plus faq-icon"></i></button>
+        <div class="faq-a">Message us on Telegram within 48 hours of purchase. We'll process a full refund — no questions asked — within 24 hours. Refunds return to the original payment method in 5–10 business days.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do I cancel my subscription? <i class="ph ph-plus faq-icon"></i></button>
+        <div class="faq-a">Message @titalsignals on Telegram or email us and we'll cancel within a few hours. No forms, no penalties. Monthly plans stop billing at the next renewal date.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you offer group or team discounts? <i class="ph ph-plus faq-icon"></i></button>
+        <div class="faq-a">Yes — contact us on Telegram for custom pricing for 5+ seats. We offer team packages for trading firms and education providers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="section" style="background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(212,168,67,.08) 0%,transparent 65%),var(--bg-surface);padding:64px 0;">
+  <div class="container text-center reveal">
+    <h2 class="section-title">Ready to Start?</h2>
+    <p class="section-sub mx-auto text-center" style="margin-bottom:32px;">Join 150,000+ traders. Access our free preview channel — no payment required.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="pricing.html" class="btn btn-gold btn-lg"><i class="ph ph-crown-simple"></i> View Pricing Plans</a>
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline btn-lg"><i class="ph ph-telegram-logo"></i> Join Free Preview</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">Tital<span>Signals</span></a><p class="footer-desc" data-i18n="footer.desc">Tital Signals delivers premium Forex &amp; Gold trading signals to traders worldwide.</p><div class="footer-social"><a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank"><i class="ph ph-telegram-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a><a href="#"><i class="ph ph-tiktok-logo"></i></a><a href="#"><i class="ph ph-instagram-logo"></i></a></div></div>
+      <div class="footer-col"><h4 data-i18n="footer.services">Services</h4><ul><li><a href="forex-signals.html" data-i18n="footer.forex">Forex Signals</a></li><li><a href="gold-signals.html" data-i18n="footer.gold">Gold Signals</a></li><li><a href="crypto-signals.html" data-i18n="footer.crypto">Crypto Signals</a></li><li><a href="trading-education.html" data-i18n="footer.education">Trading Education</a></li><li><a href="trading-ebook.html" data-i18n="footer.ebook">Trading Ebook</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.company">Company</h4><ul><li><a href="about.html" data-i18n="footer.about">About Us</a></li><li><a href="results.html" data-i18n="footer.results">Results</a></li><li><a href="contact.html" data-i18n="footer.contact_link">Contact</a></li><li><a href="blog.html" data-i18n="footer.blog">Blog</a></li><li><a href="pricing.html" data-i18n="footer.pricing">Pricing</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.tools">Free Tools</h4><ul><li><a href="calculator.html" data-i18n="footer.xauusd_calc">XAUUSD Calculator</a></li><li><a href="calculator.html" data-i18n="footer.pip_calc">Pip Calculator</a></li><li><a href="calculator.html" data-i18n="footer.lot_calc">Lot Size Calculator</a></li><li><a href="calculator.html" data-i18n="footer.profit_calc">Profit Calculator</a></li><li><a href="calculator.html" data-i18n="footer.rr_calc">Risk Reward Calculator</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.legal">Legal</h4><ul><li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="terms.html" data-i18n="footer.terms">Terms &amp; Conditions</a></li><li><a href="refund.html" data-i18n="footer.refund">Refund Policy</a></li><li><a href="risk.html" data-i18n="footer.risk">Risk Disclaimer</a></li><li><a href="methodology.html" data-i18n="footer.methodology">Signal Methodology</a></li></ul><h4 style="margin-top:24px;" data-i18n="footer.contact_col">Contact</h4><a href="https://t.me/+xtJ_XeoX-bU0NjZk" class="footer-contact-link" target="_blank"><i class="ph ph-telegram-logo"></i> @titalsignals <span data-i18n="footer.telegram_on">on Telegram</span> <i class="ph ph-arrow-right"></i></a></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-seo-line"><span class="footer-seo" data-i18n="footer.seo">Tital Signals · Forex &amp; Gold XAUUSD Trading Alerts</span><div class="footer-lang"><button class="footer-lang-btn" id="footerLangBtn"><i class="ph ph-globe"></i><span id="footerLangLabel">English</span><i class="ph ph-caret-up" style="font-size:11px;"></i></button><div class="footer-lang-dropdown lang-dropdown" id="footerLangDropdown"></div></div></div>
+      <p class="footer-disclaimer-text" data-i18n="footer.disclaimer">Trading involves risk. Past performance is not indicative of future results.</p>
+      <p style="font-size:11px;color:var(--text-muted);">© 2025 Tital Signals. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30),{passive:true});
+document.querySelectorAll('.faq-q').forEach(b=>b.addEventListener('click',()=>{const i=b.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}));
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

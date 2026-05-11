@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pricing · Tital Signals</title>
+<meta name="description" content="Join Tital Signals from $49/month or $499 lifetime. 85% win rate, 48h money-back guarantee, instant Telegram access."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+  .guarantee-card{background:var(--green-muted);border:1px solid var(--green-border);border-radius:var(--radius);padding:32px;display:flex;align-items:center;gap:24px;max-width:640px;margin:0 auto;}
+  .guarantee-icon{font-size:48px;color:var(--green);flex-shrink:0;}
+  .compare-table{width:100%;border-collapse:collapse;background:var(--bg-card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+  .compare-table th{background:var(--bg-elevated);padding:16px 20px;font-size:13px;font-weight:700;text-align:left;border-bottom:1px solid var(--border);}
+  .compare-table th.col-feature{color:var(--text-muted);width:45%;}
+  .compare-table th.col-monthly{color:var(--text-secondary);text-align:center;}
+  .compare-table th.col-lifetime{color:var(--gold);text-align:center;}
+  .compare-table td{padding:14px 20px;font-size:14px;border-bottom:1px solid rgba(255,255,255,.03);color:var(--text-secondary);}
+  .compare-table td.check-yes{text-align:center;color:var(--green);font-size:18px;}
+  .compare-table td.check-no{text-align:center;color:var(--text-muted);font-size:18px;}
+  .compare-table td.check-gold{text-align:center;color:var(--gold);font-size:18px;}
+  .compare-table tr:last-child td{border-bottom:none;}
+  .compare-table tr:hover td{background:rgba(255,255,255,.015);}
+  .pay-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;}
+  .pay-pill{background:rgba(255,255,255,.04);border:1px solid var(--border-strong);border-radius:var(--radius-xs);padding:8px 16px;font-size:12px;font-weight:600;color:var(--text-secondary);display:flex;align-items:center;gap:7px;}
+  .pay-pill i{font-size:15px;color:var(--text-muted);}
+  .scarcity-bar{background:rgba(240,77,77,.06);border:1px solid rgba(240,77,77,.2);border-radius:var(--radius);padding:20px 28px;display:flex;align-items:center;gap:16px;max-width:820px;margin:0 auto;}
+  .red-dot{width:9px;height:9px;border-radius:50%;background:var(--red);flex-shrink:0;animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+</style>
+</head>
+<body>
+<div id="banner"><i class="ph ph-flame"></i> Limited Time: 50% OFF Lifetime <span>|</span> Code: <strong>TITAL50</strong> <span>|</span> Expires Soon</div>
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Tital<span>Signals</span></a>
+    <ul class="nav-links">
+      <li><a href="signals.html" data-i18n="nav.signals">Signals</a></li>
+      <li><a href="pricing.html" class="active" data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="calculator.html" data-i18n="nav.calculator">Calculator</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="results.html" data-i18n="nav.results">Results</a></li>
+      <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="lang-switcher"><button class="lang-btn" id="langBtn"><i class="ph ph-globe"></i><span id="langLabel">English</span><i class="ph ph-caret-down lang-caret"></i></button><div class="lang-dropdown" id="langDropdown"></div></div>
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline btn-sm" data-i18n="btn.join_telegram">Join Telegram</a>
+      <a href="#plans" class="btn btn-gold btn-sm" data-i18n="btn.get_signals">Get Signals</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero text-center">
+  <div class="container">
+    <div class="badge reveal" style="margin-bottom:20px;justify-content:center;"><i class="ph ph-crown-simple"></i> Simple, Transparent Pricing</div>
+    <h1 class="page-title reveal">Choose Your Plan</h1>
+    <p class="section-sub mx-auto text-center reveal" style="margin-bottom:36px;">One plan for every trader. All plans include full signal access, the Trading Academy ebook, and our 48-hour money-back guarantee.</p>
+    <!-- Quick Stats -->
+    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;" class="reveal">
+      <div><div style="font-size:28px;font-weight:900;color:var(--gold);">85%</div><div style="font-size:12px;color:var(--text-muted);">Win Rate</div></div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div><div style="font-size:28px;font-weight:900;color:var(--gold);">150K+</div><div style="font-size:12px;color:var(--text-muted);">Active Traders</div></div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div><div style="font-size:28px;font-weight:900;color:var(--gold);">48h</div><div style="font-size:12px;color:var(--text-muted);">Money-Back</div></div>
+      <div style="width:1px;background:var(--border);"></div>
+      <div><div style="font-size:28px;font-weight:900;color:var(--gold);">4.9★</div><div style="font-size:12px;color:var(--text-muted);">2,000+ Reviews</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Scarcity -->
+<section style="padding:0 0 32px;">
+  <div class="container reveal">
+    <div class="scarcity-bar">
+      <div class="red-dot"></div>
+      <div style="flex:1;"><div style="font-weight:800;font-size:15px;color:var(--red);">Only 11 spots remaining at this price</div><div style="font-size:13px;color:var(--text-secondary);margin-top:3px;">We cap active members to maintain signal quality. Price increases when full.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Single Pricing Card · Monthly / Annual toggle -->
+<style>
+  /* Toggle */
+  .billing-toggle-wrap{display:flex;flex-direction:column;align-items:center;margin:32px 0 40px;}
+  .billing-toggle{display:flex;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:4px;gap:4px;}
+  .toggle-btn{padding:10px 28px;border-radius:100px;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;border:none;cursor:pointer;color:#8A9BBE;background:transparent;transition:all .2s;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+  .toggle-btn.active{background:#D4A843;color:#0A0C10;box-shadow:0 4px 16px rgba(212,168,67,.35);}
+  .badge-50off{background:#00D4A0;color:#040A10;font-size:10px;font-weight:800;padding:2px 8px;border-radius:100px;letter-spacing:.04em;}
+  .toggle-save{font-size:12px;color:#00D4A0;margin-top:10px;font-weight:600;}
+
+  /* Card */
+  .spc-card{
+    background:#0D1929;border-radius:16px;overflow:hidden;
+    border:1px solid rgba(212,168,67,.2);
+    box-shadow:0 0 80px rgba(212,168,67,.07),0 24px 64px rgba(0,0,0,.5);
+    display:grid;grid-template-columns:1fr 1fr;
+    max-width:900px;margin:0 auto;
+  }
+  .spc-left{padding:40px;border-right:1px solid rgba(255,255,255,.06);}
+  .spc-right{padding:40px;}
+  .spc-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.22);color:#D4A843;font-size:10px;font-weight:700;letter-spacing:.1em;padding:4px 12px;border-radius:100px;text-transform:uppercase;margin-bottom:16px;}
+  .spc-title{font-size:22px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px;}
+  .spc-sub{font-size:13px;color:#8A9BBE;line-height:1.65;margin-bottom:24px;}
+  .spc-price-wrap{display:flex;align-items:baseline;gap:12px;margin-bottom:8px;flex-wrap:wrap;}
+  .spc-price{font-size:52px;font-weight:900;letter-spacing:-.04em;color:#EEF2F7;line-height:1;}
+  .spc-price sup{font-size:24px;vertical-align:super;}
+  .spc-period{font-size:13px;color:#8A9BBE;}
+  .spc-orig{font-size:14px;color:#4A5A74;text-decoration:line-through;}
+  .discount-badge{background:#00D4A0;color:#040A10;font-size:11px;font-weight:800;padding:3px 12px;border-radius:100px;letter-spacing:.06em;}
+  .spc-billed{font-size:12px;color:#4A5A74;margin-bottom:24px;height:18px;}
+  .spc-benefits{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+  .spc-benefit{display:flex;align-items:center;gap:10px;font-size:14px;color:#8A9BBE;}
+  .spc-benefit i{color:#D4A843;font-size:16px;flex-shrink:0;}
+  .spc-btn-primary{width:100%;padding:15px;background:linear-gradient(135deg,#E0B340,#D4A843,#B8922A);color:#0A0C10;font-size:15px;font-weight:800;font-family:'Inter',sans-serif;border:none;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .22s;box-shadow:0 4px 20px rgba(212,168,67,.28);text-decoration:none;margin-bottom:12px;}
+  .spc-btn-primary:hover{box-shadow:0 8px 36px rgba(212,168,67,.48);transform:translateY(-1px);}
+  .spc-btn-secondary{width:100%;padding:14px;background:rgba(255,255,255,.04);color:#EEF2F7;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;border:1px solid rgba(255,255,255,.1);border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;text-decoration:none;}
+  .spc-btn-secondary:hover{background:rgba(255,255,255,.08);}
+
+  /* Right col */
+  .spc-features-title{font-size:14px;font-weight:700;color:#EEF2F7;margin-bottom:16px;display:flex;align-items:center;gap:6px;}
+  .spc-feature-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+  .spc-feature{display:flex;align-items:center;gap:10px;font-size:13px;color:#8A9BBE;opacity:0;transform:translateX(16px);transition:all .4s ease;}
+  .spc-feature.visible{opacity:1;transform:none;}
+  .spc-fcheck{width:20px;height:20px;border-radius:50%;background:rgba(212,168,67,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .spc-fcheck i{font-size:11px;color:#D4A843;}
+  .spc-sep{height:1px;background:rgba(255,255,255,.06);margin:20px 0;}
+
+  /* Rotating testimonial */
+  .spc-testi-wrap{position:relative;min-height:130px;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px;overflow:hidden;}
+  .spc-testi{position:absolute;inset:16px;opacity:0;transition:opacity .5s ease;pointer-events:none;}
+  .spc-testi.active{opacity:1;pointer-events:all;}
+  .spc-testi-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .spc-tav{width:34px;height:34px;border-radius:50%;overflow:hidden;flex-shrink:0;}
+  .spc-tav img{width:100%;height:100%;object-fit:cover;}
+  .spc-tname{font-size:13px;font-weight:700;}
+  .spc-trole{font-size:11px;color:#4A5A74;}
+  .spc-tstars{font-size:11px;color:#D4A843;letter-spacing:2px;margin-left:auto;}
+  .spc-ttext{font-size:12px;color:#8A9BBE;line-height:1.7;font-style:italic;}
+  .spc-dots{display:flex;gap:6px;justify-content:center;margin-top:12px;}
+  .spc-dot{height:5px;border-radius:100px;background:rgba(212,168,67,.25);border:none;cursor:pointer;transition:all .3s;padding:0;}
+  .spc-dot.active{width:20px;background:#D4A843;}
+  .spc-dot:not(.active){width:8px;}
+
+  @media(max-width:800px){
+    .spc-card{grid-template-columns:1fr;}
+    .spc-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);}
+  }
+  @media(max-width:480px){
+    .spc-left,.spc-right{padding:28px 24px;}
+    .spc-price{font-size:44px;}
+  }
+</style>
+
+<section id="plans" style="padding:0 0 60px;">
+  <div class="container">
+
+    <!-- Billing Toggle -->
+    <div class="billing-toggle-wrap reveal">
+      <div class="billing-toggle">
+        <button class="toggle-btn active" data-plan="monthly">Monthly</button>
+        <button class="toggle-btn" data-plan="annual">Annual &nbsp;<span class="badge-50off">50% OFF</span></button>
+      </div>
+      <div class="toggle-save" id="toggle-save-msg" style="opacity:0;">
+        🎉 Save $294/year with Annual
+      </div>
+    </div>
+
+    <!-- Single Pricing Card -->
+    <div class="spc-card reveal">
+
+      <!-- LEFT: Pricing -->
+      <div class="spc-left">
+        <div class="spc-badge"><i class="ph ph-crown-simple"></i> Premium Signals</div>
+        <h3 class="spc-title">Tital Signals</h3>
+        <p class="spc-sub">Professional Gold & Forex signals with entry, TP, SL, and rationale on every alert.</p>
+
+        <!-- Price -->
+        <div class="spc-price-wrap">
+          <div class="spc-price"><sup>$</sup><span id="spc-price-num">49</span></div>
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+              <span class="spc-orig" id="spc-orig" style="display:none;">$49</span>
+              <span class="discount-badge" id="spc-discount" style="display:none;">50% OFF</span>
+            </div>
+            <div class="spc-period" id="spc-period">per month</div>
+          </div>
+        </div>
+        <div class="spc-billed" id="spc-billed">&nbsp;</div>
+
+        <!-- Benefits -->
+        <div class="spc-benefits">
+          <div class="spc-benefit"><i class="ph ph-lightning"></i> Real-time Gold & Forex signals</div>
+          <div class="spc-benefit"><i class="ph ph-shield-check"></i> 48-hour money-back guarantee</div>
+          <div class="spc-benefit"><i class="ph ph-telegram-logo"></i> Instant Telegram access</div>
+        </div>
+
+        <!-- CTAs -->
+        <a id="spc-cta-primary" href="checkout.html?plan=monthly" class="spc-btn-primary">
+          <i class="ph ph-crown-simple"></i>
+          <span id="spc-cta-text">Get Monthly Access</span>
+          <i class="ph ph-arrow-right" style="margin-left:auto;"></i>
+        </a>
+        <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="spc-btn-secondary">
+          <i class="ph ph-telegram-logo"></i> Join Free Preview
+        </a>
+        <p style="font-size:11px;color:#4A5A74;text-align:center;margin-top:12px;">
+          <i class="ph ph-lock-simple"></i> No credit card for preview · Cancel anytime
+        </p>
+      </div>
+
+      <!-- RIGHT: Features + Testimonials -->
+      <div class="spc-right">
+        <div class="spc-features-title"><i class="ph ph-list-checks"></i> Included Features</div>
+        <div class="spc-feature-list">
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>All live Forex & Gold signals</div>
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>Entry, Take-Profit & Stop-Loss on every alert</div>
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>Plain-English rationale with each signal</div>
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>Private Telegram channel access</div>
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>3–5 high-probability signals per day</div>
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>Full signal performance history</div>
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>Weekly market outlook reports</div>
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>Free trading calculators (Pip, Lot, R:R)</div>
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>Compatible with any Forex broker</div>
+          <div class="spc-feature"><div class="spc-fcheck"><i class="ph ph-check"></i></div>24/7 support via Telegram</div>
+        </div>
+
+        <div class="spc-sep"></div>
+
+        <!-- Rotating Testimonials -->
+        <div class="spc-testi-wrap">
+          <div class="spc-testi active">
+            <div class="spc-testi-header">
+              <div class="spc-tav"><img src="https://i.pravatar.cc/68?img=11" alt="Marcus"/></div>
+              <div><div class="spc-tname">Marcus T.</div><div class="spc-trole">VIP Member · Jan 2025</div></div>
+              <div class="spc-tstars">★★★★★</div>
+            </div>
+            <p class="spc-ttext">"Made back my membership cost in week two. The Gold signals are incredibly precise · entry levels hit almost to the pip every time."</p>
+          </div>
+          <div class="spc-testi">
+            <div class="spc-testi-header">
+              <div class="spc-tav"><img src="https://i.pravatar.cc/68?img=47" alt="Sophie"/></div>
+              <div><div class="spc-tname">Sophie L.</div><div class="spc-trole">VIP Member · Mar 2025</div></div>
+              <div class="spc-tstars">★★★★★</div>
+            </div>
+            <p class="spc-ttext">"Every signal has a stop-loss. Three other services I tried didn't protect my downside. Night and day difference."</p>
+          </div>
+          <div class="spc-testi">
+            <div class="spc-testi-header">
+              <div class="spc-tav"><img src="https://i.pravatar.cc/68?img=13" alt="David"/></div>
+              <div><div class="spc-tname">David K.</div><div class="spc-trole">VIP Member · Nov 2024</div></div>
+              <div class="spc-tstars">★★★★★</div>
+            </div>
+            <p class="spc-ttext">"The historical performance log convinced me · nothing hidden. I could see every trade going back 18 months before joining."</p>
+          </div>
+        </div>
+        <div class="spc-dots">
+          <button class="spc-dot active" data-dot="0"></button>
+          <button class="spc-dot" data-dot="1"></button>
+          <button class="spc-dot" data-dot="2"></button>
+        </div>
+      </div>
+
+    </div><!-- /spc-card -->
+  </div>
+</section>
+
+<script>
+// Pricing toggle
+const plans = {
+  monthly: { price:'49', period:'per month', billed:'&nbsp;', orig:'', discount:'', cta:'Get Monthly Access' },
+  annual:  { price:'25', period:'per month', billed:'Billed $294/year · Cancel anytime', orig:'$49', discount:'50% OFF', cta:'Get Annual Access · $294/yr' }
+};
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const plan = plans[btn.dataset.plan];
+    document.getElementById('spc-price-num').textContent = plan.price;
+    document.getElementById('spc-period').textContent = plan.period;
+    document.getElementById('spc-billed').innerHTML = plan.billed;
+    document.getElementById('spc-cta-text').textContent = plan.cta;
+    const orig = document.getElementById('spc-orig');
+    const disc = document.getElementById('spc-discount');
+    const saveMsg = document.getElementById('toggle-save-msg');
+    if (plan.orig) {
+      orig.style.display='inline';orig.textContent=plan.orig;
+      disc.style.display='inline';disc.textContent=plan.discount;
+      saveMsg.style.opacity='1';
+    } else {
+      orig.style.display='none';disc.style.display='none';saveMsg.style.opacity='0';
+    }
+    document.getElementById('spc-cta-primary').href = btn.dataset.plan === 'annual' ? 'checkout.html?plan=lifetime' : 'checkout.html?plan=monthly';
+  });
+});
+
+// Feature list staggered animation
+const featureObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.spc-feature').forEach((f, i) => {
+        setTimeout(() => f.classList.add('visible'), 100 + i * 60);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.spc-feature-list').forEach(el => featureObserver.observe(el));
+
+// Rotating testimonials
+let testiIdx = 0;
+const testis = document.querySelectorAll('.spc-testi');
+const dots = document.querySelectorAll('.spc-dot');
+function goTesti(n) {
+  testis.forEach(t => t.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  testiIdx = n % testis.length;
+  testis[testiIdx].classList.add('active');
+  dots[testiIdx].classList.add('active');
+}
+dots.forEach(d => d.addEventListener('click', () => { goTesti(+d.dataset.dot); clearInterval(testiTimer); testiTimer = setInterval(() => goTesti(testiIdx+1), 5000); }));
+let testiTimer = setInterval(() => goTesti(testiIdx + 1), 5000);
+
+    <div class="pricing-grid reveal">
+      <!-- Monthly -->
+      <div class="pricing-card">
+        <div class="pricing-name">Monthly</div>
+        <div class="pricing-price"><sup>$</sup>49</div>
+        <div class="pricing-period">per month · cancel anytime</div>
+        <ul class="pricing-features">
+          <li><i class="ph ph-check-circle"></i> All live Forex & Gold signals</li>
+          <li><i class="ph ph-check-circle"></i> Entry, TP, and SL on every signal</li>
+          <li><i class="ph ph-check-circle"></i> Signal rationale with every alert</li>
+          <li><i class="ph ph-check-circle"></i> Private Telegram channel access</li>
+          <li><i class="ph ph-check-circle"></i> 3–5 high-probability signals/day</li>
+          <li><i class="ph ph-check-circle"></i> 48h money-back guarantee</li>
+          <li><i class="ph ph-check-circle"></i> 24/7 support</li>
+        </ul>
+        <a href="https://t.me/+xtJ_XeoX-bU0NjZk" class="btn btn-outline btn-full"><i class="ph ph-telegram-logo"></i> Start Monthly</a>
+        <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px;">Billed monthly. Cancel before renewal.</p>
+      </div>
+      <!-- Lifetime -->
+      <div class="pricing-card card-gradient">
+        <div class="pricing-badge">🏆 Best Value · 80% Off</div>
+        <div class="pricing-name">Lifetime Access</div>
+        <div class="pricing-price" style="color:var(--gold);"><sup>$</sup>499</div>
+        <div class="pricing-period">one-time payment · never pay again</div>
+        <ul class="pricing-features">
+          <li><i class="ph ph-check-circle"></i> Everything in Monthly</li>
+          <li><i class="ph ph-check-circle"></i> Lifetime Telegram access · forever</li>
+          <li><i class="ph ph-check-circle"></i> Trading Academy ebook (free, $69 value)</li>
+          <li><i class="ph ph-check-circle"></i> Priority signal delivery (first alerts)</li>
+          <li><i class="ph ph-check-circle"></i> VIP-only exclusive trade setups</li>
+          <li><i class="ph ph-check-circle"></i> Direct analyst chat access</li>
+          <li><i class="ph ph-check-circle"></i> All future features · included free</li>
+          <li><i class="ph ph-check-circle"></i> Lifetime performance reports</li>
+        </ul>
+        <a href="https://t.me/+xtJ_XeoX-bU0NjZk" class="btn btn-gold btn-full" style="font-size:16px;"><i class="ph ph-crown-simple"></i> Get Lifetime Access</a>
+        <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px;">Equivalent to 10 months. Pays for itself fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Comparison Table -->
+<section class="section" style="background:var(--bg-surface);">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:40px;">
+      <div class="section-label"><i class="ph ph-list-checks"></i> Full Comparison</div>
+      <h2 class="section-title">Everything Side by Side</h2>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="col-feature">Feature</th>
+            <th class="col-monthly">Monthly<br><span style="font-size:16px;color:var(--text-primary);">$49/mo</span></th>
+            <th class="col-lifetime">Lifetime<br><span style="font-size:16px;color:var(--gold);">$499 once</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>All Forex & Gold signals</td><td class="check-yes"><i class="ph ph-check-circle"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>Entry, Take-Profit, Stop-Loss on every alert</td><td class="check-yes"><i class="ph ph-check-circle"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>Signal analysis rationale</td><td class="check-yes"><i class="ph ph-check-circle"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>Private Telegram channel</td><td class="check-yes"><i class="ph ph-check-circle"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>3–5 signals per day</td><td class="check-yes"><i class="ph ph-check-circle"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>48-hour money-back guarantee</td><td class="check-yes"><i class="ph ph-check-circle"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>24/7 support</td><td class="check-yes"><i class="ph ph-check-circle"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>Trading Academy ebook ($69 value)</td><td class="check-no"><i class="ph ph-x" style="color:var(--text-muted);font-size:14px;"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>Priority signal delivery</td><td class="check-no"><i class="ph ph-x" style="color:var(--text-muted);font-size:14px;"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>VIP-only exclusive setups</td><td class="check-no"><i class="ph ph-x" style="color:var(--text-muted);font-size:14px;"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>Direct analyst chat</td><td class="check-no"><i class="ph ph-x" style="color:var(--text-muted);font-size:14px;"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>All future features free</td><td class="check-no"><i class="ph ph-x" style="color:var(--text-muted);font-size:14px;"></i></td><td class="check-gold"><i class="ph ph-check-circle"></i></td></tr>
+          <tr><td>Access duration</td><td style="color:var(--text-secondary);">While subscribed</td><td style="color:var(--gold);font-weight:700;">Forever</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Money-Back Guarantee -->
+<section class="section">
+  <div class="container">
+    <div class="guarantee-card reveal">
+      <div class="guarantee-icon"><i class="ph ph-shield-check"></i></div>
+      <div>
+        <h3 style="font-size:20px;font-weight:800;margin-bottom:8px;">48-Hour Money-Back Guarantee</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.75;margin-bottom:12px;">Not satisfied within 48 hours? We'll refund you in full · no questions asked, no hoops to jump through. Just message our support team on Telegram and we'll process your refund within 24 hours.</p>
+        <div style="font-size:12px;color:var(--green);font-weight:600;display:flex;align-items:center;gap:6px;"><i class="ph ph-check-circle"></i> Full refund · No questions · Processed in 24h</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Payment Methods -->
+<section class="section-sm" style="background:var(--bg-surface);">
+  <div class="container text-center">
+    <div style="font-size:12px;color:var(--text-muted);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:6px;"><i class="ph ph-lock-simple-key" style="color:var(--green);"></i> Secure Checkout · 256-bit SSL Encrypted</div>
+    <div class="pay-row reveal">
+      <div class="pay-pill"><i class="ph ph-credit-card"></i> Visa</div>
+      <div class="pay-pill"><i class="ph ph-credit-card"></i> Mastercard</div>
+      <div class="pay-pill"><i class="ph ph-credit-card"></i> Amex</div>
+      <div class="pay-pill"><i class="ph ph-apple-logo"></i> Apple Pay</div>
+      <div class="pay-pill"><i class="ph ph-google-logo"></i> Google Pay</div>
+      <div class="pay-pill"><i class="ph ph-currency-btc"></i> Bitcoin</div>
+      <div class="pay-pill"><i class="ph ph-currency-eth"></i> Ethereum</div>
+      <div class="pay-pill"><i class="ph ph-currency-dollar"></i> USDT</div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing FAQ -->
+<section class="section">
+  <div class="container-sm">
+    <div class="text-center reveal" style="margin-bottom:44px;">
+      <div class="section-label"><i class="ph ph-question"></i> Common Questions</div>
+      <h2 class="section-title">Pricing FAQ</h2>
+    </div>
+    <div class="reveal" id="faq-list">
+      <div class="faq-item"><button class="faq-q">Is there a free trial? <i class="ph ph-plus faq-icon"></i></button><div class="faq-a">Yes · join our free Telegram preview channel to see exactly how our signals look before paying. You'll see real signals with all the formatting and rationale. We also offer a 48-hour money-back guarantee on all paid plans.</div></div>
+      <div class="faq-item"><button class="faq-q">Can I cancel my monthly plan anytime? <i class="ph ph-plus faq-icon"></i></button><div class="faq-a">Yes. Monthly subscriptions can be cancelled at any time before the next billing date. Your access continues until the end of your current billing period. No cancellation fees, no hidden charges.</div></div>
+      <div class="faq-item"><button class="faq-q">What does "Lifetime Access" actually mean? <i class="ph ph-plus faq-icon"></i></button><div class="faq-a">It means you pay once and have access to our signals channel forever · for as long as Tital Signals operates. You'll also receive all future features and improvements at no extra cost. No renewal, no catch.</div></div>
+      <div class="faq-item"><button class="faq-q">Is the $499 lifetime price guaranteed or will it increase? <i class="ph ph-plus faq-icon"></i></button><div class="faq-a">The $499 lifetime price is a founding member price. Once all spots at this price are taken, the lifetime price increases. Monthly plans may also increase in the future. Locking in now guarantees you the current rate forever.</div></div>
+      <div class="faq-item"><button class="faq-q">What payment methods do you accept? <i class="ph ph-plus faq-icon"></i></button><div class="faq-a">We accept all major credit and debit cards (Visa, Mastercard, Amex), Apple Pay, Google Pay, and cryptocurrency (Bitcoin, Ethereum, USDT). All payments are processed through a PCI-DSS compliant gateway with 256-bit SSL encryption.</div></div>
+      <div class="faq-item"><button class="faq-q">How do I access signals after payment? <i class="ph ph-plus faq-icon"></i></button><div class="faq-a">Immediately after payment, you'll receive an invite link to our private Telegram channel. Access is granted within minutes of payment confirmation, 24/7. Simply join the channel and signals will start arriving in real time.</div></div>
+      <div class="faq-item"><button class="faq-q">Do I need a specific broker? <i class="ph ph-plus faq-icon"></i></button><div class="faq-a">No. Our signals work with any regulated Forex broker that offers XAUUSD (Gold) trading. Popular options include IC Markets, Pepperstone, XM, and FP Markets. We are completely broker-neutral and earn no referral commissions.</div></div>
+      <div class="faq-item"><button class="faq-q">What if I want to upgrade from Monthly to Lifetime? <i class="ph ph-plus faq-icon"></i></button><div class="faq-a">Simply message our support team on Telegram and we'll apply the amount you've already paid toward your lifetime upgrade. Contact us at any time and we'll arrange the upgrade manually.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="section" style="background:var(--bg-surface);background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(212,168,67,.08) 0%,transparent 65%),var(--bg-surface);">
+  <div class="container text-center reveal">
+    <h2 class="section-title">Ready to Start Copying?</h2>
+    <p class="section-sub mx-auto text-center" style="margin-bottom:32px;">Join 150,000+ traders already receiving our signals. Start with a free preview · no card required.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-gold btn-lg"><i class="ph ph-crown-simple"></i> Get Lifetime Access · $499</a>
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline btn-lg"><i class="ph ph-telegram-logo"></i> Join Free Preview</a>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:16px;">48h money-back guarantee &nbsp;·&nbsp; Instant Telegram access &nbsp;·&nbsp; Cancel monthly anytime</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">Tital<span>Signals</span></a><p class="footer-desc" data-i18n="footer.desc">Tital Signals delivers premium Forex &amp; Gold trading signals to traders worldwide.</p><div class="footer-social"><a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank"><i class="ph ph-telegram-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a><a href="#"><i class="ph ph-tiktok-logo"></i></a><a href="#"><i class="ph ph-instagram-logo"></i></a></div></div>
+      <div class="footer-col"><h4 data-i18n="footer.services">Services</h4><ul><li><a href="forex-signals.html" data-i18n="footer.forex">Forex Signals</a></li><li><a href="gold-signals.html" data-i18n="footer.gold">Gold Signals</a></li><li><a href="crypto-signals.html" data-i18n="footer.crypto">Crypto Signals</a></li><li><a href="trading-education.html" data-i18n="footer.education">Trading Education</a></li><li><a href="trading-ebook.html" data-i18n="footer.ebook">Trading Ebook</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.company">Company</h4><ul><li><a href="about.html" data-i18n="footer.about">About Us</a></li><li><a href="results.html" data-i18n="footer.results">Results</a></li><li><a href="contact.html" data-i18n="footer.contact_link">Contact</a></li><li><a href="blog.html" data-i18n="footer.blog">Blog</a></li><li><a href="pricing.html" data-i18n="footer.pricing">Pricing</a></li><li><a href="#" data-i18n="footer.subscription">Manage Subscription</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.tools">Free Tools</h4><ul><li><a href="calculator.html" data-i18n="footer.xauusd_calc">XAUUSD Calculator</a></li><li><a href="calculator.html" data-i18n="footer.pip_calc">Pip Calculator</a></li><li><a href="calculator.html" data-i18n="footer.lot_calc">Lot Size Calculator</a></li><li><a href="calculator.html" data-i18n="footer.profit_calc">Profit Calculator</a></li><li><a href="calculator.html" data-i18n="footer.rr_calc">Risk Reward Calculator</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.legal">Legal</h4><ul><li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="terms.html" data-i18n="footer.terms">Terms &amp; Conditions</a></li><li><a href="refund.html" data-i18n="footer.refund">Refund Policy</a></li><li><a href="risk.html" data-i18n="footer.risk">Risk Disclaimer</a></li><li><a href="methodology.html" data-i18n="footer.methodology">Signal Methodology</a></li></ul><h4 style="margin-top:24px;" data-i18n="footer.contact_col">Contact</h4><a href="https://t.me/+xtJ_XeoX-bU0NjZk" class="footer-contact-link" target="_blank"><i class="ph ph-telegram-logo"></i> @titalsignals <span data-i18n="footer.telegram_on">on Telegram</span> <i class="ph ph-arrow-right"></i></a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-seo-line"><span class="footer-seo" data-i18n="footer.seo">Tital Signals · Forex &amp; Gold XAUUSD Trading Alerts</span><div class="footer-lang"><button class="footer-lang-btn" id="footerLangBtn"><i class="ph ph-globe"></i><span id="footerLangLabel">English</span><i class="ph ph-caret-up" style="font-size:11px;"></i></button><div class="footer-lang-dropdown lang-dropdown" id="footerLangDropdown"></div></div></div><p class="footer-disclaimer-text" data-i18n="footer.disclaimer">Tital Signals provides forex and gold signals via Telegram. Trading involves risk. Past performance is not indicative of future results.</p><p style="font-size:11px;color:var(--text-muted);">© 2025 Tital Signals. <span data-i18n="footer.rights">All rights reserved.</span></p></div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script>
+  window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30),{passive:true});
+  document.querySelectorAll('.faq-q').forEach(b=>b.addEventListener('click',()=>{const i=b.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}));
+  (function(){const e=Date.now()+(4*3600+22*60+47)*1000;function t(){const d=Math.max(0,e-Date.now());document.getElementById('c-h').textContent=String(Math.floor(d/3600000)).padStart(2,'0');document.getElementById('c-m').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');document.getElementById('c-s').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');if(d>0)setTimeout(t,1000);}t();})();
+  const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

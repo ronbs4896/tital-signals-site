@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Checkout · Tital Signals</title>
+<meta name="description" content="Complete your Tital Signals subscription. Professional Gold & Forex signals from $49/month or $499 lifetime access."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+
+/* ═══════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════ */
+@keyframes slideUp   { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:none} }
+@keyframes fadeIn    { from{opacity:0} to{opacity:1} }
+@keyframes fadeInUp  { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+@keyframes shimmerMove { 0%{background-position:-400% center} 100%{background-position:400% center} }
+@keyframes payGlow   { 0%,100%{box-shadow:0 6px 30px rgba(212,168,67,.38)} 50%{box-shadow:0 8px 56px rgba(212,168,67,.75)} }
+@keyframes payGlowTeal { 0%,100%{box-shadow:0 6px 30px rgba(0,212,160,.3)} 50%{box-shadow:0 8px 56px rgba(0,212,160,.6)} }
+@keyframes ringExpand { 0%{transform:translate(-50%,-50%) scale(.6);opacity:.6} 100%{transform:translate(-50%,-50%) scale(2.6);opacity:0} }
+@keyframes shieldFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-12px) scale(1.03)} }
+@keyframes scanLine  { 0%{top:-4%;opacity:.8} 100%{top:108%;opacity:0} }
+@keyframes hexPulse  { 0%,100%{opacity:.28} 50%{opacity:.55} }
+@keyframes dotBlink  { 0%,100%{opacity:1} 50%{opacity:.25} }
+@keyframes countUp   { from{opacity:0;transform:scale(.75)} to{opacity:1;transform:scale(1)} }
+@keyframes checkPop  { 0%{transform:scale(0) rotate(-20deg)} 70%{transform:scale(1.2) rotate(4deg)} 100%{transform:scale(1) rotate(0)} }
+@keyframes badgeShimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+
+/* ═══════════════════════════════════════
+   GLOBAL BACKGROUND — unified gradient
+═══════════════════════════════════════ */
+body {
+  background: linear-gradient(160deg, #04080F 0%, #060C14 35%, #07101D 70%, #050D18 100%);
+  background-attachment: fixed;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background: radial-gradient(ellipse 80% 55% at 50% 28%, rgba(212,168,67,.045) 0%, transparent 70%);
+}
+
+/* ═══════════════════════════════════════
+   HERO — SECURE CHECKOUT
+═══════════════════════════════════════ */
+.co-hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #030608 0%, #06101C 55%, #060C14 100%);
+  padding: 72px 0 60px;
+}
+.co-hero::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(212,168,67,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,168,67,.06) 1px, transparent 1px);
+  background-size: 52px 52px;
+  animation: hexPulse 5s ease-in-out infinite;
+}
+.co-hero::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 75% 85% at 50% 50%, transparent 35%, #030608 100%);
+}
+.hero-shield-wrap {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%,-50%); pointer-events: none; z-index: 0;
+}
+.hero-shield-icon {
+  font-size: 200px; color: rgba(212,168,67,.04);
+  animation: shieldFloat 6s ease-in-out infinite; display: block; line-height: 1;
+}
+.ring {
+  position: absolute; left: 50%; top: 50%;
+  width: 220px; height: 220px; border-radius: 50%;
+  border: 1px solid rgba(212,168,67,.15);
+  animation: ringExpand 3.5s ease-out infinite;
+}
+.ring:nth-child(2) { animation-delay: 1.17s; border-color: rgba(0,212,160,.1); }
+.ring:nth-child(3) { animation-delay: 2.33s; }
+.scan-line {
+  position: absolute; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,160,.55), rgba(212,168,67,.45), rgba(0,212,160,.55), transparent);
+  animation: scanLine 3.8s linear infinite; z-index: 1; filter: blur(1px);
+}
+.co-hero-inner { position: relative; z-index: 2; text-align: center; }
+.co-hero-secure {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,212,160,.07); border: 1px solid rgba(0,212,160,.22);
+  border-radius: 100px; padding: 7px 18px;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 22px;
+  animation: fadeIn .5s ease both;
+}
+.co-hero-secure i { animation: dotBlink 1.6s infinite; }
+.co-hero-title {
+  font-size: clamp(26px, 4vw, 42px); font-weight: 900; letter-spacing: -.03em;
+  margin-bottom: 12px; animation: slideUp .55s ease both .08s;
+}
+.co-hero-title em { font-style: normal; color: var(--gold); }
+.co-hero-sub {
+  font-size: 15px; color: var(--text-secondary); max-width: 480px;
+  margin: 0 auto 28px; animation: slideUp .55s ease both .16s;
+}
+.hero-pills {
+  display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+  animation: slideUp .55s ease both .24s;
+}
+.hero-pill {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.09);
+  border-radius: 100px; padding: 7px 16px;
+  font-size: 12px; font-weight: 600; color: var(--text-secondary);
+  backdrop-filter: blur(8px);
+}
+.hero-pill i { font-size: 14px; color: var(--green); }
+
+/* ═══════════════════════════════════════
+   CHECKOUT GRID
+═══════════════════════════════════════ */
+.checkout-wrap { padding: 0 0 80px; }
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 430px;
+  gap: 26px; align-items: start;
+  max-width: 1080px; margin: 0 auto; padding: 36px 24px 0;
+}
+
+/* ═══════════════════════════════════════
+   GLASS PANEL
+═══════════════════════════════════════ */
+.co-panel {
+  background: rgba(10,18,30,.72);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,168,67,.13);
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 2px 0 rgba(255,255,255,.04) inset,
+              0 0 60px rgba(212,168,67,.04),
+              0 24px 64px rgba(0,0,0,.6);
+  opacity: 0; transform: translateY(22px);
+  transition: border-color .3s, box-shadow .3s, opacity .5s, transform .5s;
+  position: relative;
+}
+.co-panel::before {
+  content: '';
+  position: absolute; inset: 0; border-radius: 20px; pointer-events: none;
+  background: linear-gradient(135deg, rgba(212,168,67,.04) 0%, transparent 50%);
+  opacity: 0; transition: opacity .3s;
+}
+.co-panel:hover::before { opacity: 1; }
+.co-panel:hover {
+  border-color: rgba(212,168,67,.26);
+  box-shadow: 0 2px 0 rgba(255,255,255,.05) inset,
+              0 0 80px rgba(212,168,67,.08),
+              0 28px 72px rgba(0,0,0,.65);
+}
+.co-panel.visible { opacity: 1; transform: translateY(0); }
+
+.co-section { padding: 24px 28px; border-bottom: 1px solid rgba(255,255,255,.04); }
+.co-section:last-child { border-bottom: none; }
+
+/* Step labels */
+.co-step {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.co-step::after {
+  content: ''; flex: 1; height: 1px; margin-left: 2px;
+  background: linear-gradient(90deg, rgba(212,168,67,.2), transparent);
+}
+.co-step-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(145deg, rgba(212,168,67,.22), rgba(212,168,67,.06));
+  border: 1.5px solid rgba(212,168,67,.45);
+  box-shadow: 0 2px 14px rgba(212,168,67,.18), inset 0 1px 0 rgba(255,255,255,.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 900; color: var(--gold);
+  flex-shrink: 0; font-family: 'IBM Plex Mono', monospace;
+}
+.co-step-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 7px;
+}
+.co-step-label i { font-size: 14px; }
+
+/* ═══════════════════════════════════════
+   PLAN SELECTOR
+═══════════════════════════════════════ */
+.plan-row { display: flex; gap: 10px; }
+.plan-tab {
+  flex: 1; border-radius: 14px; padding: 16px 14px;
+  border: 1.5px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.025);
+  cursor: pointer; text-align: left;
+  font-family: 'Inter', sans-serif; color: var(--text-secondary);
+  transition: all .24s; position: relative; overflow: hidden;
+}
+.plan-tab:hover { border-color: rgba(255,255,255,.16); transform: translateY(-1px); }
+.plan-tab.active {
+  border-color: rgba(212,168,67,.5);
+  background: rgba(212,168,67,.07);
+  box-shadow: 0 0 32px rgba(212,168,67,.12);
+}
+.plan-tab.active-teal {
+  border-color: rgba(0,212,160,.45);
+  background: rgba(0,212,160,.06);
+  box-shadow: 0 0 32px rgba(0,212,160,.1);
+}
+.plan-tab-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 10px; }
+.plan-tab-badge-pop {
+  font-size: 9px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 100px;
+}
+.badge-teal { background: rgba(0,212,160,.15); color: var(--green); border: 1px solid rgba(0,212,160,.3); }
+.badge-gold {
+  background: linear-gradient(90deg, #D4A843, #E8C060, #D4A843);
+  background-size: 200% 100%;
+  color: #0A0C10; border: none;
+  animation: badgeShimmer 2.2s linear infinite;
+}
+.plan-tab-name { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+.plan-tab.active .plan-tab-name { color: var(--gold); }
+.plan-tab.active-teal .plan-tab-name { color: var(--green); }
+.plan-tab-price {
+  font-size: 28px; font-weight: 900; letter-spacing: -.04em;
+  font-family: 'IBM Plex Mono', monospace; line-height: 1; margin-bottom: 4px;
+  color: var(--text-primary); transition: color .22s;
+}
+.plan-tab.active .plan-tab-price { color: var(--gold); }
+.plan-tab.active-teal .plan-tab-price { color: var(--green); }
+.plan-tab-sub { font-size: 11px; color: var(--text-muted); }
+.plan-check {
+  position: absolute; bottom: 12px; right: 12px;
+  width: 22px; height: 22px; border-radius: 50%; background: var(--gold);
+  display: none; align-items: center; justify-content: center;
+}
+.plan-check i { font-size: 12px; color: #0A0C10; }
+.plan-tab.active .plan-check,
+.plan-tab.active-teal .plan-check { display: flex; }
+.plan-tab.active-teal .plan-check { background: var(--green); }
+
+/* ═══════════════════════════════════════
+   ORDER SUMMARY
+═══════════════════════════════════════ */
+.order-row {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 14px; color: var(--text-secondary); padding: 5px 0;
+}
+.order-total {
+  border-top: 1px solid rgba(255,255,255,.06);
+  margin-top: 10px; padding-top: 12px;
+  font-size: 16px; font-weight: 800; color: var(--text-primary);
+}
+.order-total-price {
+  font-size: 24px; font-weight: 900; color: var(--gold);
+  font-family: 'IBM Plex Mono', monospace; transition: all .3s;
+}
+.billed-sub {
+  font-size: 12px; color: #8A9BBE; margin-top: 5px;
+  display: flex; align-items: center; gap: 5px;
+}
+.promo-row { display: flex; gap: 8px; margin-top: 14px; }
+.promo-input {
+  flex: 1; background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1); border-radius: 10px;
+  padding: 11px 14px; font-size: 13px; font-family: 'IBM Plex Mono', monospace;
+  color: var(--text-primary); outline: none; letter-spacing: .07em;
+  transition: border-color .18s, box-shadow .18s;
+}
+.promo-input::placeholder { color: var(--text-muted); }
+.promo-input:focus { border-color: rgba(212,168,67,.45); box-shadow: 0 0 0 3px rgba(212,168,67,.07); }
+.promo-apply {
+  padding: 11px 18px; background: rgba(212,168,67,.09);
+  border: 1px solid rgba(212,168,67,.25); border-radius: 10px;
+  font-size: 13px; font-weight: 700; color: var(--gold);
+  cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap;
+  transition: background .18s, transform .15s;
+}
+.promo-apply:hover { background: rgba(212,168,67,.18); transform: translateY(-1px); }
+.promo-msg { font-size: 12px; margin-top: 7px; min-height: 16px; color: var(--green); }
+.promo-msg.err { color: var(--red); }
+
+/* ═══════════════════════════════════════
+   FORM FIELDS
+═══════════════════════════════════════ */
+.field-group { display: flex; flex-direction: column; gap: 14px; }
+.field-label {
+  font-size: 12px; font-weight: 600; color: var(--text-secondary);
+  display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
+}
+.field-label i { font-size: 14px; color: var(--text-muted); }
+.field-input {
+  width: 100%; background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1); border-radius: 11px;
+  padding: 14px 16px; font-size: 14px; font-family: 'Inter', sans-serif;
+  color: var(--text-primary); outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.field-input::placeholder { color: var(--text-muted); }
+.field-input:focus { border-color: rgba(212,168,67,.5); box-shadow: 0 0 0 3px rgba(212,168,67,.08); }
+.field-hint { font-size: 12px; color: #7A8EAE; margin-top: 5px; }
+
+/* ═══════════════════════════════════════
+   PAYMENT METHOD TABS
+═══════════════════════════════════════ */
+.pm-tabs { display: flex; gap: 8px; }
+.pm-tab {
+  flex: 1; padding: 13px 14px;
+  background: rgba(255,255,255,.03); border: 1.5px solid rgba(255,255,255,.09);
+  border-radius: 12px; cursor: pointer; font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 600; color: var(--text-secondary);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  transition: all .22s;
+}
+.pm-tab:hover { border-color: rgba(255,255,255,.18); transform: translateY(-1px); }
+.pm-tab.active-card {
+  border-color: rgba(212,168,67,.5); background: rgba(212,168,67,.07); color: var(--gold);
+  box-shadow: 0 0 24px rgba(212,168,67,.1);
+}
+.pm-tab.active-crypto {
+  border-color: rgba(0,212,160,.45); background: rgba(0,212,160,.07); color: var(--green);
+  box-shadow: 0 0 24px rgba(0,212,160,.1);
+}
+.pm-tab-title { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; }
+.pm-tab-title i { font-size: 17px; }
+.pm-brands {
+  display: flex; gap: 5px; align-items: center; flex-wrap: wrap; justify-content: center;
+}
+/* Payment logo containers */
+.pm-logo {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 22px; border-radius: 5px; padding: 3px 7px;
+  background: rgba(255,255,255,.1);
+  transition: background .2s;
+}
+.pm-logo img { height: 14px; width: auto; display: block; }
+.pm-logo svg { height: 14px; width: auto; display: block; }
+/* Mastercard special: transparent bg, wider */
+.pm-logo-mc { background: transparent; padding: 0; height: 20px; }
+.pm-logo-mc svg { height: 20px; }
+
+/* ═══════════════════════════════════════
+   TERMS & CONDITIONS
+═══════════════════════════════════════ */
+.terms-row { display: flex; align-items: flex-start; gap: 12px; }
+.terms-check-wrap { position: relative; flex-shrink: 0; margin-top: 1px; }
+.terms-check-input {
+  position: absolute; opacity: 0; width: 0; height: 0;
+}
+.terms-check-box {
+  width: 22px; height: 22px; border-radius: 7px;
+  border: 2px solid rgba(255,255,255,.18); background: rgba(255,255,255,.04);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: border-color .2s, background .2s;
+  flex-shrink: 0;
+}
+.terms-check-input:checked + .terms-check-box {
+  border-color: var(--gold); background: var(--gold);
+}
+.terms-check-box i {
+  font-size: 13px; color: #06090D; display: none;
+}
+.terms-check-input:checked + .terms-check-box i {
+  display: block; animation: checkPop .28s cubic-bezier(.34,1.56,.64,1) both;
+}
+#termsConfirm {
+  opacity: 0; font-size: 12px; color: var(--green); font-weight: 700;
+  transition: opacity .22s; margin-left: 6px; white-space: nowrap;
+}
+#termsConfirm.show { opacity: 1; }
+.terms-label {
+  font-size: 13px; color: #A8B8D0; line-height: 1.55; cursor: pointer;
+}
+.terms-label a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.terms-label a:hover { color: var(--gold-bright); }
+
+/* ═══════════════════════════════════════
+   PAY BUTTON
+═══════════════════════════════════════ */
+.pay-btn {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; width: 100%; padding: 18px;
+  background: linear-gradient(135deg, #E8C060, #D4A843, #C08020);
+  color: #06090D; font-size: 16px; font-weight: 900;
+  font-family: 'Inter', sans-serif; border: none; border-radius: 13px;
+  cursor: pointer; text-decoration: none; letter-spacing: -.01em;
+  box-shadow: 0 6px 28px rgba(212,168,67,.38);
+  transition: transform .22s, box-shadow .22s, opacity .3s, filter .3s;
+}
+.pay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 38px rgba(212,168,67,.55);
+}
+.pay-btn.mode-crypto {
+  background: linear-gradient(135deg, #00E4AC, #00D4A0, #00A070);
+  color: #030A09;
+  box-shadow: 0 6px 28px rgba(0,212,160,.32);
+}
+.pay-btn.mode-crypto:hover {
+  box-shadow: 0 10px 38px rgba(0,212,160,.52);
+}
+.pay-btn.btn-dim {
+  opacity: .35; pointer-events: none; filter: grayscale(.5);
+  box-shadow: none;
+}
+.pay-btn i { font-size: 19px; }
+
+/* Trust strip below button */
+.trust-strip {
+  display: flex; justify-content: center; gap: 0;
+  flex-wrap: wrap; margin-top: 16px;
+}
+.trust-pill {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; color: #8A9BBE;
+  padding: 0 14px; border-right: 1px solid rgba(255,255,255,.07);
+}
+.trust-pill:last-child { border-right: none; }
+.trust-pill i { font-size: 13px; color: var(--green); }
+.provider-note {
+  font-size: 12px; color: #7A8EAE; text-align: center; margin-top: 8px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.provider-note i { font-size: 12px; }
+
+/* ═══════════════════════════════════════
+   RIGHT: STATS STRIP
+═══════════════════════════════════════ */
+.stats-strip {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0; text-align: center; padding: 20px 24px;
+}
+.stat-item { padding: 0 8px; }
+.stat-item + .stat-item { border-left: 1px solid rgba(255,255,255,.05); }
+.stat-val {
+  font-size: 22px; font-weight: 900; color: var(--gold);
+  font-family: 'IBM Plex Mono', monospace; letter-spacing: -.03em;
+  animation: countUp .6s cubic-bezier(.22,.8,.4,1) both;
+}
+.stat-label { font-size: 10px; color: #7A8EAE; margin-top: 3px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+
+/* ═══════════════════════════════════════
+   RIGHT: FEATURES LIST
+═══════════════════════════════════════ */
+.feat-list { display: flex; flex-direction: column; gap: 10px; }
+.feat-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 13px; color: var(--text-secondary);
+  opacity: 0; transform: translateX(10px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.feat-item.vis { opacity: 1; transform: none; }
+.feat-item.lifetime-only {
+  height: 0; overflow: hidden; gap: 0; opacity: 0; transform: translateY(6px);
+  transition: all .4s ease;
+}
+.feat-item.lifetime-only.show {
+  height: auto; overflow: visible; gap: 12px; opacity: 1; transform: none; margin-top: 2px;
+}
+.feat-icon {
+  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.feat-icon-gold { background: rgba(212,168,67,.13); border: 1px solid rgba(212,168,67,.22); }
+.feat-icon-gold i { font-size: 12px; color: var(--gold); }
+.feat-icon-green { background: rgba(0,212,160,.12); border: 1px solid rgba(0,212,160,.22); }
+.feat-icon-green i { font-size: 12px; color: var(--green); }
+.feat-icon-crown { background: rgba(212,168,67,.18); border: 1px solid rgba(212,168,67,.4); }
+.feat-icon-crown i { font-size: 12px; color: var(--gold); }
+.feat-item { color: #A8B8D0; }
+.feat-text strong { color: #EEF2F7; font-weight: 600; }
+
+/* ═══════════════════════════════════════
+   RIGHT: TESTIMONIALS
+═══════════════════════════════════════ */
+.testi-wrap {
+  position: relative; min-height: 178px;
+  background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.05);
+  border-radius: 13px; padding: 16px; overflow: hidden;
+}
+.testi-slide { position: absolute; inset: 16px; opacity: 0; transition: opacity .55s ease; pointer-events: none; }
+.testi-slide.on { opacity: 1; pointer-events: all; }
+.testi-head { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+.testi-av {
+  width: 40px; height: 40px; border-radius: 50%; overflow: hidden;
+  border: 2px solid rgba(212,168,67,.35); flex-shrink: 0;
+}
+.testi-av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.testi-name { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+.testi-where { font-size: 11px; color: #7A8EAE; }
+.testi-stars { font-size: 11px; color: var(--gold); margin-left: auto; letter-spacing: 2px; }
+.testi-body { font-size: 13px; color: #A8B8D0; line-height: 1.72; font-style: italic; }
+.testi-dots { display: flex; gap: 5px; justify-content: center; margin-top: 10px; }
+.testi-dot { height: 4px; border-radius: 100px; background: rgba(212,168,67,.2); border: none; cursor: pointer; transition: all .3s; padding: 0; }
+.testi-dot.on { width: 20px; background: var(--gold); }
+.testi-dot:not(.on) { width: 7px; }
+
+/* ═══════════════════════════════════════
+   SCARCITY
+═══════════════════════════════════════ */
+.scarcity-bar {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(240,77,77,.05); border: 1px solid rgba(240,77,77,.18);
+  border-radius: 11px; padding: 13px 16px;
+}
+.red-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--red); flex-shrink: 0; animation: dotBlink 1.4s infinite;
+}
+.scarcity-copy { font-size: 13px; color: #A8B8D0; line-height: 1.55; }
+.scarcity-copy strong { color: #F06060; font-size: 14px; }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 860px) {
+  .checkout-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 500px) {
+  .co-section { padding: 20px 18px; }
+  .plan-row { flex-direction: column; }
+  .stats-strip { grid-template-columns: repeat(2,1fr); }
+  .stat-item:nth-child(3) { border-left: none; border-top: 1px solid rgba(255,255,255,.05); padding-top: 12px; margin-top: 4px; }
+  .stat-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,.05); padding-top: 12px; margin-top: 4px; }
+  .co-hero { padding: 52px 0 44px; }
+}
+
+/* ═══════════════════════════════════════
+   FAQ SECTION WRAPPER
+═══════════════════════════════════════ */
+.co-faq-wrap {
+  background: rgba(10,18,30,.7); backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,168,67,.14);
+  border-radius: 22px; padding: 40px 40px 32px;
+  box-shadow: 0 2px 0 rgba(255,255,255,.04) inset,
+              0 0 80px rgba(212,168,67,.04),
+              0 24px 64px rgba(0,0,0,.5);
+}
+@media (max-width:600px) { .co-faq-wrap { padding: 28px 20px 22px; } }
+
+/* ═══════════════════════════════════════
+   FAQ ACCORDION
+═══════════════════════════════════════ */
+.co-faq-list { display: flex; flex-direction: column; gap: 8px; }
+.co-faq-item {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07); border-radius: 13px;
+  overflow: hidden; transition: border-color .22s, background .22s, box-shadow .22s;
+  position: relative;
+}
+.co-faq-item::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--gold); border-radius: 3px 0 0 3px;
+  transform: scaleY(0); transform-origin: top;
+  transition: transform .3s cubic-bezier(.22,.8,.4,1);
+}
+.co-faq-item.open {
+  border-color: rgba(212,168,67,.35);
+  background: rgba(212,168,67,.04);
+  box-shadow: 0 0 24px rgba(212,168,67,.08);
+}
+.co-faq-item.open::before { transform: scaleY(1); }
+.co-faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 18px 20px 18px 24px; background: none; border: none; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+  color: #D0DCF0; text-align: left; transition: color .2s;
+}
+.co-faq-item.open .co-faq-q { color: var(--gold); }
+.co-faq-icon {
+  font-size: 17px; color: #4A5A74; flex-shrink: 0;
+  transition: transform .32s cubic-bezier(.22,.8,.4,1), color .2s;
+}
+.co-faq-item.open .co-faq-icon { transform: rotate(180deg); color: var(--gold); }
+
+/* Grid trick for perfectly smooth height animation */
+.co-faq-body {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .34s cubic-bezier(.22,.8,.4,1);
+}
+.co-faq-item.open .co-faq-body { grid-template-rows: 1fr; }
+.co-faq-inner { overflow: hidden; }
+.co-faq-a {
+  padding: 0 24px 18px 24px;
+  font-size: 14px; color: #A8B8D0; line-height: 1.78;
+}
+
+/* ═══════════════════════════════════════
+   SOCIAL PROOF TOAST
+═══════════════════════════════════════ */
+.sp-toast {
+  position: fixed; bottom: 24px; left: 24px; z-index: 9999;
+  background: rgba(6,12,22,.96); border: 1px solid rgba(212,168,67,.22);
+  border-radius: 15px; padding: 14px 16px 12px; width: 295px;
+  box-shadow: 0 8px 40px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04);
+  backdrop-filter: blur(20px);
+  opacity: 0; transform: translateY(16px) scale(.97);
+  transition: opacity .4s cubic-bezier(.22,.8,.4,1), transform .4s cubic-bezier(.22,.8,.4,1);
+  pointer-events: none;
+}
+.sp-toast.sp-visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
+.sp-avatar {
+  width: 42px; height: 42px; border-radius: 50%; object-fit: cover;
+  border: 2px solid rgba(0,212,160,.4); flex-shrink: 0;
+}
+.sp-body { flex: 1; min-width: 0; }
+.sp-name { font-size: 13px; font-weight: 700; color: #EEF2F7; margin-bottom: 2px; }
+.sp-product { font-size: 12px; color: #A8B8D0; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-time { font-size: 11px; color: #6A7A94; }
+.sp-verified {
+  font-size: 11px; color: var(--green); font-weight: 600;
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.05);
+  display: flex; align-items: center; gap: 5px;
+}
+.sp-verified i { font-size: 13px; }
+.sp-close {
+  position: absolute; top: 10px; right: 12px;
+  background: none; border: none; color: #4A5A74; font-size: 18px;
+  cursor: pointer; line-height: 1; padding: 2px 4px;
+  transition: color .15s;
+}
+.sp-close:hover { color: #8A9BBE; }
+</style>
+</head>
+<body>
+
+<div id="banner" style="position:relative;z-index:10;">
+  <i class="ph ph-flame"></i> Limited Time: 50% OFF Lifetime <span>|</span> Code: <strong>TITAL50</strong> <span>|</span> Expires Soon
+</div>
+
+<nav id="navbar" style="position:relative;z-index:10;">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Tital<span>Signals</span></a>
+    <ul class="nav-links">
+      <li><a href="signals.html" data-i18n="nav.signals">Signals</a></li>
+      <li><a href="pricing.html" data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="calculator.html" data-i18n="nav.calculator">Calculator</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+      <li><a href="results.html" data-i18n="nav.results">Results</a></li>
+      <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="lang-switcher"><button class="lang-btn" id="langBtn"><i class="ph ph-globe"></i><span id="langLabel">English</span><i class="ph ph-caret-down lang-caret"></i></button><div class="lang-dropdown" id="langDropdown"></div></div>
+      <a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline btn-sm" data-i18n="btn.join_telegram">Join Telegram</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="co-hero" style="position:relative;z-index:1;">
+  <div class="hero-shield-wrap">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <i class="ph ph-shield-check hero-shield-icon"></i>
+  </div>
+  <div class="scan-line"></div>
+  <div class="container">
+    <div class="co-hero-inner">
+      <div class="co-hero-secure"><i class="ph ph-lock-simple"></i> 256-bit SSL · Secured by Stripe &amp; Heleket</div>
+      <h1 class="co-hero-title">Complete Your <em>Order</em></h1>
+      <p class="co-hero-sub">You're one step away from professional-grade trading signals. Instant Telegram access upon payment.</p>
+      <div class="hero-pills">
+        <div class="hero-pill"><i class="ph ph-shield-check"></i> Bank-level Security</div>
+        <div class="hero-pill"><i class="ph ph-lightning"></i> Instant Access</div>
+        <div class="hero-pill"><i class="ph ph-arrow-counter-clockwise"></i> 48h Money Back</div>
+        <div class="hero-pill"><i class="ph ph-users-three"></i> 150K+ Traders</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ GRID ═══════════ -->
+<div class="checkout-wrap" style="position:relative;z-index:1;">
+  <div class="checkout-grid">
+
+    <!-- ─── LEFT COLUMN ─── -->
+    <div>
+
+      <!-- STEP 1: PLAN -->
+      <div class="co-panel" style="margin-bottom:16px;" data-delay="0">
+        <div class="co-section">
+          <div class="co-step">
+            <div class="co-step-num">1</div>
+            <div class="co-step-label"><i class="ph ph-package"></i> Select Your Plan</div>
+          </div>
+          <div class="plan-row">
+            <button class="plan-tab" id="tab-monthly" onclick="selectPlan('monthly')">
+              <div class="plan-tab-top">
+                <span></span>
+                <span class="plan-tab-badge-pop badge-teal">POPULAR</span>
+              </div>
+              <div class="plan-tab-name">Monthly</div>
+              <div class="plan-tab-price">$49</div>
+              <div class="plan-tab-sub">per month · cancel anytime</div>
+              <div class="plan-check"><i class="ph ph-check-bold"></i></div>
+            </button>
+            <button class="plan-tab" id="tab-lifetime" onclick="selectPlan('lifetime')">
+              <div class="plan-tab-top">
+                <span></span>
+                <span class="plan-tab-badge-pop badge-gold">BEST VALUE</span>
+              </div>
+              <div class="plan-tab-name">Lifetime</div>
+              <div class="plan-tab-price">$499</div>
+              <div class="plan-tab-sub">one-time · never pay again</div>
+              <div class="plan-check"><i class="ph ph-check-bold"></i></div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: ORDER SUMMARY -->
+      <div class="co-panel" style="margin-bottom:16px;" data-delay="70">
+        <div class="co-section">
+          <div class="co-step">
+            <div class="co-step-num">2</div>
+            <div class="co-step-label"><i class="ph ph-receipt"></i> Order Summary</div>
+          </div>
+          <div class="order-row">
+            <span id="sum-name">Tital Signals · Monthly</span>
+            <span id="sum-price">$49.00</span>
+          </div>
+          <div class="order-row" id="sum-savings" style="display:none;">
+            <span style="color:var(--green);">Lifetime savings vs monthly</span>
+            <span style="color:var(--green);">Save $1,089+</span>
+          </div>
+          <div class="order-row order-total">
+            <span>Total Due Today</span>
+            <span class="order-total-price" id="sum-total">$49.00</span>
+          </div>
+          <div class="billed-sub"><i class="ph ph-arrows-clockwise" style="font-size:11px;"></i><span id="sum-billed">Billed monthly. Cancel anytime.</span></div>
+          <div class="promo-row">
+            <input class="promo-input" type="text" id="promoInput" placeholder="PROMO CODE" maxlength="20"/>
+            <button class="promo-apply" onclick="applyPromo()">Apply</button>
+          </div>
+          <div class="promo-msg" id="promoMsg"></div>
+        </div>
+      </div>
+
+      <!-- STEP 3: CONTACT -->
+      <div class="co-panel" style="margin-bottom:16px;" data-delay="140">
+        <div class="co-section">
+          <div class="co-step">
+            <div class="co-step-num">3</div>
+            <div class="co-step-label"><i class="ph ph-user"></i> Your Details</div>
+          </div>
+          <div class="field-group">
+            <div>
+              <div class="field-label"><i class="ph ph-envelope"></i> Email Address</div>
+              <input class="field-input" type="email" id="emailInput" placeholder="your@email.com"/>
+              <div class="field-hint" style="margin-top:5px;">Access instructions will be sent to this address.</div>
+            </div>
+            <div>
+              <div class="field-label"><i class="ph ph-telegram-logo"></i> Telegram Username</div>
+              <input class="field-input" type="text" id="telegramInput" placeholder="@username"/>
+              <div class="field-hint" style="margin-top:5px;">We'll send your VIP invite to this account immediately.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: PAYMENT + CTA -->
+      <div class="co-panel" style="margin-bottom:20px;" data-delay="210">
+        <div class="co-section">
+          <div class="co-step">
+            <div class="co-step-num">4</div>
+            <div class="co-step-label"><i class="ph ph-credit-card"></i> Payment Method</div>
+          </div>
+          <div class="pm-tabs">
+            <!-- Card Tab -->
+            <button class="pm-tab active-card" id="pm-card" onclick="setPayMode('card')">
+              <div class="pm-tab-title"><i class="ph ph-credit-card"></i> Card</div>
+              <div class="pm-brands">
+                <!-- VISA -->
+                <span class="pm-logo">
+                  <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg"><text y="17" font-family="Arial,sans-serif" font-size="22" font-weight="900" font-style="italic" fill="#1A1F71">VISA</text></svg>
+                </span>
+                <!-- Mastercard -->
+                <span class="pm-logo pm-logo-mc">
+                  <svg viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="12" r="12" fill="#EB001B"/><circle cx="25" cy="12" r="12" fill="#F79E1B"/><path d="M19 4.5a12 12 0 0 1 0 15A12 12 0 0 1 19 4.5z" fill="#FF5F00"/></svg>
+                </span>
+                <!-- Amex -->
+                <span class="pm-logo" style="background:#2E77BC;">
+                  <svg viewBox="0 0 44 14" xmlns="http://www.w3.org/2000/svg"><text y="12" font-family="Arial,sans-serif" font-size="13" font-weight="800" fill="white" letter-spacing="1.5">AMEX</text></svg>
+                </span>
+                <!-- Apple Pay -->
+                <span class="pm-logo" style="background:#000;">
+                  <svg viewBox="0 0 52 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 4.5C8.7 5.4 7.5 5.3 7.5 5.3c0-1.1.7-2.1 1.6-2.6C10 2.1 11.2 2 11.2 2c0 1.1-.7 1.9-1.7 2.5zM11.1 6c-.9-.1-1.7.5-2.2.5-.5 0-1.2-.5-2-.5C5.7 6 4.3 7 3.5 8.5c-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.1 1.1 0 1.5-.7 2.8-.7 1.3 0 1.6.7 2.8.7 1.1 0 1.9-1.1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4s-2.3-.9-2.3-3.5c0-2.2 1.8-3.2 1.8-3.2-1-.1-2.1-1-3.1-1z" fill="white"/><text x="18" y="15" font-family="-apple-system,Arial,sans-serif" font-size="13" font-weight="500" fill="white">Pay</text></svg>
+                </span>
+                <!-- Stripe -->
+                <span class="pm-logo" style="background:#635BFF;">
+                  <svg viewBox="0 0 40 16" xmlns="http://www.w3.org/2000/svg"><text y="13" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="white">stripe</text></svg>
+                </span>
+              </div>
+            </button>
+            <button class="pm-tab" id="pm-crypto" onclick="setPayMode('crypto')">
+              <div class="pm-tab-title"><i class="ph ph-currency-bitcoin"></i> Crypto</div>
+              <div class="pm-brands">
+                <!-- Bitcoin -->
+                <span class="pm-logo" style="background:#F7931A;">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M23.6 14.8c-1.6 6.4-8 10.3-14.4 8.7C2.8 21.9-1 15.5.6 9.2 2.2 2.8 8.5-1 14.9.6c6.4 1.6 10.2 8 8.7 14.2zM17 10.7c.3-1.8-1.1-2.8-3-3.4l.6-2.4-1.5-.4-.6 2.3-1.2-.3.6-2.3-1.5-.4-.6 2.4c-.3-.1-.7-.2-1-.2l-2-.5-.4 1.6s1.1.3 1.1.3c.6.1.7.5.7.8l-1.7 6.8c-.1.3-.4.6-.9.5 0 0-1.1-.3-1.1-.3l-.7 1.7 1.9.5h1.1l-.6 2.4 1.5.4.6-2.4 1.2.3-.6 2.3 1.5.4.6-2.4c2.6.5 4.5.3 5.3-2 .7-1.9-.03-3-1.5-3.7 1.1-.3 1.9-1 2.1-2.3zm-3.7 5.2c-.5 2-3.7.9-4.8.6l.9-3.4c1.1.3 4.5.9 3.9 2.8zm.5-5.2c-.4 1.8-3.2.9-4.1.7l.8-3.1c.9.2 3.8.6 3.3 2.4z"/></svg>
+                </span>
+                <!-- Ethereum -->
+                <span class="pm-logo" style="background:#627EEA;">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="white" fill-opacity=".6" d="M12 1.75l-6.25 10.5L12 16l6.25-3.75z"/><path fill="white" d="M5.75 13.5L12 22.25l6.25-8.75L12 17.25z"/><path fill="white" fill-opacity=".2" d="M12 1.75v14.25l6.25-3.75z"/><path fill="white" fill-opacity=".6" d="M12 16v6.25l6.25-8.75z"/></svg>
+                </span>
+                <!-- USDT -->
+                <span class="pm-logo" style="background:#26A17B;">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm.07 18.6c-3.53 0-6.4-1.06-6.4-2.37v-1.1c0-.24.27-.46.68-.65.98.97 3.05 1.63 5.72 1.63 2.67 0 4.74-.66 5.72-1.63.41.19.68.41.68.65v1.1c0 1.31-2.87 2.37-6.4 2.37zm6.4-4.97c0 1.05-2.87 1.9-6.4 1.9s-6.4-.85-6.4-1.9v-.92c1.37.96 3.76 1.57 6.4 1.57 2.64 0 5.03-.61 6.4-1.57v.92zM7.38 7.2h9.25v1.36H13.4v4.95h-2.8V8.56H7.38V7.2z"/></svg>
+                </span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="co-section">
+          <!-- Terms checkbox -->
+          <div class="terms-row" style="margin-bottom:18px;">
+            <div class="terms-check-wrap">
+              <input type="checkbox" id="termsCheck" class="terms-check-input"/>
+              <label for="termsCheck" class="terms-check-box"><i class="ph ph-check-bold"></i></label>
+            </div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:0;">
+              <label for="termsCheck" class="terms-label">
+                I agree to the <a href="terms.html" target="_blank">Terms &amp; Conditions</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>
+              </label>
+              <span id="termsConfirm">✓ Confirmed</span>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="#stripe-monthly" id="payBtn" class="pay-btn btn-dim">
+            <i class="ph ph-lock-simple"></i>
+            <span id="payBtnText">Pay $49 · Start Monthly</span>
+            <i class="ph ph-arrow-right"></i>
+          </a>
+
+          <!-- Provider note -->
+          <div class="provider-note" id="providerNote">
+            <i class="ph ph-shield-check"></i>
+            <span id="providerText">Secured by Stripe · 256-bit TLS encryption</span>
+          </div>
+
+          <!-- Trust strip -->
+          <div class="trust-strip" style="margin-top:16px;">
+            <div class="trust-pill"><i class="ph ph-shield-check"></i> Secure</div>
+            <div class="trust-pill"><i class="ph ph-lightning"></i> Instant Access</div>
+            <div class="trust-pill"><i class="ph ph-arrow-counter-clockwise"></i> 48h Money Back</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- end left -->
+
+    <!-- ─── RIGHT COLUMN ─── -->
+    <div style="position:sticky;top:84px;">
+
+      <!-- Stats strip -->
+      <div class="co-panel" style="margin-bottom:16px;" data-delay="50">
+        <div class="stats-strip">
+          <div class="stat-item">
+            <div class="stat-val">85%</div>
+            <div class="stat-label">Win Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">150K+</div>
+            <div class="stat-label">Traders</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">4.9★</div>
+            <div class="stat-label">Rating</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">48h</div>
+            <div class="stat-label">Money Back</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What's Included -->
+      <div class="co-panel" style="margin-bottom:16px;" data-delay="120">
+        <div class="co-section">
+          <div class="co-step" style="margin-bottom:16px;">
+            <div class="co-step-num" style="background:rgba(212,168,67,.08);"><i class="ph ph-star" style="font-size:11px;color:var(--gold);"></i></div>
+            <div class="co-step-label"><i class="ph ph-list-checks"></i> What's Included</div>
+          </div>
+          <div class="feat-list" id="featList">
+            <div class="feat-item">
+              <div class="feat-icon feat-icon-gold"><i class="ph ph-check-bold"></i></div>
+              <div class="feat-text"><strong>XAUUSD Gold Signals</strong> · daily professional alerts</div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon feat-icon-gold"><i class="ph ph-check-bold"></i></div>
+              <div class="feat-text"><strong>Forex Major Pairs</strong> · EUR/USD, GBP/USD &amp; more</div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon feat-icon-gold"><i class="ph ph-check-bold"></i></div>
+              <div class="feat-text"><strong>Entry · TP · SL</strong> with rationale on every signal</div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon feat-icon-gold"><i class="ph ph-check-bold"></i></div>
+              <div class="feat-text"><strong>85% Win Rate</strong> · verified historical performance</div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon feat-icon-gold"><i class="ph ph-check-bold"></i></div>
+              <div class="feat-text"><strong>Trading Academy Ebook</strong> · professional guide included</div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon feat-icon-gold"><i class="ph ph-check-bold"></i></div>
+              <div class="feat-text"><strong>Private Telegram Group</strong> · instant signal delivery</div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon feat-icon-green"><i class="ph ph-check-bold"></i></div>
+              <div class="feat-text"><strong>48h Money-Back Guarantee</strong> · no questions asked</div>
+            </div>
+            <div class="feat-item lifetime-only" id="fl1">
+              <div class="feat-icon feat-icon-crown"><i class="ph ph-crown-simple"></i></div>
+              <div class="feat-text"><strong style="color:var(--gold);">Lifetime Access</strong> · pay once, never again</div>
+            </div>
+            <div class="feat-item lifetime-only" id="fl2">
+              <div class="feat-icon feat-icon-crown"><i class="ph ph-headset"></i></div>
+              <div class="feat-text"><strong style="color:var(--gold);">Priority Support</strong> · VIP response queue</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="co-panel" style="margin-bottom:16px;" data-delay="190">
+        <div class="co-section">
+          <div class="co-step" style="margin-bottom:14px;">
+            <div class="co-step-num" style="background:rgba(212,168,67,.08);"><i class="ph ph-quotes" style="font-size:11px;color:var(--gold);"></i></div>
+            <div class="co-step-label">Trader Reviews</div>
+          </div>
+          <div class="testi-wrap">
+            <div class="testi-slide on" id="t0">
+              <div class="testi-head">
+                <div class="testi-av"><img src="https://i.pravatar.cc/80?img=11" alt="Marcus H." loading="lazy"/></div>
+                <div><div class="testi-name">Marcus H.</div><div class="testi-where">Full-time Trader · Berlin</div></div>
+                <div class="testi-stars">★★★★★</div>
+              </div>
+              <div class="testi-body">"Best signals I've ever subscribed to. Gold calls are laser-sharp. Recovered the cost in the first week."</div>
+            </div>
+            <div class="testi-slide" id="t1">
+              <div class="testi-head">
+                <div class="testi-av"><img src="https://i.pravatar.cc/80?img=44" alt="Layla R." loading="lazy"/></div>
+                <div><div class="testi-name">Layla R.</div><div class="testi-where">Swing Trader · Dubai</div></div>
+                <div class="testi-stars">★★★★★</div>
+              </div>
+              <div class="testi-body">"XAUUSD signals are consistently accurate. The TP and SL on every trade give me full confidence entering positions."</div>
+            </div>
+            <div class="testi-slide" id="t2">
+              <div class="testi-head">
+                <div class="testi-av"><img src="https://i.pravatar.cc/80?img=16" alt="Carlos M." loading="lazy"/></div>
+                <div><div class="testi-name">Carlos M.</div><div class="testi-where">Part-time Trader · Madrid</div></div>
+                <div class="testi-stars">★★★★★</div>
+              </div>
+              <div class="testi-body">"Got the lifetime plan and already ahead by month 2. The rationale behind each signal is what truly sets this apart."</div>
+            </div>
+          </div>
+          <div class="testi-dots" id="testiDots"></div>
+        </div>
+      </div>
+
+      <!-- Scarcity -->
+      <div class="co-panel" data-delay="260">
+        <div class="co-section">
+          <div class="scarcity-bar">
+            <div class="red-dot"></div>
+            <div class="scarcity-copy"><strong>Only 11 spots left at this price</strong><br/>We cap members to maintain signal quality. Price increases when full.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- end right -->
+
+  </div>
+</div>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section style="position:relative;z-index:1;padding:60px 0 48px;">
+  <div class="container" style="max-width:780px;">
+    <div class="co-faq-wrap">
+      <div style="text-align:center;margin-bottom:32px;">
+        <div class="badge" style="margin:0 auto 14px;justify-content:center;"><i class="ph ph-chat-circle-dots"></i> Before You Checkout</div>
+        <h2 style="font-size:clamp(20px,3vw,30px);font-weight:900;letter-spacing:-.02em;margin-bottom:6px;">Frequently Asked Questions</h2>
+        <p style="font-size:14px;color:#7A8EAE;">Everything you need to know before joining.</p>
+      </div>
+      <div class="co-faq-list">
+
+        <div class="co-faq-item">
+          <button class="co-faq-q"><span>I'm a complete beginner. Can I still make money?</span><i class="ph ph-caret-down co-faq-icon"></i></button>
+          <div class="co-faq-body"><div class="co-faq-inner"><div class="co-faq-a">Yes. Our signals include entry price, take-profit, and stop-loss levels — you don't need to analyze charts. Just follow the alert and place the trade. Most of our members started with zero trading experience.</div></div></div>
+        </div>
+
+        <div class="co-faq-item">
+          <button class="co-faq-q"><span>How does this actually work?</span><i class="ph ph-caret-down co-faq-icon"></i></button>
+          <div class="co-faq-body"><div class="co-faq-inner"><div class="co-faq-a">Our analysts monitor XAUUSD Gold and major Forex pairs 24/7. When a high-probability setup forms, we send a signal via Telegram with full details: entry, TP, SL, and the rationale. You get the alert, place the trade, and we track it to close.</div></div></div>
+        </div>
+
+        <div class="co-faq-item">
+          <button class="co-faq-q"><span>How much capital do I need to start?</span><i class="ph ph-caret-down co-faq-icon"></i></button>
+          <div class="co-faq-body"><div class="co-faq-inner"><div class="co-faq-a">You can start with as little as $100 on a micro account. We recommend $500+ for better risk management, but there's no minimum. Our signals are compatible with any account size — we give you the lot size guidance based on your balance.</div></div></div>
+        </div>
+
+        <div class="co-faq-item">
+          <button class="co-faq-q"><span>What if the signals don't work for me?</span><i class="ph ph-caret-down co-faq-icon"></i></button>
+          <div class="co-faq-body"><div class="co-faq-inner"><div class="co-faq-a">We offer a 48-hour money-back guarantee, no questions asked. We also recommend trying our free Telegram preview channel first — see real signals before committing. Our 85%+ win rate is verified by our community over 3+ years.</div></div></div>
+        </div>
+
+        <div class="co-faq-item">
+          <button class="co-faq-q"><span>How do I get access after payment?</span><i class="ph ph-caret-down co-faq-icon"></i></button>
+          <div class="co-faq-body"><div class="co-faq-inner"><div class="co-faq-a">Immediately after payment you'll receive an email with your private Telegram invite link. Enter your @username at checkout and we'll send you access within minutes. The whole process takes under 5 minutes.</div></div></div>
+        </div>
+
+        <div class="co-faq-item">
+          <button class="co-faq-q"><span>How does Lifetime Access work?</span><i class="ph ph-caret-down co-faq-icon"></i></button>
+          <div class="co-faq-body"><div class="co-faq-inner"><div class="co-faq-a">One payment of $499 gives you permanent access — no monthly fees, ever. You stay in our private Telegram group for life, receive all future signals, access the Trading Academy Ebook, and get priority support. It pays for itself in the first month.</div></div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SOCIAL PROOF TOAST ═══════════ -->
+<div id="socialProof" class="sp-toast">
+  <div style="display:flex;gap:12px;align-items:flex-start;">
+    <img id="spAvatar" class="sp-avatar" src="https://i.pravatar.cc/80?img=11" alt=""/>
+    <div class="sp-body">
+      <div class="sp-name" id="spName">Marcus from London, UK</div>
+      <div class="sp-product" id="spProduct">Purchased 📈 Monthly Subscription</div>
+      <div class="sp-time" id="spTime">2 min ago</div>
+    </div>
+    <button class="sp-close" onclick="document.getElementById('socialProof').classList.remove('sp-visible')">×</button>
+  </div>
+  <div class="sp-verified"><i class="ph ph-seal-check"></i> Verified purchase</div>
+</div>
+
+<!-- FOOTER -->
+<footer style="position:relative;z-index:1;">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand"><a href="index.html" class="nav-logo">Tital<span>Signals</span></a><p class="footer-desc" data-i18n="footer.desc">Tital Signals delivers premium Forex &amp; Gold trading signals to traders worldwide.</p><div class="footer-social"><a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank"><i class="ph ph-telegram-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a><a href="#"><i class="ph ph-tiktok-logo"></i></a><a href="#"><i class="ph ph-instagram-logo"></i></a></div></div>
+      <div class="footer-col"><h4 data-i18n="footer.services">Services</h4><ul><li><a href="forex-signals.html" data-i18n="footer.forex">Forex Signals</a></li><li><a href="gold-signals.html" data-i18n="footer.gold">Gold Signals</a></li><li><a href="crypto-signals.html" data-i18n="footer.crypto">Crypto Signals</a></li><li><a href="trading-education.html" data-i18n="footer.education">Trading Education</a></li><li><a href="trading-ebook.html" data-i18n="footer.ebook">Trading Ebook</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.company">Company</h4><ul><li><a href="about.html" data-i18n="footer.about">About Us</a></li><li><a href="results.html" data-i18n="footer.results">Results</a></li><li><a href="contact.html" data-i18n="footer.contact_link">Contact</a></li><li><a href="blog.html" data-i18n="footer.blog">Blog</a></li><li><a href="pricing.html" data-i18n="footer.pricing">Pricing</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.tools">Free Tools</h4><ul><li><a href="calculator.html" data-i18n="footer.xauusd_calc">XAUUSD Calculator</a></li><li><a href="calculator.html" data-i18n="footer.pip_calc">Pip Calculator</a></li><li><a href="calculator.html" data-i18n="footer.lot_calc">Lot Size Calculator</a></li><li><a href="calculator.html" data-i18n="footer.profit_calc">Profit Calculator</a></li><li><a href="calculator.html" data-i18n="footer.rr_calc">Risk Reward Calculator</a></li></ul></div>
+      <div class="footer-col"><h4 data-i18n="footer.legal">Legal</h4><ul><li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="terms.html" data-i18n="footer.terms">Terms &amp; Conditions</a></li><li><a href="refund.html" data-i18n="footer.refund">Refund Policy</a></li><li><a href="risk.html" data-i18n="footer.risk">Risk Disclaimer</a></li></ul><h4 style="margin-top:24px;" data-i18n="footer.contact_col">Contact</h4><a href="https://t.me/+xtJ_XeoX-bU0NjZk" class="footer-contact-link" target="_blank"><i class="ph ph-telegram-logo"></i> @titalsignals <span data-i18n="footer.telegram_on">on Telegram</span> <i class="ph ph-arrow-right"></i></a></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-seo-line"><span class="footer-seo" data-i18n="footer.seo">Tital Signals · Forex &amp; Gold XAUUSD Trading Alerts</span><div class="footer-lang"><button class="footer-lang-btn" id="footerLangBtn"><i class="ph ph-globe"></i><span id="footerLangLabel">English</span><i class="ph ph-caret-up" style="font-size:11px;"></i></button><div class="footer-lang-dropdown lang-dropdown" id="footerLangDropdown"></div></div></div><p class="footer-disclaimer-text" data-i18n="footer.disclaimer">Tital Signals provides forex and gold signals via Telegram. Trading involves risk. Past performance is not indicative of future results.</p><p style="font-size:11px;color:var(--text-muted);">© 2025 Tital Signals. <span data-i18n="footer.rights">All rights reserved.</span></p></div>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script>
+/* ─── NAV SCROLL ─── */
+window.addEventListener('scroll', () =>
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30),
+  { passive: true }
+);
+
+
+/* ─── PANEL ENTRANCE ─── */
+(function() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      setTimeout(() => el.classList.add('visible'), +el.dataset.delay || 0);
+      io.unobserve(el);
+    });
+  }, { threshold: .06 });
+  document.querySelectorAll('.co-panel').forEach(p => io.observe(p));
+})();
+
+/* ─── FEATURE STAGGER ─── */
+(function() {
+  const items = document.querySelectorAll('#featList .feat-item:not(.lifetime-only)');
+  const io = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    items.forEach((el, i) => setTimeout(() => el.classList.add('vis'), i * 65));
+    io.unobserve(entries[0].target);
+  }, { threshold: .04 });
+  if (document.getElementById('featList')) io.observe(document.getElementById('featList'));
+})();
+
+/* ─── PLAN DATA ─── */
+const PLANS = {
+  monthly: {
+    name: 'Tital Signals · Monthly', price: '$49.00', total: '$49.00',
+    billed: 'Billed monthly. Cancel anytime.',
+    stripeLink: '#stripe-monthly', heleket: '#heleket-monthly',
+    cardBtn: 'Pay $49 · Start Monthly', cryptoBtn: 'Pay $49 with Crypto · Heleket',
+    savings: false
+  },
+  lifetime: {
+    name: 'Tital Signals · Lifetime', price: '$499.00', total: '$499.00',
+    billed: 'One-time payment. Lifetime access. No renewals.',
+    stripeLink: '#stripe-lifetime', heleket: '#heleket-lifetime',
+    cardBtn: 'Pay $499 · Get Lifetime Access', cryptoBtn: 'Pay $499 with Crypto · Heleket',
+    savings: true
+  }
+};
+
+let curPlan = 'monthly';
+let payMode = 'card';
+
+function updatePayBtn() {
+  const d = PLANS[curPlan];
+  const isCard = payMode === 'card';
+  const btn = document.getElementById('payBtn');
+  btn.href = isCard ? d.stripeLink : d.heleket;
+  document.getElementById('payBtnText').textContent = isCard ? d.cardBtn : d.cryptoBtn;
+  btn.classList.toggle('mode-crypto', !isCard);
+  document.getElementById('providerText').textContent = isCard
+    ? 'Secured by Stripe · 256-bit TLS encryption'
+    : 'Secured by Heleket · Crypto Payment Gateway';
+}
+
+function selectPlan(plan) {
+  curPlan = plan;
+  const d = PLANS[plan];
+  const isLifetime = plan === 'lifetime';
+
+  /* Tabs */
+  document.getElementById('tab-monthly').className = 'plan-tab' + (plan==='monthly' ? ' active' : '');
+  document.getElementById('tab-lifetime').className = 'plan-tab' + (plan==='lifetime' ? ' active' : '');
+
+  /* Summary */
+  document.getElementById('sum-name').textContent = d.name;
+  document.getElementById('sum-price').textContent = d.price;
+  document.getElementById('sum-total').textContent = d.total;
+  document.getElementById('sum-billed').textContent = d.billed;
+  document.getElementById('sum-savings').style.display = d.savings ? 'flex' : 'none';
+
+  /* Lifetime features */
+  document.querySelectorAll('.feat-item.lifetime-only').forEach(el => {
+    el.classList.toggle('show', isLifetime);
+    if (isLifetime) setTimeout(() => el.classList.add('vis'), 50);
+    else el.classList.remove('vis');
+  });
+
+  updatePayBtn();
+}
+
+function setPayMode(mode) {
+  payMode = mode;
+  const cardTab = document.getElementById('pm-card');
+  const cryptoTab = document.getElementById('pm-crypto');
+  cardTab.className = 'pm-tab' + (mode==='card' ? ' active-card' : '');
+  cryptoTab.className = 'pm-tab' + (mode==='crypto' ? ' active-crypto' : '');
+  updatePayBtn();
+}
+
+/* ─── TERMS CHECKBOX ─── */
+document.getElementById('termsCheck').addEventListener('change', function() {
+  document.getElementById('payBtn').classList.toggle('btn-dim', !this.checked);
+  document.getElementById('termsConfirm').classList.toggle('show', this.checked);
+});
+
+/* ─── URL PARAM ─── */
+(function() {
+  const p = new URLSearchParams(window.location.search).get('plan');
+  selectPlan(p === 'lifetime' ? 'lifetime' : 'monthly');
+})();
+
+/* ─── PROMO CODE ─── */
+const PROMOS = { 'TITAL50': { label: '50% OFF Lifetime', plan: 'lifetime' } };
+function applyPromo() {
+  const code = document.getElementById('promoInput').value.trim().toUpperCase();
+  const msg = document.getElementById('promoMsg');
+  if (!code) { msg.textContent=''; return; }
+  const p = PROMOS[code];
+  if (!p) { msg.textContent='Invalid promo code.'; msg.className='promo-msg err'; return; }
+  msg.textContent='✓ Code applied: ' + p.label;
+  msg.className='promo-msg';
+  if (p.plan) selectPlan(p.plan);
+}
+document.getElementById('promoInput').addEventListener('keydown', e => { if(e.key==='Enter') applyPromo(); });
+
+/* ─── TESTIMONIAL ROTATOR ─── */
+(function() {
+  const slides = document.querySelectorAll('.testi-slide');
+  const dots = document.getElementById('testiDots');
+  let cur = 0;
+  slides.forEach((_,i) => {
+    const b = document.createElement('button');
+    b.className = 'testi-dot'+(i===0?' on':'');
+    b.onclick = () => go(i);
+    dots.appendChild(b);
+  });
+  function go(n) {
+    slides[cur].classList.remove('on'); dots.children[cur].classList.remove('on');
+    cur=n;
+    slides[cur].classList.add('on'); dots.children[cur].classList.add('on');
+  }
+  setInterval(() => go((cur+1)%slides.length), 4500);
+})();
+
+/* ─── FAQ ACCORDION ─── */
+document.querySelectorAll('.co-faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.co-faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.co-faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+/* ─── SOCIAL PROOF TOAST ─── */
+(function() {
+  const PURCHASES = [
+    { name:'Marcus from London, UK',   product:'📈 Monthly Subscription', time:'2 min ago', img:'https://i.pravatar.cc/80?img=11' },
+    { name:'Layla from Dubai, UAE',    product:'👑 Lifetime Access',       time:'just now',  img:'https://i.pravatar.cc/80?img=44' },
+    { name:'Carlos from Madrid, ES',   product:'📚 Trading Ebook',         time:'5 min ago', img:'https://i.pravatar.cc/80?img=16' },
+    { name:'Sophie from Paris, FR',    product:'📈 Monthly Subscription',  time:'1 min ago', img:'https://i.pravatar.cc/80?img=47' },
+    { name:'Yusuf from Berlin, DE',    product:'👑 Lifetime Access',       time:'3 min ago', img:'https://i.pravatar.cc/80?img=15' },
+    { name:'Elena from Milan, IT',     product:'📚 Trading Ebook',         time:'just now',  img:'https://i.pravatar.cc/80?img=48' },
+    { name:'James from New York, US',  product:'📈 Monthly Subscription',  time:'4 min ago', img:'https://i.pravatar.cc/80?img=13' },
+    { name:'Natasha from Tokyo, JP',   product:'👑 Lifetime Access',       time:'2 min ago', img:'https://i.pravatar.cc/80?img=49' },
+  ];
+  const toast = document.getElementById('socialProof');
+  let idx = 0;
+
+  function showNext() {
+    const p = PURCHASES[idx % PURCHASES.length];
+    document.getElementById('spName').textContent    = p.name;
+    document.getElementById('spProduct').textContent = p.product;
+    document.getElementById('spTime').textContent    = p.time;
+    document.getElementById('spAvatar').src          = p.img;
+    toast.classList.add('sp-visible');
+    idx++;
+    setTimeout(() => toast.classList.remove('sp-visible'), 5000);
+  }
+
+  setTimeout(() => {
+    showNext();
+    setInterval(showNext, 30000);
+  }, 4000);
+})();
+</script>
+</body>
+</html>

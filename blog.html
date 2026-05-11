@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog · Tital Signals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.article-card{background:var(--bg-card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .2s,transform .2s;cursor:pointer;}
+.article-card:hover{border-color:var(--border-strong);transform:translateY(-3px);}
+.article-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:48px;border-bottom:1px solid var(--border);}
+.article-body{padding:22px;}
+.article-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:100px;display:inline-block;margin-bottom:10px;}
+.cat-gold{background:var(--gold-muted);color:var(--gold);}
+.cat-edu{background:rgba(0,212,160,.12);color:var(--green);}
+.cat-forex{background:rgba(100,130,255,.12);color:#7B8FFF;}
+.article-title{font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.4;}
+.article-exc{font-size:13px;color:var(--text-secondary);line-height:1.65;margin-bottom:14px;}
+.article-meta{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--text-muted);}
+.featured-article{background:var(--bg-card);backdrop-filter:blur(20px);border:1px solid var(--gold-border);border-radius:var(--radius);padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:48px;}
+@media(max-width:700px){.featured-article{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="banner"><i class="ph ph-flame"></i> 50% OFF Lifetime <span>|</span> Code: <strong>TITAL50</strong></div>
+<nav id="navbar"><div class="nav-inner"><a href="index.html" class="nav-logo">Tital<span>Signals</span></a><ul class="nav-links"><li><a href="signals.html">Signals</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="calculator.html">Calculator</a></li><li><a href="faq.html">FAQ</a></li><li><a href="results.html">Results</a></li><li><a href="blog.html" class="active">Blog</a></li><li><a href="contact.html">Contact</a></li></ul><div class="nav-cta"><div class="lang-switcher"><button class="lang-btn" id="langBtn"><i class="ph ph-globe"></i><span id="langLabel">English</span><i class="ph ph-caret-down lang-caret"></i></button><div class="lang-dropdown" id="langDropdown"></div></div><a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline btn-sm">Join Telegram</a><a href="pricing.html" class="btn btn-gold btn-sm">Get Signals</a></div></div></nav>
+
+<section class="page-hero text-center"><div class="container">
+<div class="badge reveal" style="margin-bottom:20px;justify-content:center;"><i class="ph ph-newspaper"></i> Weekly Market Analysis</div>
+<h1 class="page-title reveal">Trading Blog</h1>
+<p class="section-sub mx-auto text-center reveal">Market analysis, trading education, and Gold insights from our professional analyst team.</p>
+</div></section>
+
+<section class="section"><div class="container">
+  <!-- Featured -->
+  <div class="featured-article reveal">
+    <div>
+      <div class="article-cat cat-gold">Gold Analysis</div>
+      <h2 style="font-size:26px;font-weight:900;margin-bottom:14px;letter-spacing:-.02em;">Why Gold (XAUUSD) is the Best Asset to Trade in 2026</h2>
+      <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:20px;">With $150 billion traded daily, clear technical patterns, and strong macro drivers, Gold remains the most consistent trading opportunity for signal followers. Here's our complete analysis.</p>
+      <div style="display:flex;align-items:center;gap:14px;font-size:12px;color:var(--text-muted);margin-bottom:20px;"><span><i class="ph ph-calendar"></i> May 7, 2026</span><span><i class="ph ph-clock"></i> 8 min read</span></div>
+      <a href="#" class="btn btn-gold"><i class="ph ph-arrow-right"></i> Read Article</a>
+    </div>
+    <div style="font-size:80px;text-align:center;background:rgba(212,168,67,.06);border:1px solid var(--gold-border);border-radius:var(--radius);padding:40px;">🥇</div>
+  </div>
+
+  <!-- Article Grid -->
+  <div class="grid-3 reveal">
+    <div class="article-card">
+      <div class="article-thumb" style="background:rgba(212,168,67,.06);">📊</div>
+      <div class="article-body">
+        <div class="article-cat cat-edu">Education</div>
+        <div class="article-title">How to Read a Trading Signal: Complete Beginner's Guide</div>
+        <div class="article-exc">Entry, take-profit, stop-loss, and risk-to-reward — everything you need to understand before copying your first signal.</div>
+        <div class="article-meta"><span><i class="ph ph-calendar"></i> May 3, 2026</span><span><i class="ph ph-clock"></i> 6 min</span></div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb" style="background:rgba(0,212,160,.06);">🧮</div>
+      <div class="article-body">
+        <div class="article-cat cat-edu">Risk Management</div>
+        <div class="article-title">The 2% Rule: Why Professional Traders Never Risk More</div>
+        <div class="article-exc">Position sizing is the single most important concept in trading. This guide shows how to calculate your lot size correctly every time.</div>
+        <div class="article-meta"><span><i class="ph ph-calendar"></i> Apr 29, 2026</span><span><i class="ph ph-clock"></i> 5 min</span></div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb" style="background:rgba(100,130,255,.06);">💱</div>
+      <div class="article-body">
+        <div class="article-cat cat-forex">Forex</div>
+        <div class="article-title">EUR/USD Technical Analysis — May 2026 Outlook</div>
+        <div class="article-exc">Monthly EUR/USD breakdown: key levels to watch, DXY correlation, and what the Fed's decisions mean for the Euro this month.</div>
+        <div class="article-meta"><span><i class="ph ph-calendar"></i> Apr 30, 2026</span><span><i class="ph ph-clock"></i> 7 min</span></div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb" style="background:rgba(212,168,67,.06);">⚡</div>
+      <div class="article-body">
+        <div class="article-cat cat-gold">Gold Analysis</div>
+        <div class="article-title">XAUUSD Key Levels for Q2 2026 — Where Is Gold Heading?</div>
+        <div class="article-exc">Quarterly Gold analysis. Support and resistance zones, geopolitical drivers, and the macro case for Gold above $3,200.</div>
+        <div class="article-meta"><span><i class="ph ph-calendar"></i> Apr 15, 2026</span><span><i class="ph ph-clock"></i> 9 min</span></div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb" style="background:rgba(0,212,160,.06);">🛡️</div>
+      <div class="article-body">
+        <div class="article-cat cat-edu">Education</div>
+        <div class="article-title">Stop-Loss Orders Explained: Why They Are Non-Negotiable</div>
+        <div class="article-exc">Every Tital Signals alert includes a stop-loss. Here's why removing or ignoring it is the single biggest mistake traders make.</div>
+        <div class="article-meta"><span><i class="ph ph-calendar"></i> Apr 10, 2026</span><span><i class="ph ph-clock"></i> 5 min</span></div>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-thumb" style="background:rgba(212,168,67,.06);">📈</div>
+      <div class="article-body">
+        <div class="article-cat cat-gold">Gold Analysis</div>
+        <div class="article-title">18 Months of XAUUSD Signals — What We Learned</div>
+        <div class="article-exc">A transparent look at our full 18-month signal history. What worked, what didn't, and how we refined our methodology.</div>
+        <div class="article-meta"><span><i class="ph ph-calendar"></i> Apr 5, 2026</span><span><i class="ph ph-clock"></i> 11 min</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="container"><div class="footer-main"><div class="footer-brand"><a href="index.html" class="nav-logo">Tital<span>Signals</span></a><p class="footer-desc">Premium Forex &amp; Gold signals worldwide.</p><div class="footer-social"><a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank"><i class="ph ph-telegram-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a><a href="#"><i class="ph ph-tiktok-logo"></i></a><a href="#"><i class="ph ph-instagram-logo"></i></a></div></div><div class="footer-col"><h4>Services</h4><ul><li><a href="forex-signals.html">Forex Signals</a></li><li><a href="gold-signals.html">Gold Signals</a></li><li><a href="crypto-signals.html">Crypto Signals</a></li><li><a href="trading-education.html">Education</a></li><li><a href="trading-ebook.html">Ebook</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="results.html">Results</a></li><li><a href="contact.html">Contact</a></li><li><a href="blog.html">Blog</a></li><li><a href="pricing.html">Pricing</a></li></ul></div><div class="footer-col"><h4>Free Tools</h4><ul><li><a href="calculator.html">XAUUSD Calculator</a></li><li><a href="calculator.html">Pip Calculator</a></li><li><a href="calculator.html">Lot Size Calculator</a></li><li><a href="calculator.html">Profit Calculator</a></li><li><a href="calculator.html">Risk Reward</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="refund.html">Refund Policy</a></li><li><a href="risk.html">Risk Disclaimer</a></li><li><a href="methodology.html">Methodology</a></li></ul><h4 style="margin-top:24px;">Contact</h4><a href="https://t.me/+xtJ_XeoX-bU0NjZk" class="footer-contact-link" target="_blank"><i class="ph ph-telegram-logo"></i> @titalsignals <i class="ph ph-arrow-right"></i></a></div></div><div class="footer-bottom"><div class="footer-seo-line"><span class="footer-seo">Tital Signals · Trading Blog &amp; Market Analysis</span><div class="footer-lang"><button class="footer-lang-btn" id="footerLangBtn"><i class="ph ph-globe"></i><span id="footerLangLabel">English</span></button><div class="footer-lang-dropdown lang-dropdown" id="footerLangDropdown"></div></div></div><p class="footer-disclaimer-text">Trading involves risk. Past performance is not indicative of future results.</p><p style="font-size:11px;color:var(--text-muted);">© 2025 Tital Signals. All rights reserved.</p></div></div></footer>
+<script src="js/i18n.js"></script>
+<script>window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30),{passive:true});const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));</script>
+</body></html>

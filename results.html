@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Results · Tital Signals</title>
+<meta name="description" content="Verified trading signal performance. Monthly win rates, full signal history, and transparent track record."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.perf-table{width:100%;border-collapse:collapse;background:var(--bg-card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.perf-table th{background:var(--bg-elevated);padding:14px 18px;font-size:12px;font-weight:700;text-align:left;border-bottom:1px solid var(--border);color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;}
+.perf-table td{padding:13px 18px;font-size:14px;border-bottom:1px solid rgba(255,255,255,.03);}
+.perf-table tr:last-child td{border-bottom:none;}
+.perf-table tr:hover td{background:rgba(255,255,255,.02);}
+.win-bar{height:6px;background:var(--bg-elevated);border-radius:100px;overflow:hidden;width:100px;display:inline-block;vertical-align:middle;margin-left:8px;}
+.win-fill{height:100%;border-radius:100px;background:var(--green);}
+.signal-example{background:var(--bg-card);backdrop-filter:blur(20px);border:1px solid var(--gold-border);border-radius:var(--radius);padding:20px 24px;margin-bottom:16px;}
+.sig-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.sig-badge{padding:4px 12px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}
+.sig-buy{background:rgba(0,212,160,.2);color:var(--green);}
+.sig-pair{font-size:15px;font-weight:800;font-family:'IBM Plex Mono',monospace;min-width:90px;}
+.sig-detail{display:flex;flex-direction:column;}
+.sig-lbl{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;}
+.sig-val{font-size:13px;font-weight:700;font-family:'IBM Plex Mono',monospace;}
+.sig-result{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--green);}
+.transparency-card{background:rgba(0,212,160,.06);border:1px solid var(--green-border);border-radius:var(--radius);padding:28px;display:flex;gap:20px;align-items:flex-start;}
+.transparency-card i{font-size:32px;color:var(--green);flex-shrink:0;margin-top:2px;}
+</style>
+</head>
+<body>
+<div id="banner"><i class="ph ph-flame"></i> 50% OFF Lifetime <span>|</span> Code: <strong>TITAL50</strong></div>
+<nav id="navbar"><div class="nav-inner"><a href="index.html" class="nav-logo">Tital<span>Signals</span></a><ul class="nav-links"><li><a href="signals.html">Signals</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="calculator.html">Calculator</a></li><li><a href="faq.html">FAQ</a></li><li><a href="results.html" class="active">Results</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul><div class="nav-cta"><div class="lang-switcher"><button class="lang-btn" id="langBtn"><i class="ph ph-globe"></i><span id="langLabel">English</span><i class="ph ph-caret-down lang-caret"></i></button><div class="lang-dropdown" id="langDropdown"></div></div><a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank" class="btn btn-outline btn-sm">Join Telegram</a><a href="pricing.html" class="btn btn-gold btn-sm">Get Signals</a></div></div></nav>
+
+<section class="page-hero text-center">
+  <div class="container">
+    <div class="badge reveal" style="margin-bottom:20px;justify-content:center;"><i class="ph ph-chart-line-up"></i> Verified Performance</div>
+    <h1 class="page-title reveal">Our Signal Results</h1>
+    <p class="section-sub mx-auto text-center reveal">Full transparency. Every signal is permanently archived — wins and losses. Nothing is deleted.</p>
+    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:36px;" class="reveal">
+      <div><div style="font-size:44px;font-weight:900;color:var(--gold);">85%</div><div style="font-size:13px;color:var(--text-muted);">Overall Win Rate</div></div>
+      <div><div style="font-size:44px;font-weight:900;color:var(--gold);">2,400+</div><div style="font-size:13px;color:var(--text-muted);">Total Signals Sent</div></div>
+      <div><div style="font-size:44px;font-weight:900;color:var(--gold);">18</div><div style="font-size:13px;color:var(--text-muted);">Months of History</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:40px;">
+      <div class="section-label"><i class="ph ph-calendar"></i> Monthly Performance</div>
+      <h2 class="section-title">Last 12 Months</h2>
+    </div>
+    <div style="overflow-x:auto;" class="reveal">
+      <table class="perf-table">
+        <thead><tr><th>Month</th><th>Signals</th><th>Wins</th><th>Losses</th><th>Win Rate</th><th>Best Signal</th></tr></thead>
+        <tbody>
+          <tr><td><strong>May 2026</strong></td><td>62</td><td style="color:var(--green);font-weight:700;">54</td><td style="color:var(--red);">8</td><td>87%<div class="win-bar"><div class="win-fill" style="width:87%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">XAUUSD +$412</td></tr>
+          <tr><td><strong>Apr 2026</strong></td><td>58</td><td style="color:var(--green);font-weight:700;">49</td><td style="color:var(--red);">9</td><td>84%<div class="win-bar"><div class="win-fill" style="width:84%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">XAUUSD +$388</td></tr>
+          <tr><td><strong>Mar 2026</strong></td><td>71</td><td style="color:var(--green);font-weight:700;">62</td><td style="color:var(--red);">9</td><td>87%<div class="win-bar"><div class="win-fill" style="width:87%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">GBP/USD +$298</td></tr>
+          <tr><td><strong>Feb 2026</strong></td><td>55</td><td style="color:var(--green);font-weight:700;">46</td><td style="color:var(--red);">9</td><td>84%<div class="win-bar"><div class="win-fill" style="width:84%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">XAUUSD +$356</td></tr>
+          <tr><td><strong>Jan 2026</strong></td><td>64</td><td style="color:var(--green);font-weight:700;">56</td><td style="color:var(--red);">8</td><td>88%<div class="win-bar"><div class="win-fill" style="width:88%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">XAUUSD +$445</td></tr>
+          <tr><td><strong>Dec 2025</strong></td><td>48</td><td style="color:var(--green);font-weight:700;">40</td><td style="color:var(--red);">8</td><td>83%<div class="win-bar"><div class="win-fill" style="width:83%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">EUR/USD +$224</td></tr>
+          <tr><td><strong>Nov 2025</strong></td><td>66</td><td style="color:var(--green);font-weight:700;">57</td><td style="color:var(--red);">9</td><td>86%<div class="win-bar"><div class="win-fill" style="width:86%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">XAUUSD +$401</td></tr>
+          <tr><td><strong>Oct 2025</strong></td><td>70</td><td style="color:var(--green);font-weight:700;">60</td><td style="color:var(--red);">10</td><td>86%<div class="win-bar"><div class="win-fill" style="width:86%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">NAS100 +$318</td></tr>
+          <tr><td><strong>Sep 2025</strong></td><td>53</td><td style="color:var(--green);font-weight:700;">44</td><td style="color:var(--red);">9</td><td>83%<div class="win-bar"><div class="win-fill" style="width:83%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">XAUUSD +$378</td></tr>
+          <tr><td><strong>Aug 2025</strong></td><td>61</td><td style="color:var(--green);font-weight:700;">53</td><td style="color:var(--red);">8</td><td>87%<div class="win-bar"><div class="win-fill" style="width:87%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">XAUUSD +$432</td></tr>
+          <tr><td><strong>Jul 2025</strong></td><td>67</td><td style="color:var(--green);font-weight:700;">58</td><td style="color:var(--red);">9</td><td>87%<div class="win-bar"><div class="win-fill" style="width:87%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">GBP/JPY +$289</td></tr>
+          <tr><td><strong>Jun 2025</strong></td><td>59</td><td style="color:var(--green);font-weight:700;">49</td><td style="color:var(--red);">10</td><td>83%<div class="win-bar"><div class="win-fill" style="width:83%"></div></div></td><td style="font-family:'IBM Plex Mono',monospace;font-size:12px;">XAUUSD +$361</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);text-align:center;margin-top:14px;">Based on 0.10 lot size per signal. Results vary by position size and broker execution.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-surface);">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:40px;">
+      <div class="section-label"><i class="ph ph-star"></i> Sample Winning Signals</div>
+      <h2 class="section-title">Real Signals That Hit Target</h2>
+    </div>
+    <div style="max-width:700px;margin:0 auto;" class="reveal">
+      <div class="signal-example">
+        <div class="sig-row">
+          <div class="sig-badge sig-buy">BUY</div>
+          <div class="sig-pair">XAUUSD</div>
+          <div class="sig-detail"><div class="sig-lbl">Entry</div><div class="sig-val" style="color:var(--gold);">$3,124.50</div></div>
+          <div class="sig-detail"><div class="sig-lbl">TP1</div><div class="sig-val" style="color:var(--green);">$3,148.00</div></div>
+          <div class="sig-detail"><div class="sig-lbl">TP2</div><div class="sig-val" style="color:var(--green);">$3,165.00</div></div>
+          <div class="sig-detail"><div class="sig-lbl">SL</div><div class="sig-val" style="color:var(--red);">$3,108.00</div></div>
+          <div class="sig-result"><i class="ph ph-check-circle"></i> TP2 Hit · +$411 per 0.10 lot</div>
+        </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text-muted);">May 6, 2026 · Bounce from $3,120 daily support with RSI oversold on H4</div>
+      </div>
+      <div class="signal-example">
+        <div class="sig-row">
+          <div class="sig-badge" style="background:rgba(240,77,77,.2);color:var(--red);">SELL</div>
+          <div class="sig-pair">EUR/USD</div>
+          <div class="sig-detail"><div class="sig-lbl">Entry</div><div class="sig-val" style="color:var(--gold);">1.0842</div></div>
+          <div class="sig-detail"><div class="sig-lbl">TP1</div><div class="sig-val" style="color:var(--green);">1.0798</div></div>
+          <div class="sig-detail"><div class="sig-lbl">TP2</div><div class="sig-val" style="color:var(--green);">1.0770</div></div>
+          <div class="sig-detail"><div class="sig-lbl">SL</div><div class="sig-val" style="color:var(--red);">1.0868</div></div>
+          <div class="sig-result"><i class="ph ph-check-circle"></i> TP1 Hit · +$237 per 0.10 lot</div>
+        </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text-muted);">Apr 28, 2026 · DXY strengthening, EUR/USD rejection at key resistance 1.0850</div>
+      </div>
+      <div class="signal-example">
+        <div class="sig-row">
+          <div class="sig-badge sig-buy">BUY</div>
+          <div class="sig-pair">XAUUSD</div>
+          <div class="sig-detail"><div class="sig-lbl">Entry</div><div class="sig-val" style="color:var(--gold);">$3,098.20</div></div>
+          <div class="sig-detail"><div class="sig-lbl">TP1</div><div class="sig-val" style="color:var(--green);">$3,124.00</div></div>
+          <div class="sig-detail"><div class="sig-lbl">TP2</div><div class="sig-val" style="color:var(--green);">$3,142.00</div></div>
+          <div class="sig-detail"><div class="sig-lbl">SL</div><div class="sig-val" style="color:var(--red);">$3,082.00</div></div>
+          <div class="sig-result"><i class="ph ph-check-circle"></i> TP2 Hit · +$439 per 0.10 lot</div>
+        </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text-muted);">Mar 15, 2026 · Weekly support held, geopolitical risk driving safe-haven demand</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:720px;">
+    <div class="transparency-card reveal">
+      <i class="ph ph-eye"></i>
+      <div>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:10px;">How We Track Results</h3>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:12px;">Every signal is permanently archived in our Telegram channel — visible to all members, past and present. We never delete any signal, including losses. Our win rate is calculated across all signals sent, not cherry-picked.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-secondary);"><i class="ph ph-check-circle" style="color:var(--green);"></i> All signals permanently archived in Telegram</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-secondary);"><i class="ph ph-check-circle" style="color:var(--green);"></i> Losses never deleted or modified</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-secondary);"><i class="ph ph-check-circle" style="color:var(--green);"></i> Monthly performance reports published publicly</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-secondary);"><i class="ph ph-check-circle" style="color:var(--green);"></i> 18+ months of verifiable track record</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section text-center" style="background:var(--bg-surface);">
+  <div class="container reveal">
+    <h2 class="section-title">Join and See Every Signal</h2>
+    <p class="section-sub mx-auto text-center" style="margin-bottom:32px;">Members have access to all historical signals going back 18 months. Full transparency from day one.</p>
+    <a href="pricing.html" class="btn btn-gold btn-lg"><i class="ph ph-crown-simple"></i> Get Full Access</a>
+  </div>
+</section>
+
+<footer><div class="container"><div class="footer-main"><div class="footer-brand"><a href="index.html" class="nav-logo">Tital<span>Signals</span></a><p class="footer-desc">Premium Forex &amp; Gold trading signals worldwide.</p><div class="footer-social"><a href="https://t.me/+xtJ_XeoX-bU0NjZk" target="_blank"><i class="ph ph-telegram-logo"></i></a><a href="#"><i class="ph ph-youtube-logo"></i></a><a href="#"><i class="ph ph-tiktok-logo"></i></a><a href="#"><i class="ph ph-instagram-logo"></i></a></div></div><div class="footer-col"><h4>Services</h4><ul><li><a href="forex-signals.html">Forex Signals</a></li><li><a href="gold-signals.html">Gold Signals</a></li><li><a href="crypto-signals.html">Crypto Signals</a></li><li><a href="trading-education.html">Education</a></li><li><a href="trading-ebook.html">Ebook</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="results.html">Results</a></li><li><a href="contact.html">Contact</a></li><li><a href="blog.html">Blog</a></li><li><a href="pricing.html">Pricing</a></li></ul></div><div class="footer-col"><h4>Free Tools</h4><ul><li><a href="calculator.html">XAUUSD Calculator</a></li><li><a href="calculator.html">Pip Calculator</a></li><li><a href="calculator.html">Lot Size Calculator</a></li><li><a href="calculator.html">Profit Calculator</a></li><li><a href="calculator.html">Risk Reward</a></li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="refund.html">Refund Policy</a></li><li><a href="risk.html">Risk Disclaimer</a></li><li><a href="methodology.html">Methodology</a></li></ul><h4 style="margin-top:24px;">Contact</h4><a href="https://t.me/+xtJ_XeoX-bU0NjZk" class="footer-contact-link" target="_blank"><i class="ph ph-telegram-logo"></i> @titalsignals on Telegram <i class="ph ph-arrow-right"></i></a></div></div><div class="footer-bottom"><div class="footer-seo-line"><span class="footer-seo">Tital Signals · XAUUSD Gold Forex Trading Results</span><div class="footer-lang"><button class="footer-lang-btn" id="footerLangBtn"><i class="ph ph-globe"></i><span id="footerLangLabel">English</span></button><div class="footer-lang-dropdown lang-dropdown" id="footerLangDropdown"></div></div></div><p class="footer-disclaimer-text">Past performance is not indicative of future results. Trading involves risk.</p><p style="font-size:11px;color:var(--text-muted);">© 2025 Tital Signals. All rights reserved.</p></div></div></footer>
+<script src="js/i18n.js"></script>
+<script>window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30),{passive:true});const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));</script>
+</body>
+</html>
