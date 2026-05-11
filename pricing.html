@@ -489,7 +489,7 @@ let testiTimer = setInterval(() => goTesti(testiIdx + 1), 5000);
 <script>
   window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30),{passive:true});
   document.querySelectorAll('.faq-q').forEach(b=>b.addEventListener('click',()=>{const i=b.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}));
-  (function(){const e=Date.now()+(4*3600+22*60+47)*1000;function t(){const d=Math.max(0,e-Date.now());document.getElementById('c-h').textContent=String(Math.floor(d/3600000)).padStart(2,'0');document.getElementById('c-m').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');document.getElementById('c-s').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');if(d>0)setTimeout(t,1000);}t();})();
+  (function(){const ch=document.getElementById('c-h');if(!ch)return;const e=Date.now()+(4*3600+22*60+47)*1000;function t(){const d=Math.max(0,e-Date.now());ch.textContent=String(Math.floor(d/3600000)).padStart(2,'0');document.getElementById('c-m').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');document.getElementById('c-s').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');if(d>0)setTimeout(t,1000);}t();})();
   const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 </script>
