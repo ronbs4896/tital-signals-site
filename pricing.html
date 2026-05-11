@@ -182,8 +182,8 @@
           <div class="spc-price"><sup>$</sup><span id="spc-price-num">49</span></div>
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-              <span class="spc-orig" id="spc-orig" style="display:none;">$49</span>
-              <span class="discount-badge" id="spc-discount" style="display:none;">50% OFF</span>
+              <span class="spc-orig" id="spc-orig" style="display:inline;">$99</span>
+              <span class="discount-badge" id="spc-discount" style="display:inline;">50% OFF</span>
             </div>
             <div class="spc-period" id="spc-period">per month</div>
           </div>
@@ -270,7 +270,7 @@
 <script>
 // Pricing toggle
 const plans = {
-  monthly: { price:'49', period:'per month', billed:'&nbsp;', orig:'', discount:'', cta:'Get Monthly Access' },
+  monthly: { price:'49', period:'per month', billed:'&nbsp;', orig:'$99', discount:'50% OFF', cta:'Get Monthly Access' },
   annual:  { price:'25', period:'per month', billed:'Billed $294/year · Cancel anytime', orig:'$49', discount:'50% OFF', cta:'Get Annual Access · $294/yr' }
 };
 document.querySelectorAll('.toggle-btn').forEach(btn => {
@@ -326,7 +326,11 @@ let testiTimer = setInterval(() => goTesti(testiIdx + 1), 5000);
       <!-- Monthly -->
       <div class="pricing-card">
         <div class="pricing-name">Monthly</div>
-        <div class="pricing-price"><sup>$</sup>49</div>
+        <div style="display:flex;align-items:baseline;gap:10px;">
+          <div class="pricing-price"><sup>$</sup>49</div>
+          <span style="font-size:18px;color:var(--text-muted);text-decoration:line-through;">$99</span>
+          <span style="font-size:12px;font-weight:800;background:var(--green);color:#040A10;padding:2px 8px;border-radius:100px;">50% OFF</span>
+        </div>
         <div class="pricing-period">per month · cancel anytime</div>
         <ul class="pricing-features">
           <li><i class="ph ph-check-circle"></i> All live Forex & Gold signals</li>
@@ -342,9 +346,13 @@ let testiTimer = setInterval(() => goTesti(testiIdx + 1), 5000);
       </div>
       <!-- Lifetime -->
       <div class="pricing-card card-gradient">
-        <div class="pricing-badge">🏆 Best Value · 80% Off</div>
+        <div class="pricing-badge">🏆 Best Value · 50% Off</div>
         <div class="pricing-name">Lifetime Access</div>
-        <div class="pricing-price" style="color:var(--gold);"><sup>$</sup>499</div>
+        <div style="display:flex;align-items:baseline;gap:10px;">
+          <div class="pricing-price" style="color:var(--gold);"><sup>$</sup>499</div>
+          <span style="font-size:18px;color:var(--text-muted);text-decoration:line-through;">$999</span>
+          <span style="font-size:12px;font-weight:800;background:var(--gold);color:#040A10;padding:2px 8px;border-radius:100px;">50% OFF</span>
+        </div>
         <div class="pricing-period">one-time payment · never pay again</div>
         <ul class="pricing-features">
           <li><i class="ph ph-check-circle"></i> Everything in Monthly</li>
