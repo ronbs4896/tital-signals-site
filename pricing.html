@@ -31,7 +31,7 @@
 </style>
 </head>
 <body>
-<div id="banner"><i class="ph ph-flame"></i> Limited Time: 50% OFF Lifetime <span>|</span> Code: <strong>TITAL50</strong> <span>|</span> Expires Soon</div>
+<div id="banner"><i class="ph ph-flame"></i> Limited Time: 50% OFF <span>|</span> Code: <strong>TITAN50</strong> <span>|</span> Ends in <strong id="c-h">00</strong>:<strong id="c-m">00</strong>:<strong id="c-s">00</strong></div>
 <nav id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Titan<span>Signals</span></a>
@@ -164,7 +164,7 @@
         <button class="toggle-btn" data-plan="annual">Annual &nbsp;<span class="badge-50off">50% OFF</span></button>
       </div>
       <div class="toggle-save" id="toggle-save-msg" style="opacity:0;">
-        🎉 Save $294/year with Annual
+        🎉 Save $500/year with Annual
       </div>
     </div>
 
@@ -182,7 +182,7 @@
           <div class="spc-price"><sup>$</sup><span id="spc-price-num">79.99</span></div>
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
-              <span class="spc-orig" id="spc-orig" style="display:inline;">$99</span>
+              <span class="spc-orig" id="spc-orig" style="display:inline;">$149.99</span>
               <span class="discount-badge" id="spc-discount" style="display:inline;">50% OFF</span>
             </div>
             <div class="spc-period" id="spc-period">per month</div>
@@ -198,7 +198,7 @@
         </div>
 
         <!-- CTAs -->
-        <a id="spc-cta-primary" href="checkout.html?plan=monthly" class="spc-btn-primary">
+        <a id="spc-cta-primary" href="https://whop.com/checkout/plan_70MEV6M1X1Xoe" target="_blank" class="spc-btn-primary">
           <i class="ph ph-crown-simple"></i>
           <span id="spc-cta-text">Get Monthly Access</span>
           <i class="ph ph-arrow-right" style="margin-left:auto;"></i>
@@ -270,8 +270,8 @@
 <script>
 // Pricing toggle
 const plans = {
-  monthly: { price:'79.99', period:'per month', billed:'&nbsp;', orig:'$99', discount:'50% OFF', cta:'Get Monthly Access' },
-  annual:  { price:'39.99', period:'per month', billed:'Billed $479.88/year · Cancel anytime', orig:'$99', discount:'60% OFF', cta:'Get Annual Access · $479.88/yr' }
+  monthly: { price:'79.99', period:'per month', billed:'&nbsp;', orig:'$149.99', discount:'50% OFF', cta:'Get Monthly Access' },
+  annual:  { price:'41.58', period:'per month', billed:'Billed $499/year · Save $500 vs monthly', orig:'$999', discount:'50% OFF', cta:'Get Annual Access · $499/yr' }
 };
 document.querySelectorAll('.toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -292,7 +292,10 @@ document.querySelectorAll('.toggle-btn').forEach(btn => {
     } else {
       orig.style.display='none';disc.style.display='none';saveMsg.style.opacity='0';
     }
-    document.getElementById('spc-cta-primary').href = btn.dataset.plan === 'annual' ? 'checkout.html?plan=lifetime' : 'checkout.html?plan=monthly';
+    document.getElementById('spc-cta-primary').href = btn.dataset.plan === 'annual'
+      ? 'https://whop.com/checkout/plan_LUsgsrMFXlRji'
+      : 'https://whop.com/checkout/plan_70MEV6M1X1Xoe';
+    document.getElementById('spc-cta-primary').target = '_blank';
   });
 });
 
@@ -328,7 +331,7 @@ let testiTimer = setInterval(() => goTesti(testiIdx + 1), 5000);
         <div class="pricing-name">Monthly</div>
         <div style="display:flex;align-items:baseline;gap:10px;">
           <div class="pricing-price"><sup>$</sup>79.99</div>
-          <span style="font-size:18px;color:var(--text-muted);text-decoration:line-through;">$99</span>
+          <span style="font-size:18px;color:var(--text-muted);text-decoration:line-through;">$149.99</span>
           <span style="font-size:12px;font-weight:800;background:var(--green);color:#040A10;padding:2px 8px;border-radius:100px;">50% OFF</span>
         </div>
         <div class="pricing-period">per month · cancel anytime</div>
