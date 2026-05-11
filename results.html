@@ -75,35 +75,148 @@
   </div>
 </section>
 
-<!-- PROOF GALLERY -->
+<!-- PROOF SLIDER -->
+<style>
+.proof-slider-wrap {
+  max-width: 420px; margin: 0 auto; position: relative;
+}
+.proof-slider {
+  position: relative; overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(212,168,67,.25);
+  box-shadow: 0 0 60px rgba(212,168,67,.12), 0 30px 80px rgba(0,0,0,.6);
+}
+.proof-slides { display: flex; transition: transform .45s cubic-bezier(.22,.8,.4,1); }
+.proof-slide { min-width: 100%; position: relative; }
+.proof-slide img { width: 100%; display: block; }
+.proof-caption {
+  padding: 14px 18px; background: rgba(6,12,22,.96);
+  border-top: 1px solid rgba(212,168,67,.15);
+}
+.proof-caption-title { font-size: 14px; font-weight: 700; color: var(--gold); margin-bottom: 3px; }
+.proof-caption-sub { font-size: 12px; color: #7A8EAE; }
+
+/* Arrows */
+.proof-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 42px; height: 42px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(6,12,22,.88); border: 1px solid rgba(212,168,67,.3);
+  color: var(--gold); font-size: 18px; display: flex; align-items: center; justify-content: center;
+  transition: background .2s, border-color .2s; z-index: 10;
+  backdrop-filter: blur(8px);
+}
+.proof-arrow:hover { background: rgba(212,168,67,.15); border-color: rgba(212,168,67,.6); }
+.proof-arrow-prev { left: -21px; }
+.proof-arrow-next { right: -21px; }
+
+/* Dots */
+.proof-dots {
+  display: flex; justify-content: center; gap: 7px; margin-top: 18px;
+}
+.proof-dot {
+  height: 5px; border-radius: 100px; border: none; cursor: pointer;
+  background: rgba(212,168,67,.22); transition: all .3s; padding: 0;
+}
+.proof-dot.active { width: 22px; background: var(--gold); }
+.proof-dot:not(.active) { width: 8px; }
+
+/* Counter badge */
+.proof-counter {
+  position: absolute; top: 14px; right: 14px; z-index: 10;
+  background: rgba(6,12,22,.8); border: 1px solid rgba(212,168,67,.25);
+  border-radius: 100px; padding: 4px 12px;
+  font-size: 12px; font-weight: 700; color: var(--gold);
+  font-family: 'IBM Plex Mono', monospace; backdrop-filter: blur(8px);
+}
+</style>
+
 <section class="section">
   <div class="container">
     <div class="text-center reveal" style="margin-bottom:44px;">
       <div class="section-label"><i class="ph ph-seal-check"></i> Member Proof</div>
       <h2 class="section-title">Real Members · Real Profits</h2>
-      <p class="section-sub mx-auto">Unedited screenshots submitted by Titan Signals VIP members. These are real broker accounts — every trade verified.</p>
+      <p class="section-sub mx-auto">Unedited screenshots submitted by Titan Signals VIP members. Real broker accounts — every trade verified.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1000px;margin:0 auto;" class="reveal">
-      <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(212,168,67,.18);box-shadow:0 8px 32px rgba(0,0,0,.4);cursor:pointer;" onclick="this.querySelector('img').requestFullscreen?.()">
-        <img src="proof/proof2.jpg" alt="Member profit proof — $20,784 account" style="width:100%;display:block;transition:transform .3s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"/>
-        <div style="padding:12px 14px;background:rgba(10,18,30,.9);"><div style="font-size:13px;font-weight:700;color:var(--gold);">+$20,784 — XAUUSD BUY</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Multiple positions · same signal</div></div>
+
+    <div class="proof-slider-wrap reveal">
+      <div class="proof-slider">
+        <div class="proof-counter" id="proofCounter">1 / 4</div>
+        <div class="proof-slides" id="proofSlides">
+          <div class="proof-slide">
+            <img src="proof/proof2.jpg" alt="Member profit +$20,784"/>
+            <div class="proof-caption">
+              <div class="proof-caption-title">+$20,784 — XAUUSD BUY</div>
+              <div class="proof-caption-sub">Multiple positions · same signal · one session</div>
+            </div>
+          </div>
+          <div class="proof-slide">
+            <img src="proof/proof1.jpg" alt="XAUUSD live trading history"/>
+            <div class="proof-caption">
+              <div class="proof-caption-title">XAUUSD — Live Positions</div>
+              <div class="proof-caption-sub">Multiple wins on a single BUY signal</div>
+            </div>
+          </div>
+          <div class="proof-slide">
+            <img src="proof/proof3.jpg" alt="XAUUSD M1 chart after signal"/>
+            <div class="proof-caption">
+              <div class="proof-caption-title">XAUUSD M1 — Signal Chart</div>
+              <div class="proof-caption-sub">Price action immediately after our BUY alert</div>
+            </div>
+          </div>
+          <div class="proof-slide">
+            <img src="proof/proof4.jpg" alt="Account balance $650 from $500 deposit"/>
+            <div class="proof-caption">
+              <div class="proof-caption-title">Profit: $190.98 from $500 deposit</div>
+              <div class="proof-caption-sub">Single trading session · XAUUSD signals</div>
+            </div>
+          </div>
+        </div>
+        <button class="proof-arrow proof-arrow-prev" id="proofPrev"><i class="ph ph-caret-left"></i></button>
+        <button class="proof-arrow proof-arrow-next" id="proofNext"><i class="ph ph-caret-right"></i></button>
       </div>
-      <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(212,168,67,.18);box-shadow:0 8px 32px rgba(0,0,0,.4);cursor:pointer;" onclick="this.querySelector('img').requestFullscreen?.()">
-        <img src="proof/proof1.jpg" alt="Member trading history XAUUSD" style="width:100%;display:block;transition:transform .3s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"/>
-        <div style="padding:12px 14px;background:rgba(10,18,30,.9);"><div style="font-size:13px;font-weight:700;color:var(--gold);">XAUUSD — Live Positions</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Multiple wins on single signal</div></div>
-      </div>
-      <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(212,168,67,.18);box-shadow:0 8px 32px rgba(0,0,0,.4);cursor:pointer;" onclick="this.querySelector('img').requestFullscreen?.()">
-        <img src="proof/proof3.jpg" alt="XAUUSD chart signal hit" style="width:100%;display:block;transition:transform .3s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"/>
-        <div style="padding:12px 14px;background:rgba(10,18,30,.9);"><div style="font-size:13px;font-weight:700;color:var(--gold);">XAUUSD M1 — Signal Chart</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Price action after our BUY alert</div></div>
-      </div>
-      <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(212,168,67,.18);box-shadow:0 8px 32px rgba(0,0,0,.4);cursor:pointer;" onclick="this.querySelector('img').requestFullscreen?.()">
-        <img src="proof/proof4.jpg" alt="Member account balance history" style="width:100%;display:block;transition:transform .3s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'"/>
-        <div style="padding:12px 14px;background:rgba(10,18,30,.9);"><div style="font-size:13px;font-weight:700;color:var(--gold);">Balance: $650.98 → Profit: $190.98</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;">From $500 deposit in one session</div></div>
-      </div>
+      <div class="proof-dots" id="proofDots"></div>
+      <p style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:14px;">Screenshots submitted by VIP members. Individual results vary.</p>
     </div>
-    <p style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:20px;">Screenshots submitted by VIP members. Results vary by position size and account size.</p>
   </div>
 </section>
+
+<script>
+(function(){
+  const slides = document.getElementById('proofSlides');
+  const dotsEl = document.getElementById('proofDots');
+  const counter = document.getElementById('proofCounter');
+  const total = slides.children.length;
+  let cur = 0;
+
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('button');
+    d.className = 'proof-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => go(i);
+    dotsEl.appendChild(d);
+  }
+
+  function go(n) {
+    cur = (n + total) % total;
+    slides.style.transform = `translateX(-${cur * 100}%)`;
+    document.querySelectorAll('.proof-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+    counter.textContent = `${cur + 1} / ${total}`;
+  }
+
+  document.getElementById('proofPrev').onclick = () => go(cur - 1);
+  document.getElementById('proofNext').onclick = () => go(cur + 1);
+
+  // Swipe support
+  let startX = 0;
+  slides.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+  slides.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) go(diff > 0 ? cur + 1 : cur - 1);
+  });
+
+  // Auto-play
+  setInterval(() => go(cur + 1), 4000);
+})();
+</script>
 
 <section class="section" style="background:var(--bg-surface);">
   <div class="container">
