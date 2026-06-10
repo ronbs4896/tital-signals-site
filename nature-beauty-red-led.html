@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Red LED Treatment | Nature beauty</title>
+  <meta name="description" content="A non-invasive light therapy treatment using clinical-grade red LED wavelengths to stimulate collagen production, reduce fine lines, and restore a firmer, more radiant complexion." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Figtree', 'system-ui', 'sans-serif'],
+            serif: ['Figtree', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8',
+              300: '#f9a8d4', 400: '#f472b6', 500: '#ec4899',
+              600: '#db2777', 700: '#be185d',
+            },
+            rose: {
+              50: '#fff1f2', 100: '#ffe4e6', 300: '#fda4af', 400: '#fb7185',
+            },
+            cream: { 50: '#fbf7f2', 100: '#f4ede4', 200: '#e8dcc8' },
+            ink: '#1a1512',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Figtree', system-ui, sans-serif; }
+    .font-serif { font-family: 'Figtree', system-ui, sans-serif; font-weight: 500; letter-spacing: -0.01em; }
+
+    /* Full-bleed: force every section and footer to span full viewport width
+       (escapes GHL's narrow column wrapper) */
+    section, footer {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+    }
+
+    .hero-veil {
+      background: linear-gradient(180deg, rgba(26,21,18,0.15) 0%, rgba(26,21,18,0.25) 40%, rgba(26,21,18,0.5) 100%);
+    }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .animate-fade-up-delay { animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { scrollbar-width: none; }
+
+    /* Editorial portrait backgrounds — SAMPLE IMAGES (Unsplash) until real case photos are shot */
+    .portrait-placeholder {
+      background: #1a1512;
+    }
+    .portrait-side {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    /* Signature case — Ashley, 48 */
+    .portrait-before {
+      background-image: url('https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=80');
+      background-size: cover;
+      background-position: center 20%;
+      filter: saturate(0.7) contrast(0.9) brightness(0.88);
+    }
+    .portrait-after {
+      background-image: url('https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=80');
+      background-size: cover;
+      background-position: center 20%;
+      filter: saturate(1.15) contrast(1.06) brightness(1.06);
+    }
+    /* Vignette — kept for premium editorial feel */
+    .portrait-placeholder::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.45) 100%);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* Archive variants — distinct editorial portraits (Unsplash) */
+    .portrait-variant-a .portrait-before,
+    .portrait-variant-a .portrait-after {
+      background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80');
+      background-size: cover; background-position: center 18%;
+    }
+    .portrait-variant-b .portrait-before,
+    .portrait-variant-b .portrait-after {
+      background-image: url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=700&q=80');
+      background-size: cover; background-position: center 22%;
+    }
+    .portrait-variant-c .portrait-before,
+    .portrait-variant-c .portrait-after {
+      background-image: url('https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=700&q=80');
+      background-size: cover; background-position: center 15%;
+    }
+    .portrait-variant-d .portrait-before,
+    .portrait-variant-d .portrait-after {
+      background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80');
+      background-size: cover; background-position: center 20%;
+    }
+    .portrait-variant-e .portrait-before,
+    .portrait-variant-e .portrait-after {
+      background-image: url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=700&q=80');
+      background-size: cover; background-position: center 18%;
+    }
+    /* Before/after filter shift applied uniformly on all variants */
+    [class*="portrait-variant"] .portrait-before { filter: saturate(0.7) contrast(0.9) brightness(0.88); }
+    [class*="portrait-variant"] .portrait-after  { filter: saturate(1.15) contrast(1.06) brightness(1.06); }
+
+    /* Sample watermark — honest indicator that these are placeholder images */
+    .sample-badge {
+      position: absolute; z-index: 30;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-4deg);
+      padding: 0.35rem 0.85rem;
+      background: rgba(10, 10, 15, 0.55);
+      color: rgba(255,255,255,0.75);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      font-size: 9px; letter-spacing: 0.4em;
+      text-transform: uppercase; font-weight: 500;
+      pointer-events: none; white-space: nowrap;
+    }
+
+    /* Horizontal snap archive */
+    .archive-scroll {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-padding-left: 24px;
+    }
+    .archive-scroll > * { scroll-snap-align: start; }
+
+    /* Metric bar fill reveal */
+    @keyframes bar-fill { from { transform: scaleX(0); } to { transform: scaleX(var(--fill, 1)); } }
+    .metric-bar-fill { transform-origin: left; animation: bar-fill 1.6s cubic-bezier(0.22,1,0.36,1) 0.2s both; }
+
+    /* Editorial rotated timestamp */
+    .vertical-label {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      letter-spacing: 0.35em;
+    }
+
+    /* GHL-compatible sticky nav — avoids transform container issues */
+    html, body { margin: 0 !important; padding: 0 !important; }
+    #nav {
+      position: sticky !important;
+      top: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      z-index: 9999 !important;
+    }
+  </style>
+</head>
+<body class="bg-white text-neutral-900 antialiased">
+
+  <!-- NAV -->
+  <nav id="nav" class="sticky top-0 z-[9999] transition-all duration-300 bg-neutral-900 py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <a href="#hero" class="flex items-center gap-3" id="logo">
+        <span class="font-serif text-xl md:text-2xl text-white leading-none tracking-tight transition-colors">
+          <span class="font-semibold">Nature beauty</span>
+        </span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#hero" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Home</a>
+        <a href="#results" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Results</a>
+        <a href="#technology" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Technology</a>
+        <a href="#process" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Process</a>
+        <a href="#faq" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">FAQ</a>
+        <a href="#book" class="inline-flex items-center justify-center rounded-full bg-brand-500 hover:bg-brand-600 text-white font-medium px-6 h-11 shadow-lg shadow-brand-500/25 transition-all hover:scale-[1.03] active:scale-95">Book Appointment</a>
+      </div>
+      <button id="mobileBtn" class="md:hidden p-2 text-white">
+        <i data-lucide="menu" class="size-6"></i>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden mx-4 mt-3 bg-white rounded-2xl shadow-xl p-6 space-y-4">
+      <a href="#hero" class="block text-neutral-800 font-medium">Home</a>
+      <a href="#results" class="block text-neutral-800 font-medium">Results</a>
+      <a href="#technology" class="block text-neutral-800 font-medium">Technology</a>
+      <a href="#process" class="block text-neutral-800 font-medium">Process</a>
+      <a href="#faq" class="block text-neutral-800 font-medium">FAQ</a>
+      <a href="#book" class="block text-center rounded-full bg-brand-500 text-white font-medium py-3">Book Appointment</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="relative min-h-[95vh] overflow-hidden flex items-center pt-28 md:pt-32 bg-neutral-900" style="width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);">
+    <video class="absolute inset-0 w-full h-full object-cover z-0" autoplay loop muted playsinline preload="auto">
+      <source src="https://assets.cdn.filesafe.space/wq2mOwSOJQA1n6YcE9oC/media/69e5278a38381eafa89a3134.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 hero-veil z-[1]"></div>
+    <div class="absolute inset-0 z-[1] bg-gradient-to-r from-black/55 via-black/10 to-black/40"></div>
+
+    <div class="relative z-10 container mx-auto px-6 md:px-10 lg:px-16 py-10 md:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="max-w-2xl animate-fade-up">
+        <span class="inline-flex items-center gap-2 bg-brand-500 text-white px-4 py-1.5 rounded-md text-xs md:text-sm font-medium tracking-widest uppercase shadow-lg shadow-brand-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+          houston Launch &middot; Limited Slots
+        </span>
+
+        <h1 class="font-serif font-medium text-white leading-[1.1] mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-5xl tracking-tight">
+          You were born looking like your parents.<br/>
+          <span class="italic text-brand-400 font-bold">You leave here looking like your dream.</span>
+        </h1>
+
+        <p class="mt-5 md:mt-7 text-base md:text-lg text-white/85 font-light leading-relaxed max-w-xl">
+          We don't care how you walk in.<br/>
+          <span class="text-white font-medium">We care how you feel when you walk out.</span>
+        </p>
+
+        <div class="mt-8">
+          <a href="#book" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-medium px-8 h-14 shadow-2xl shadow-brand-500/30 transition-all hover:scale-[1.03] active:scale-95">
+            <i data-lucide="sparkles" class="size-4"></i>
+            Reserve My Session
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4 text-white/70 text-xs md:text-sm">
+          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>Designed for women 40+</span>
+          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>Visible lift in 2 sessions</span>
+          <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>No needles. No downtime.</span>
+        </div>
+      </div>
+
+      <!-- PRICING CARD — minimal, punchy -->
+      <div class="flex justify-center lg:justify-end animate-fade-up-delay">
+        <div class="relative w-full max-w-[380px]">
+          <!-- soft halo -->
+          <div class="absolute -inset-4 bg-gradient-to-br from-brand-500/30 to-transparent rounded-[32px] blur-2xl pointer-events-none"></div>
+
+          <div class="relative rounded-[24px] overflow-hidden border border-white/15 bg-white/10 backdrop-blur-xl shadow-[0_25px_60px_-10px_rgba(0,0,0,0.4)]">
+            <!-- shimmer top border -->
+            <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-300 to-transparent"></div>
+
+            <div class="px-7 py-8">
+              <!-- headline -->
+              <p class="font-light text-sm text-white/70 tracking-widest uppercase">Try Your First</p>
+              <p class="mt-1 font-serif font-bold text-white text-lg leading-tight tracking-tight uppercase">
+                Red LED Treatment
+              </p>
+
+              <!-- offer copy -->
+              <div class="mt-5">
+                <p class="font-serif font-medium text-white text-xl md:text-2xl leading-tight tracking-tight">
+                  First time with us?
+                </p>
+                <p class="mt-3 text-white/85 text-sm md:text-base leading-relaxed">
+                  Book today &mdash; your first session is
+                  <span class="font-serif font-bold text-white text-2xl md:text-3xl tracking-tight align-middle">$119.99</span>.
+                </p>
+                <p class="mt-2 text-white/55 text-xs italic">
+                  Normally <span class="line-through">$449.99</span>.
+                </p>
+              </div>
+
+              <!-- scarcity -->
+              <div class="mt-4 flex items-center gap-2.5 px-3.5 py-3 rounded-xl bg-amber-500/15 border border-amber-400/30">
+                <span class="relative flex-shrink-0 flex w-2.5 h-2.5">
+                  <span class="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75 animate-ping"></span>
+                  <span class="relative inline-flex rounded-full w-2.5 h-2.5 bg-amber-400"></span>
+                </span>
+                <div class="flex-1">
+                  <p class="text-sm text-white font-semibold leading-none">Only 3 slots left this week</p>
+                  <div class="mt-1.5 h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div class="h-full bg-amber-400 rounded-full" style="width: 70%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- divider -->
+              <div class="mt-5 h-px bg-white/10"></div>
+
+              <!-- benefit description -->
+              <p class="mt-5 text-sm text-white/80 leading-relaxed">
+                For skin that looks <span class="text-white font-medium">tighter, brighter, more awake</span>, with a smoother texture and a more even tone.
+              </p>
+
+              <!-- CTA label -->
+              <p class="mt-5 text-[11px] tracking-[0.25em] uppercase text-brand-300 font-semibold">Fill out your details to book</p>
+
+              <!-- CTA -->
+              <a href="#book" class="mt-3 group flex items-center justify-center gap-2 w-full h-14 rounded-full bg-white text-neutral-900 font-semibold text-sm tracking-wide hover:bg-brand-500 hover:text-white transition-all duration-500 shadow-xl">
+                Book My Appointment
+                <i data-lucide="arrow-right" class="size-4 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+
+              <!-- trust note -->
+              <p class="mt-3 text-center text-[11px] text-white/50 tracking-wide">No deposit required &middot; Pay at the clinic</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS — Unified proof gallery -->
+  <section id="results" class="relative py-16 md:py-24 bg-gradient-to-b from-cream-50 via-white to-cream-50 overflow-hidden">
+    <div class="absolute top-20 left-[-10%] w-[500px] h-[500px] bg-brand-200/30 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-20 right-[-10%] w-[500px] h-[500px] bg-rose-100/40 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <!-- Minimal header -->
+      <div class="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+        <span class="inline-block text-[11px] tracking-[0.4em] uppercase text-brand-500 font-medium">Real Women, Real Skin</span>
+        <h2 class="mt-3 font-serif text-4xl md:text-5xl lg:text-6xl text-neutral-900 leading-[1.05] tracking-tight">
+          Not pulled. Not frozen. Not "done."<br/>
+          <span class="italic text-brand-600 font-medium">Just you, on your best day.</span>
+        </h2>
+        <p class="mt-5 text-base md:text-lg text-neutral-500 font-light leading-relaxed max-w-xl mx-auto">
+          There are treatments your friends notice.<br/>
+          There are treatments <em>you</em> notice, alone, in the bathroom mirror at 7am.<br/>
+          This is the second kind.
+        </p>
+      </div>
+
+      <!-- UNIFIED GALLERY -->
+      <div class="max-w-5xl mx-auto">
+        <!-- Active hero: single combined before/after image -->
+        <div id="resultsHero" class="relative">
+          <div class="relative aspect-[2/1] md:aspect-[21/10] rounded-2xl overflow-hidden ring-1 ring-cream-200 bg-neutral-100 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.2)]">
+            <img id="heroImage" src="" alt="Before and After" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500" />
+
+            <!-- Before label -->
+            <div class="absolute top-3 left-3 md:top-5 md:left-5 z-20">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-white/90 backdrop-blur text-[10px] tracking-[0.3em] uppercase text-neutral-700 font-semibold shadow-sm">
+                <span class="block w-1.5 h-1.5 rounded-full bg-neutral-500"></span>Before
+              </span>
+            </div>
+
+            <!-- After label -->
+            <div class="absolute top-3 right-3 md:top-5 md:right-5 z-20">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-brand-500 text-[10px] tracking-[0.3em] uppercase text-white font-semibold shadow-sm">
+                <span class="block w-1.5 h-1.5 rounded-full bg-white"></span>After <span id="heroWeeks">6</span> Weeks
+              </span>
+            </div>
+
+            <!-- Center vertical divider -->
+            <div class="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-white/40 z-10 pointer-events-none"></div>
+
+            <!-- Bottom gradient -->
+            <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-neutral-900/75 via-neutral-900/30 to-transparent z-10 pointer-events-none"></div>
+
+            <!-- Bottom overlay: identity + metric -->
+            <div class="absolute inset-x-0 bottom-0 z-20 px-4 md:px-6 pb-4 md:pb-6 flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <h3 id="heroName" class="font-serif text-2xl md:text-3xl text-white leading-tight drop-shadow-lg">Ashley, <span class="italic font-light">48</span></h3>
+                <p id="heroFocus" class="text-white/85 text-xs md:text-sm mt-0.5 drop-shadow">Jawline definition</p>
+              </div>
+              <div class="bg-white rounded-xl px-3.5 py-2 shadow-xl text-center">
+                <div id="heroMetric" class="font-serif text-xl md:text-2xl text-brand-600 leading-none">+42%</div>
+                <div id="heroMetricLabel" class="text-[9px] tracking-[0.2em] uppercase text-neutral-500 mt-0.5">Firmness</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress bar for auto-advance -->
+          <div class="mt-3 h-0.5 bg-cream-200 rounded-full overflow-hidden">
+            <div id="heroProgress" class="h-full bg-brand-500 w-0 transition-none"></div>
+          </div>
+        </div>
+
+        <!-- Thumbnail rail -->
+        <div id="resultsThumbs" class="mt-5 md:mt-6 grid grid-cols-5 gap-2 md:gap-3"></div>
+
+        <!-- Single micro line -->
+        <p class="mt-6 md:mt-8 text-center text-xs tracking-wider uppercase text-neutral-500">
+          Unretouched &middot; Same lighting &middot; Same angle
+        </p>
+      </div>
+
+      <!-- Credibility footer strip — psychological proof, not vanity metrics -->
+      <div class="mt-14 md:mt-20 max-w-5xl mx-auto border-t border-cream-200 pt-8 md:pt-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+          <div>
+            <div class="font-serif text-3xl md:text-5xl text-neutral-900">89<span class="text-brand-500">%</span></div>
+            <div class="text-[11px] md:text-xs uppercase tracking-[0.25em] text-neutral-600 font-medium mt-2">See visible lift<br/>in 2 sessions</div>
+          </div>
+          <div class="md:border-l md:border-cream-200">
+            <div class="font-serif text-3xl md:text-5xl text-neutral-900">4.9<span class="text-brand-500">★</span></div>
+            <div class="text-[11px] md:text-xs uppercase tracking-[0.25em] text-neutral-600 font-medium mt-2">From 247 verified<br/>Google reviews</div>
+          </div>
+          <div class="md:border-l md:border-cream-200">
+            <div class="font-serif text-3xl md:text-5xl text-neutral-900">73<span class="text-brand-500">%</span></div>
+            <div class="text-[11px] md:text-xs uppercase tracking-[0.25em] text-neutral-600 font-medium mt-2">Re-book within<br/>90 days</div>
+          </div>
+          <div class="md:border-l md:border-cream-200">
+            <div class="font-serif text-2xl md:text-3xl text-neutral-900 leading-none mt-2 md:mt-3">FDA<br/><span class="text-brand-500">cleared</span></div>
+            <div class="text-[11px] md:text-xs uppercase tracking-[0.25em] text-neutral-600 font-medium mt-2">Zero adverse<br/>reactions reported</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center mt-8 text-neutral-500 text-xs tracking-wider uppercase">Individual results may vary &middot; Photographed on location, 2024-2026</p>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="book" class="relative py-24 md:py-32 bg-gradient-to-br from-brand-50 via-white to-rose-50 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-200/30 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-200/30 rounded-full blur-3xl -z-10"></div>
+
+    <div class="container mx-auto px-6">
+      <!-- Header compact -->
+      <div class="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+        <span class="inline-block text-xs tracking-[0.3em] uppercase text-brand-500 font-medium">Your Next Session</span>
+        <h2 class="mt-3 font-serif text-3xl md:text-4xl lg:text-5xl text-neutral-900 leading-[1.1]">
+          Your skin has been<br/>
+          <span class="italic text-brand-600 font-medium">waiting for this.</span>
+        </h2>
+        <p class="mt-4 text-sm md:text-base text-neutral-500 font-light leading-relaxed">
+          We're done promising you "younger."<br/>
+          We're here to help you feel more like yourself, just rested, lifted, and quietly confident.
+        </p>
+      </div>
+
+      <!-- MAIN OFFER CARD -->
+      <div class="max-w-xl mx-auto">
+        <div class="relative rounded-3xl bg-white border border-cream-200 shadow-[0_40px_80px_-30px_rgba(236,72,153,0.25)] overflow-hidden">
+          <!-- Top accent bar -->
+          <div class="h-1 w-full bg-gradient-to-r from-brand-500 via-rose-400 to-brand-500"></div>
+
+          <div class="p-7 md:p-10">
+            <!-- ribbon -->
+            <div class="flex items-center justify-between mb-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-50 border border-brand-100">
+                <span class="relative flex w-2 h-2">
+                  <span class="absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75 animate-ping"></span>
+                  <span class="relative inline-flex rounded-full w-2 h-2 bg-brand-500"></span>
+                </span>
+                <span class="text-[10px] tracking-[0.2em] uppercase text-brand-600 font-semibold">Launch Offer</span>
+              </div>
+              <span class="text-[10px] tracking-[0.2em] uppercase text-neutral-500 font-medium">3 slots left</span>
+            </div>
+
+            <!-- price -->
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="text-neutral-400 text-lg line-through">$449.99</span>
+                <span class="inline-block px-2 py-0.5 rounded-md bg-brand-50 text-brand-600 text-[10px] tracking-[0.15em] uppercase font-semibold border border-brand-100">Save $330</span>
+              </div>
+              <div class="mt-1 flex items-baseline gap-3">
+                <span class="font-serif font-bold text-neutral-900 text-6xl md:text-7xl leading-none tracking-tight">$119.99</span>
+              </div>
+              <p class="mt-2 text-sm text-neutral-500">First Red LED Treatment</p>
+            </div>
+
+            <!-- included bullets -->
+            <div class="mt-7 space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="shrink-0 w-6 h-6 rounded-full bg-brand-50 flex items-center justify-center">
+                  <i data-lucide="check" class="size-3.5 text-brand-600"></i>
+                </div>
+                <p class="text-sm md:text-base text-neutral-800">Soften the appearance of fine lines</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="shrink-0 w-6 h-6 rounded-full bg-brand-50 flex items-center justify-center">
+                  <i data-lucide="check" class="size-3.5 text-brand-600"></i>
+                </div>
+                <p class="text-sm md:text-base text-neutral-800">Create a subtle lifting and tightening effect</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="shrink-0 w-6 h-6 rounded-full bg-brand-50 flex items-center justify-center">
+                  <i data-lucide="check" class="size-3.5 text-brand-600"></i>
+                </div>
+                <p class="text-sm md:text-base text-neutral-800">Improve skin tone and texture</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="shrink-0 w-6 h-6 rounded-full bg-brand-50 flex items-center justify-center">
+                  <i data-lucide="check" class="size-3.5 text-brand-600"></i>
+                </div>
+                <p class="text-sm md:text-base text-neutral-800">Refresh the look of tired, dull skin</p>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <a href="#calendar" class="mt-8 group flex items-center justify-center gap-2 w-full h-16 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-semibold text-base tracking-wide shadow-[0_15px_30px_-10px_rgba(236,72,153,0.5)] transition-all duration-500 hover:scale-[1.02]">
+              Reserve My Session
+              <i data-lucide="arrow-right" class="size-5 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <!-- Guarantees row -->
+            <div class="mt-5 grid grid-cols-2 gap-3">
+              <div class="flex items-center gap-2 p-3 rounded-xl bg-cream-50 border border-cream-200">
+                <div class="shrink-0 w-8 h-8 rounded-full bg-white flex items-center justify-center border border-brand-100">
+                  <i data-lucide="shield-check" class="size-4 text-brand-500"></i>
+                </div>
+                <p class="text-[12px] md:text-xs text-neutral-700 font-semibold leading-tight">No deposit<br/>required</p>
+              </div>
+              <div class="flex items-center gap-2 p-3 rounded-xl bg-cream-50 border border-cream-200">
+                <div class="shrink-0 w-8 h-8 rounded-full bg-white flex items-center justify-center border border-brand-100">
+                  <i data-lucide="rotate-ccw" class="size-4 text-brand-500"></i>
+                </div>
+                <p class="text-[12px] md:text-xs text-neutral-700 font-semibold leading-tight">Cancel<br/>anytime</p>
+              </div>
+            </div>
+
+            <p class="mt-5 text-center text-xs text-neutral-500">Pay in-clinic on the day of your session. No commitment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALENDAR EMBED -->
+      <div id="calendar" class="mt-10 md:mt-14 max-w-4xl mx-auto scroll-mt-24">
+        <div class="text-center mb-6 md:mb-8">
+          <span class="inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-brand-500 font-medium">
+            <i data-lucide="calendar-check" class="size-3.5"></i>
+            Pick Your Time
+          </span>
+          <h3 class="mt-3 font-serif text-2xl md:text-3xl text-neutral-900 leading-tight">Select a date &amp; time that works for you</h3>
+        </div>
+
+        <div class="relative rounded-3xl overflow-hidden bg-white border border-cream-200 shadow-lg">
+
+<iframe src="https://api.leadconnectorhq.com/widget/booking/eTOddsWP9FeA5LiKle3n" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="w6lD5U6tmye3ev4EflxG_1780518339237"></iframe><br><script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+        </div>
+
+        <div class="mt-4 flex items-center justify-center gap-2 text-xs text-neutral-500">
+          <i data-lucide="shield-check" class="size-3.5 text-brand-500"></i>
+          <span>Secure booking &middot; No deposit charged at reservation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="relative py-14 md:py-20 bg-gradient-to-b from-cream-50 via-white to-cream-50 overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-14 md:mb-20">
+        <span class="inline-block text-xs tracking-[0.3em] uppercase text-brand-500 font-medium">The Process</span>
+        <h2 class="mt-3 font-serif text-3xl md:text-4xl lg:text-5xl text-neutral-900 leading-tight">What Will Happen During Your Visit</h2>
+        <p class="mt-6 text-neutral-500 text-base md:text-lg font-light leading-relaxed">A refined, luxurious experience from the moment you walk in until the moment you leave, delivered in four precise steps.</p>
+      </div>
+
+      <div class="relative">
+        <div id="processGrid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section id="technology" class="relative py-16 md:py-24 bg-white overflow-hidden">
+    <div class="absolute top-20 -right-40 w-[500px] h-[500px] bg-brand-100/30 rounded-full blur-3xl -z-10"></div>
+
+    <div class="container mx-auto px-6">
+      <!-- COMPACT editorial split -->
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 md:mb-20">
+        <!-- LEFT: single compact image -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100 shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1400&q=85"
+              alt="LED therapy close-up"
+              class="absolute inset-0 w-full h-full object-cover"
+              style="filter: saturate(0.7) contrast(1.05);"
+            />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-700/20 to-transparent mix-blend-multiply"></div>
+            <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-neutral-900/80 to-transparent"></div>
+
+            <!-- spec tag -->
+            <div class="absolute top-4 left-4">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 backdrop-blur border border-white/20">
+                <span class="w-1 h-1 rounded-full bg-brand-300 animate-pulse"></span>
+                <span class="text-[10px] tracking-[0.25em] uppercase text-white/90">633 &middot; 830 nm</span>
+              </div>
+            </div>
+
+            <!-- floating inline stat -->
+            <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
+              <p class="text-white/95 text-sm leading-snug max-w-[60%]">Penetrates <strong class="font-semibold">5mm</strong> beneath the surface.</p>
+              <div class="bg-white rounded-xl px-3 py-2 shadow-lg text-right">
+                <div class="font-serif text-2xl text-brand-600 leading-none">−42<span class="text-sm">%</span></div>
+                <div class="text-[9px] tracking-[0.2em] uppercase text-neutral-500 mt-0.5">Fine lines, 8 wks</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: tight copy -->
+        <div class="lg:col-span-6 flex flex-col justify-center">
+          <span class="inline-block text-xs tracking-[0.3em] uppercase text-brand-500 font-medium">The Technology</span>
+          <h2 class="mt-3 font-serif text-3xl md:text-4xl lg:text-5xl text-neutral-900 leading-[1.1] tracking-tight">
+            We could explain the science.<br/><span class="italic text-brand-600 font-medium">Or we could just show you the mirror.</span>
+          </h2>
+          <p class="mt-5 text-neutral-600 text-base leading-relaxed max-w-lg">
+            Red LED Treatment uses three technologies that work together the way your skin used to work on its own. Infrared light, microcurrent, and sculpting massage. No needles. No surgery. No version of you that doesn't look like you.
+          </p>
+
+          <!-- trust chips, inline compact -->
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cream-50 border border-cream-200 text-xs text-neutral-700">
+              <i data-lucide="shield-check" class="size-3.5 text-brand-600"></i>FDA-cleared
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cream-50 border border-cream-200 text-xs text-neutral-700">
+              <i data-lucide="zap-off" class="size-3.5 text-brand-600"></i>Zero downtime
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cream-50 border border-cream-200 text-xs text-neutral-700">
+              <i data-lucide="thermometer" class="size-3.5 text-brand-600"></i>Heat-free
+            </span>
+          </div>
+
+          <a href="#book" class="mt-7 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900 text-white text-sm hover:bg-brand-600 transition-colors w-fit group">
+            Book Your Consultation
+            <i data-lucide="arrow-right" class="size-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- UGC VIDEOS -->
+  <section id="ugc" class="relative py-24 md:py-32 bg-neutral-950 overflow-hidden" style="display:none!important;">
+    <!-- ambient glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-brand-600/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- subtle grain -->
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/></svg>');"></div>
+
+    <div class="container mx-auto px-6 relative">
+      <!-- header -->
+      <div class="text-center max-w-3xl mx-auto mb-14 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs tracking-[0.3em] uppercase text-brand-300 font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+          Real Women &middot; Real Stories
+        </span>
+        <h2 class="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] tracking-tight">
+          The moment they <span class="italic text-brand-300 font-medium">saw themselves</span><br/>
+          again.
+        </h2>
+        <p class="mt-6 text-white/60 text-base md:text-lg font-light leading-relaxed">
+          No script. No filter. No retouching. Just houston women, mirrors, and the exhale after.
+        </p>
+      </div>
+
+      <!-- STAGE -->
+      <div class="relative max-w-6xl mx-auto">
+        <div class="relative flex items-center justify-center gap-3 md:gap-6" style="min-height: 600px;">
+
+          <!-- prev arrow -->
+          <button id="ugcPrev" aria-label="Previous video" class="absolute left-0 md:left-2 z-30 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur border border-white/15 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300">
+            <i data-lucide="chevron-left" class="size-5 text-white"></i>
+          </button>
+
+          <!-- LEFT peek -->
+          <div id="ugcPeekLeft" class="hidden md:block absolute left-[12%] top-1/2 -translate-y-1/2 w-[140px] lg:w-[170px] aspect-[9/16] rounded-2xl overflow-hidden opacity-25 scale-90 blur-[2px] transition-all duration-700 cursor-pointer hover:opacity-50" style="z-index: 10;"></div>
+
+          <!-- ACTIVE stage -->
+          <div id="ugcStage" class="relative z-20 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] aspect-[9/16] rounded-[28px] overflow-hidden bg-neutral-800 shadow-[0_30px_80px_-15px_rgba(236,72,153,0.3)] ring-1 ring-white/10">
+            <!-- content injected -->
+          </div>
+
+          <!-- RIGHT peek -->
+          <div id="ugcPeekRight" class="hidden md:block absolute right-[12%] top-1/2 -translate-y-1/2 w-[140px] lg:w-[170px] aspect-[9/16] rounded-2xl overflow-hidden opacity-25 scale-90 blur-[2px] transition-all duration-700 cursor-pointer hover:opacity-50" style="z-index: 10;"></div>
+
+          <!-- next arrow -->
+          <button id="ugcNext" aria-label="Next video" class="absolute right-0 md:right-2 z-30 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur border border-white/15 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300">
+            <i data-lucide="chevron-right" class="size-5 text-white"></i>
+          </button>
+        </div>
+
+        <!-- progress dots -->
+        <div id="ugcDots" class="mt-10 flex items-center justify-center gap-2"></div>
+
+        <!-- thumbnail rail -->
+        <div class="mt-8 relative">
+          <div id="ugcRail" class="flex items-center justify-center gap-3 overflow-x-auto px-4 pb-2" style="scrollbar-width: none; -ms-overflow-style: none;"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS — auto slider -->
+  <section class="relative py-20 md:py-28 bg-gradient-to-b from-white via-brand-50/30 to-white overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+        <span class="inline-block text-xs tracking-[0.3em] uppercase text-brand-500 font-medium">From houston Women</span>
+        <h2 class="mt-3 font-serif text-3xl md:text-4xl lg:text-5xl text-neutral-900 leading-tight">What they said when<br/><span class="italic text-brand-600 font-medium">no one was watching.</span></h2>
+      </div>
+
+      <div class="relative max-w-3xl mx-auto">
+        <!-- slider track -->
+        <div id="testimonialsSlider" class="relative overflow-hidden min-h-[260px] md:min-h-[240px]"></div>
+
+        <!-- dots -->
+        <div id="testimonialsDots" class="mt-8 flex items-center justify-center gap-2"></div>
+
+        <!-- arrows (desktop only) -->
+        <button id="testimonialsPrev" aria-label="Previous testimonial" class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-11 h-11 rounded-full bg-white border border-cream-200 items-center justify-center shadow-sm hover:shadow-md hover:border-brand-300 transition-all">
+          <i data-lucide="chevron-left" class="size-4 text-neutral-600"></i>
+        </button>
+        <button id="testimonialsNext" aria-label="Next testimonial" class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-11 h-11 rounded-full bg-white border border-cream-200 items-center justify-center shadow-sm hover:shadow-md hover:border-brand-300 transition-all">
+          <i data-lucide="chevron-right" class="size-4 text-neutral-600"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 md:py-32 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="inline-block text-xs tracking-[0.3em] uppercase text-brand-500 font-medium">Common Queries</span>
+        <h2 class="mt-3 font-serif text-3xl md:text-4xl lg:text-5xl text-neutral-900 leading-tight">Frequently Asked Questions</h2>
+      </div>
+      <div id="faqList" class="max-w-3xl mx-auto space-y-3"></div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location" class="relative py-20 md:py-28 bg-gradient-to-b from-white via-cream-50 to-white overflow-hidden">
+    <!-- soft ambient glows -->
+    <div class="absolute top-10 -left-32 w-[420px] h-[420px] bg-brand-100/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 -right-32 w-[420px] h-[420px] bg-rose-100/40 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <!-- Header -->
+      <div class="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+        <span class="inline-block text-xs tracking-[0.3em] uppercase text-brand-500 font-medium">Find Us</span>
+        <h2 class="mt-3 font-serif text-3xl md:text-4xl lg:text-5xl text-neutral-900 leading-tight">
+          Your glow is closer<br/>
+          <span class="italic text-brand-600 font-medium">than you think.</span>
+        </h2>
+        <p class="mt-4 text-sm md:text-base text-neutral-500 font-light leading-relaxed">
+          A calm, private clinic in Webster &middot; minutes from anywhere in the Houston area.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto grid lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+        <!-- INFO CARD -->
+        <div class="lg:col-span-5 flex">
+          <div class="relative w-full rounded-3xl bg-white border border-cream-200 shadow-[0_30px_60px_-25px_rgba(236,72,153,0.25)] overflow-hidden flex flex-col">
+            <!-- top accent bar -->
+            <div class="h-1 w-full bg-gradient-to-r from-brand-500 via-rose-400 to-brand-500"></div>
+
+            <div class="p-7 md:p-9 flex-1 flex flex-col">
+              <!-- address -->
+              <div class="flex items-start gap-4">
+                <div class="shrink-0 w-11 h-11 rounded-full bg-brand-50 border border-brand-100 flex items-center justify-center">
+                  <i data-lucide="map-pin" class="size-5 text-brand-600"></i>
+                </div>
+                <div>
+                  <h3 class="font-serif text-xl text-neutral-900">Nature beauty</h3>
+                  <p class="mt-1.5 text-sm md:text-base text-neutral-600 leading-relaxed">
+                    19431 Gatebrook Dr<br/>
+                    Webster, TX 77598<br/>
+                    United States
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 h-px bg-cream-200"></div>
+
+              <!-- quick facts -->
+              <div class="mt-6 space-y-3 text-sm text-neutral-600">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="clock" class="size-4 text-brand-500 shrink-0"></i>
+                  <span>Sessions by appointment only</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i data-lucide="sparkles" class="size-4 text-brand-500 shrink-0"></i>
+                  <span>First Red LED Treatment &middot; <span class="font-semibold text-neutral-800">$119.99</span></span>
+                </div>
+              </div>
+
+              <!-- CTAs -->
+              <div class="mt-auto pt-7 space-y-3">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=19431+Gatebrook+Dr,+Webster,+TX+77598"
+                   target="_blank" rel="noopener"
+                   class="group flex items-center justify-center gap-2 w-full h-12 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm tracking-wide shadow-lg shadow-brand-500/25 transition-all duration-500 hover:scale-[1.02]">
+                  <i data-lucide="navigation" class="size-4"></i>
+                  Get Directions
+                </a>
+                <a href="#book"
+                   class="group flex items-center justify-center gap-2 w-full h-12 rounded-full bg-white border border-cream-200 text-neutral-800 font-medium text-sm hover:border-brand-300 hover:text-brand-600 transition-colors">
+                  Book My Appointment
+                  <i data-lucide="arrow-right" class="size-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAP -->
+        <div class="lg:col-span-7">
+          <div class="relative h-[320px] md:h-[420px] lg:h-full lg:min-h-[420px] rounded-3xl overflow-hidden border border-cream-200 shadow-lg bg-neutral-100">
+            <iframe
+              title="Nature beauty location - 19431 Gatebrook Dr, Webster, TX 77598"
+              src="https://www.google.com/maps?q=19431%20Gatebrook%20Dr%2C%20Webster%2C%20TX%2077598%2C%20United%20States&z=15&output=embed"
+              class="absolute inset-0 w-full h-full"
+              style="border:0;"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            <!-- floating address chip -->
+            <div class="absolute top-4 right-4 pointer-events-none">
+              <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/95 backdrop-blur shadow-md text-xs text-neutral-700 font-medium">
+                <i data-lucide="map-pin" class="size-3.5 text-brand-500"></i>
+                19431 Gatebrook Dr, Webster, TX 77598
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-cream-100 py-12 md:py-16">
+    <div class="container mx-auto px-6 grid md:grid-cols-3 gap-10 items-start">
+      <div>
+        <span class="block font-serif text-2xl text-white tracking-tight">
+          <span class="font-semibold">Nature beauty</span>
+        </span>
+        <p class="mt-4 text-sm text-cream-100/70 max-w-xs leading-relaxed">Premium aesthetics and skincare clinic. International-level treatments delivered with exceptional care.</p>
+      </div>
+      <div class="space-y-2 text-sm">
+        <h4 class="font-serif text-lg text-white mb-3">Navigation</h4>
+        <a href="#hero" class="block text-cream-100/70 hover:text-white">Home</a>
+        <a href="#results" class="block text-cream-100/70 hover:text-white">Results</a>
+        <a href="#technology" class="block text-cream-100/70 hover:text-white">Technology</a>
+        <a href="#faq" class="block text-cream-100/70 hover:text-white">FAQ</a>
+      </div>
+      <div class="space-y-2 text-sm">
+        <h4 class="font-serif text-lg text-white mb-3">Contact</h4>
+        <p class="text-cream-100/80 font-medium">Nature beauty</p>
+        <p class="text-cream-100/70">19431 Gatebrook Dr</p>
+        <p class="text-cream-100/70">Webster, TX 77598</p>
+        <p class="text-cream-100/70">United States</p>
+        <a href="tel:" class="block text-cream-100/70 hover:text-white pt-2"></a>
+
+        <!-- Social -->
+        <div class="flex items-center gap-3 pt-4">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="group w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-500 hover:border-brand-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-cream-100/80 group-hover:text-white transition-colors">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok" class="group w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-500 hover:border-brand-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-cream-100/80 group-hover:text-white transition-colors">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/>
+            </svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="group w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-500 hover:border-brand-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-cream-100/80 group-hover:text-white transition-colors">
+              <path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto px-6 mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-cream-100/50">
+      <span>© 2026 Nature beauty &middot; houston, texas</span>
+      <span class="italic font-serif">Est. for skin that deserves more</span>
+    </div>
+  </footer>
+
+  <script>
+    /* -------- DATA -------- */
+    const metrics = [
+      { label: 'Firmness', value: '+42%', fill: 0.84 },
+      { label: 'Elasticity', value: '+38%', fill: 0.76 },
+      { label: 'Hydration', value: '+56%', fill: 0.92 },
+      { label: 'Texture', value: '+61%', fill: 0.98 },
+    ];
+
+    // Gallery: real before/after images (combined side-by-side)
+    const archive = [
+      { no: '001', name: 'Ashley', age: 48, focus: 'Jawline definition', image: 'https://assets.cdn.filesafe.space/wq2mOwSOJQA1n6YcE9oC/media/69e52ba650b9a3263a1f7443.jpg', weeks: 6, metric: '+42%', metricLabel: 'Firmness' },
+      { no: '002', name: 'Camila', age: 52, focus: 'Around the eyes', image: 'https://assets.cdn.filesafe.space/wq2mOwSOJQA1n6YcE9oC/media/69e52ba650b9a3263a1f7444.jpg', weeks: 4, metric: '−38%', metricLabel: 'Fine lines' },
+      { no: '003', name: 'Isabella', age: 44, focus: 'Sun damage recovery', image: 'https://assets.cdn.filesafe.space/wq2mOwSOJQA1n6YcE9oC/media/69e52ba68696a78b8d2b3189.jpg', weeks: 5, metric: '+56%', metricLabel: 'Even tone' },
+      { no: '004', name: 'Diana', age: 46, focus: 'Neck & decolletage', image: 'https://assets.cdn.filesafe.space/wq2mOwSOJQA1n6YcE9oC/media/69e52ba638381eafa89b1368.jpg', weeks: 8, metric: '+47%', metricLabel: 'Elasticity' },
+      { no: '005', name: 'Lauren', age: 55, focus: 'Post-menopause glow', image: 'https://assets.cdn.filesafe.space/wq2mOwSOJQA1n6YcE9oC/media/69e52ba638381eafa89b1369.jpg', weeks: 6, metric: '+52%', metricLabel: 'Plumpness' },
+      { no: '006', name: 'Rachel', age: 50, focus: 'Skin texture', image: 'https://assets.cdn.filesafe.space/wq2mOwSOJQA1n6YcE9oC/media/69e52ba62c135a8c835fff53.jpg', weeks: 5, metric: '+47%', metricLabel: 'Smoothness' },
+    ];
+
+    const processSteps = [
+      {
+        icon: 'search',
+        title: 'We Listen First',
+        body: 'A quick, honest conversation about your skin and what you want from it. No upselling. No pressure. Just a plan that makes sense for you.',
+        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80',
+        duration: '15 min'
+      },
+      {
+        icon: 'sparkles',
+        title: 'Your Skin Gets Ready',
+        body: 'We gently cleanse and prep your skin so every phase of the Red LED Treatment works the way it should. Nothing fancy. Just effective.',
+        image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80',
+        duration: '10 min'
+      },
+      {
+        icon: 'zap',
+        title: 'Red LED Treatment',
+        body: 'Infrared light, microcurrent, and sculpting massage, one after the other. Your skin gets lifted, tightened, and resurfaced in a single session.',
+        image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80',
+        duration: '30 min'
+      },
+      {
+        icon: 'heart',
+        title: 'You Leave Different',
+        body: 'We finish with a calming layer of skincare and tell you exactly what to do at home. Most women look in the mirror before they leave. Most of them smile.',
+        image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=80',
+        duration: '10 min'
+      },
+    ];
+
+    const benefits = [
+      { value: '−42', unit: '%', label: 'Fine Lines', sublabel: 'depth reduction' },
+      { value: '+38', unit: '%', label: 'Firmness', sublabel: 'skin elasticity' },
+      { value: '2.3', unit: '×', label: 'Cell Renewal', sublabel: 'dermal turnover' },
+      { value: '95', unit: '%', label: 'Satisfaction', sublabel: 'would recommend' },
+    ];
+
+    const targets = [
+      {
+        concern: 'Wrinkles',
+        metric: '−42%',
+        metricLabel: 'Depth reduction',
+        window: '8 weeks',
+        mechanism: 'Stimulates collagen at dermal layer to fill lines from within.',
+        image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=85',
+      },
+      {
+        concern: 'Pore Size',
+        metric: '−31%',
+        metricLabel: 'Visible pore area',
+        window: '6 weeks',
+        mechanism: 'Refines surface texture by tightening follicular openings.',
+        image: 'https://images.unsplash.com/photo-1614108755310-4c39de5fa5de?auto=format&fit=crop&w=700&q=85',
+      },
+      {
+        concern: 'Skin Texture',
+        metric: '+47%',
+        metricLabel: 'Smoothness',
+        window: '4 weeks',
+        mechanism: 'Accelerates cellular turnover for uniform, refined surface.',
+        image: 'https://images.unsplash.com/photo-1598887142487-3c854d51eaf6?auto=format&fit=crop&w=700&q=85',
+      },
+      {
+        concern: 'Pigment',
+        metric: '−28%',
+        metricLabel: 'Sun spot contrast',
+        window: '10 weeks',
+        mechanism: 'Breaks down melanin clusters to even natural skin tone.',
+        image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=85',
+      },
+    ];
+
+    // UGC videos. Drop .mp4 files into /assets/ and update `src` below.
+    // Each video needs: src (mp4), poster (fallback image shown before play), name, age, city, quote.
+    const ugcVideos = [
+      { src: 'https://cdn.pixabay.com/video/2024/06/14/216525_large.mp4', poster: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=85', name: 'Jessica', age: 46, city: 'houston, texas', quote: 'My husband just said I looked happy.' },
+      { src: 'https://cdn.pixabay.com/video/2024/06/14/216525_large.mp4', poster: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=85', name: 'Camila', age: 52, city: 'houston, texas', quote: 'Nothing pulled. Nothing frozen. Just me.' },
+      { src: 'https://cdn.pixabay.com/video/2024/06/14/216525_large.mp4', poster: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=85', name: 'Diana', age: 44, city: 'houston, texas', quote: 'No filter. First time in years.' },
+      { src: 'https://cdn.pixabay.com/video/2024/06/14/216525_large.mp4', poster: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=85', name: 'Rachel', age: 49, city: 'houston, texas', quote: 'I stopped hiding from the Zoom camera.' },
+      { src: 'https://cdn.pixabay.com/video/2024/06/14/216525_large.mp4', poster: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=85', name: 'Monica', age: 51, city: 'houston, texas', quote: 'My daughter asked if I slept well. I did.' },
+    ];
+
+    const testimonials = [
+      { name: 'Ashley T.', age: 48, avatar: 'https://randomuser.me/api/portraits/women/32.jpg', body: "My husband didn't know I had anything done. He just said I looked happy. That's exactly what I wanted, to look like me, just rested." },
+      { name: 'Camila H.', age: 52, avatar: 'https://randomuser.me/api/portraits/women/45.jpg', body: "I was terrified of needles and 'frozen face' results. This was the opposite. I walked out looking like myself. Two weeks later, people kept asking if I was on vacation." },
+      { name: 'Isabella R.', age: 44, avatar: 'https://randomuser.me/api/portraits/women/22.jpg', body: "I've tried every cream, every laser, every peel. This is the first time I saw real lift in my jawline. Not filler-tight. Not pulled. Just tighter, like I was 3 years ago." },
+      { name: 'Diana R.', age: 46, avatar: 'https://randomuser.me/api/portraits/women/51.jpg', body: "I put this off for two years because I was scared. After my first session I texted my best friend and said: why didn't anyone tell me it was this easy?" },
+      { name: 'Lauren M.', age: 55, avatar: 'https://randomuser.me/api/portraits/women/29.jpg', body: "My daughter asked if I changed my makeup. I haven't. This is just skin that finally matches how I feel inside. That means everything." },
+      { name: 'Brittany A.', age: 50, avatar: 'https://randomuser.me/api/portraits/women/64.jpg', body: "I've been to expensive medspas in LA and NYC. House of Riley is the first place where I didn't feel pushed, rushed, or upsold. They listened. Then they delivered." },
+      { name: 'Sophia M.', age: 42, avatar: 'https://randomuser.me/api/portraits/women/18.jpg', body: "Perimenopause hit me hard. My skin changed overnight. Within two sessions I could see my old face coming back. I cried in the parking lot." },
+      { name: 'Olivia B.', age: 49, avatar: 'https://randomuser.me/api/portraits/women/40.jpg', body: "I booked this before my daughter's wedding. I wanted to look rested, not different. In the photos I just look like a woman who slept well. Exactly right." },
+      { name: 'Natalie C.', age: 53, avatar: 'https://randomuser.me/api/portraits/women/55.jpg', body: "I'm not one to invest in myself easily. Texas girl, always putting everyone else first. This was the first thing I've done just for me in a decade. No regrets." },
+    ];
+
+    const bookingSteps = [
+      { icon: 'calendar-plus', title: 'Initiate Booking', body: 'Click the appointment button, fill in your details, and choose the treatment you want.' },
+      { icon: 'calendar-clock', title: 'Select Schedule', body: 'Pick a convenient day and time from our available slots that works around your schedule.' },
+      { icon: 'check-circle-2', title: 'Confirmation', body: 'Receive instant confirmation via email and text, then arrive relaxed for the treatment your skin deserves.' },
+    ];
+
+    const faqs = [
+      { icon: 'clock', q: 'How long does it take?', a: 'About an hour. Long enough to actually exhale for once.' },
+      { icon: 'feather', q: 'Does it hurt?', a: 'No. Most women fall asleep. The hard part is getting off the table when it\'s over.' },
+      { icon: 'sparkles', q: 'When will I see results?', a: 'Most women notice something on the drive home. Not dramatic. Just different. Like your face remembered what it looked like five years ago.' },
+      { icon: 'layers', q: 'What are the three parts of the treatment?', a: 'Infrared light to wake up your collagen. Microcurrent to remind your muscles what lifted looks like. Facial massage to sculpt everything into place. Together, they do what no single treatment can.' },
+      { icon: 'calendar-days', q: 'How many sessions do I need?', a: 'One is enough to know this is the right thing. Four to six is enough to make it last.' },
+      { icon: 'user-check', q: 'Is this right for me?', a: "If you're a woman over 35 who wants to look like herself, just more rested, and you're done with treatments that make you look like you've had treatments — yes." },
+      { icon: 'tag', q: 'What does it cost?', a: 'Your first session is $119.99. No deposit. You pay when you arrive. If you want to know what it costs to not do it, look in the mirror in two years.' },
+      { icon: 'shield-check', q: 'Is it safe?', a: "Yes. No needles, no incisions, no recovery time. You can go straight from the clinic to dinner and no one will know. Except they'll notice something is different. They just won't know what." },
+    ];
+
+    /* -------- RENDER -------- */
+
+    // Results Gallery: single combined before/after image per case
+    (() => {
+      const heroImage = document.getElementById('heroImage');
+      const heroName = document.getElementById('heroName');
+      const heroFocus = document.getElementById('heroFocus');
+      const heroMetric = document.getElementById('heroMetric');
+      const heroMetricLabel = document.getElementById('heroMetricLabel');
+      const heroWeeks = document.getElementById('heroWeeks');
+      const progress = document.getElementById('heroProgress');
+      const thumbsWrap = document.getElementById('resultsThumbs');
+      if (!heroImage || !thumbsWrap) return;
+
+      let current = 0;
+      let autoTimer;
+      const DURATION = 6000;
+
+      const setHero = (idx) => {
+        const c = archive[idx];
+        heroImage.style.transition = 'opacity 300ms ease';
+        heroImage.style.opacity = '0';
+        setTimeout(() => {
+          heroImage.src = c.image;
+          heroName.innerHTML = `${c.name}, <span class="italic font-light">${c.age}</span>`;
+          heroFocus.textContent = c.focus;
+          heroMetric.textContent = c.metric;
+          heroMetricLabel.textContent = c.metricLabel;
+          if (heroWeeks) heroWeeks.textContent = c.weeks;
+          heroImage.style.opacity = '1';
+        }, 280);
+
+        // thumbs active state
+        thumbsWrap.querySelectorAll('[data-tidx]').forEach((t) => {
+          const isActive = parseInt(t.dataset.tidx, 10) === idx;
+          t.classList.toggle('ring-2', isActive);
+          t.classList.toggle('ring-brand-500', isActive);
+          t.classList.toggle('opacity-100', isActive);
+          t.classList.toggle('opacity-60', !isActive);
+          t.classList.toggle('scale-105', isActive);
+        });
+      };
+
+      const restartProgress = () => {
+        if (!progress) return;
+        progress.style.transition = 'none';
+        progress.style.width = '0%';
+        void progress.offsetWidth;
+        progress.style.transition = `width ${DURATION}ms linear`;
+        progress.style.width = '100%';
+      };
+
+      const go = (idx, manual = false) => {
+        current = (idx + archive.length) % archive.length;
+        setHero(current);
+        restartProgress();
+        if (manual) restart();
+      };
+
+      const restart = () => {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => go(current + 1), DURATION);
+      };
+
+      // Render thumbnail rail — each shows just the "after" half of the combined image
+      thumbsWrap.innerHTML = archive.map((c, i) => `
+        <button data-tidx="${i}" aria-label="View ${c.name}" class="relative aspect-square rounded-xl overflow-hidden transition-all duration-500 ${i === 0 ? 'ring-2 ring-brand-500 opacity-100' : 'opacity-60 hover:opacity-90'}" style="background-image: url('${c.image}'); background-size: 200% 100%; background-position: right center;">
+          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent"></div>
+          <div class="absolute bottom-1.5 left-0 right-0 text-center">
+            <span class="block font-serif text-xs md:text-sm text-white leading-none drop-shadow">${c.name}</span>
+            <span class="block text-[9px] tracking-wider uppercase text-white/80 mt-0.5 drop-shadow">${c.metric}</span>
+          </div>
+        </button>
+      `).join('');
+
+      thumbsWrap.querySelectorAll('[data-tidx]').forEach((t) => {
+        t.addEventListener('click', () => go(parseInt(t.dataset.tidx, 10), true));
+      });
+
+      // pause on hover
+      const hero = document.getElementById('resultsHero');
+      if (hero) {
+        hero.addEventListener('mouseenter', () => {
+          clearInterval(autoTimer);
+          if (progress) progress.style.transition = 'none';
+        });
+        hero.addEventListener('mouseleave', () => {
+          restart();
+          restartProgress();
+        });
+      }
+
+      // init
+      setHero(0);
+      restart();
+      restartProgress();
+    })();
+
+    // Process grid — editorial magazine style, vertical cards
+    document.getElementById('processGrid').innerHTML = processSteps.map((s, i) => `
+      <article class="process-card group relative opacity-0 translate-y-6" data-index="${i}" style="transition: opacity .8s ease, transform .8s ease; transition-delay: ${i * 100}ms">
+        <div class="relative bg-white rounded-2xl overflow-hidden border border-cream-200 shadow-sm group-hover:shadow-2xl transition-all duration-700 group-hover:-translate-y-2">
+          <!-- IMAGE: short landscape on mobile, taller on desktop -->
+          <div class="relative aspect-[16/10] md:aspect-[4/5] overflow-hidden bg-neutral-100">
+            <img
+              src="${s.image}"
+              alt="${s.title}"
+              loading="lazy"
+              class="absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-out group-hover:scale-[1.05]"
+              style="filter: saturate(0.7) contrast(1.02);"
+            />
+            <!-- subtle brand tint -->
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-transparent to-transparent mix-blend-multiply"></div>
+            <!-- top gradient for duration pill -->
+            <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-neutral-900/30 to-transparent"></div>
+
+            <!-- Duration pill top-right -->
+            <div class="absolute top-4 right-4">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur text-[10px] tracking-[0.2em] uppercase text-neutral-700 font-semibold shadow-sm">
+                <i data-lucide="clock" class="size-3 text-brand-500"></i>${s.duration}
+              </span>
+            </div>
+          </div>
+
+          <!-- CONTENT: centered editorial -->
+          <div class="px-5 md:px-6 lg:px-5 pt-6 pb-7 md:pt-8 md:pb-9 text-center">
+            <!-- Step badge: modern pill with dot + number -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-br from-brand-50 to-rose-50 border border-brand-100">
+              <span class="relative flex w-1.5 h-1.5">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75 animate-ping"></span>
+                <span class="relative inline-flex rounded-full w-1.5 h-1.5 bg-brand-500"></span>
+              </span>
+              <span class="font-serif text-[10px] tracking-[0.3em] uppercase text-brand-600 font-semibold">Step ${String(i + 1).padStart(2, '0')}</span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="mt-4 font-serif text-lg md:text-xl lg:text-lg xl:text-xl text-neutral-900 leading-[1.2] tracking-tight">${s.title}</h3>
+
+            <!-- Bronze accent divider (grows on hover) -->
+            <div class="mx-auto mt-4 h-px w-10 bg-brand-300 group-hover:w-20 group-hover:bg-brand-500 transition-all duration-700 ease-out"></div>
+
+            <!-- Body -->
+            <p class="mt-4 text-xs md:text-sm text-neutral-600 leading-relaxed">${s.body}</p>
+          </div>
+        </div>
+      </article>
+    `).join('');
+
+    // reveal + connector fill on scroll
+    (() => {
+      const cards = document.querySelectorAll('.process-card');
+      const fill = document.getElementById('processConnectorFill');
+      let revealed = 0;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-6');
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            revealed++;
+            if (fill) fill.style.width = `${(revealed / cards.length) * 100}%`;
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
+      cards.forEach((c) => io.observe(c));
+    })();
+
+    // subtle parallax inside each card image on mouse move (desktop)
+    if (window.matchMedia('(hover: hover) and (min-width: 1024px)').matches) {
+      document.querySelectorAll('.process-card').forEach((card) => {
+        const img = card.querySelector('.process-img');
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const x = ((e.clientX - r.left) / r.width - 0.5) * 8;
+          const y = ((e.clientY - r.top) / r.height - 0.5) * 8;
+          img.style.transform = `scale(1.06) translate(${x}px, ${y}px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          img.style.transform = '';
+        });
+      });
+    }
+
+    // Benefits grid removed from Technology section (metrics live in Results section now)
+    const benefitsGridEl = document.getElementById('benefitsGrid');
+    if (benefitsGridEl) {
+      benefitsGridEl.innerHTML = benefits.map((b, i) => `
+        <div class="stat-cell relative bg-neutral-900 p-6 md:p-8 group cursor-default" data-index="${i}">
+          <div class="flex items-baseline gap-0.5">
+            <span class="font-serif text-5xl md:text-6xl text-white leading-none tracking-tight">${b.value}</span>
+            <span class="font-serif text-2xl md:text-3xl text-brand-300 leading-none">${b.unit}</span>
+          </div>
+          <p class="mt-4 text-white font-medium text-sm md:text-base tracking-wide">${b.label}</p>
+          <p class="mt-1 text-xs text-white/50 leading-relaxed">${b.sublabel}</p>
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+        </div>
+      `).join('');
+    }
+
+    // Targets grid removed (section no longer in page)
+    const targetsGridEl = document.getElementById('targetsGrid');
+    if (targetsGridEl) {
+      targetsGridEl.innerHTML = targets.map((t, i) => `
+        <article class="target-card group relative opacity-0 translate-y-6" data-index="${i}" style="transition: opacity .7s ease, transform .7s ease; transition-delay: ${i * 100}ms">
+          <div class="relative bg-white rounded-2xl overflow-hidden border border-cream-200 shadow-sm group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-500 h-full flex flex-col">
+            <div class="relative aspect-[5/4] overflow-hidden bg-neutral-100">
+              <img src="${t.image}" alt="${t.concern} close-up" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" style="filter: saturate(0.75) contrast(1.05);" />
+              <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-neutral-900/40 to-transparent"></div>
+              <div class="absolute top-3 right-3">
+                <div class="inline-flex flex-col items-end px-3 py-2 rounded-xl bg-white/95 backdrop-blur shadow-sm">
+                  <span class="font-serif text-2xl text-brand-600 leading-none">${t.metric}</span>
+                  <span class="text-[9px] tracking-[0.15em] uppercase text-neutral-500 mt-0.5">${t.window}</span>
+                </div>
+              </div>
+              <div class="absolute top-3 left-3">
+                <span class="inline-block px-2.5 py-1 rounded-md bg-neutral-900/70 backdrop-blur text-[10px] tracking-[0.2em] uppercase text-white font-medium">${t.concern}</span>
+              </div>
+            </div>
+            <div class="p-5 md:p-6 flex-1 flex flex-col">
+              <p class="text-xs tracking-wider uppercase text-neutral-400 font-medium">${t.metricLabel}</p>
+              <p class="mt-2 text-sm text-neutral-700 leading-relaxed flex-1">${t.mechanism}</p>
+              <div class="mt-4 pt-3 border-t border-cream-200 flex items-center gap-2">
+                <i data-lucide="microscope" class="size-3 text-brand-500"></i>
+                <span class="text-[10px] tracking-[0.15em] uppercase text-neutral-500">VISIA-verified</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // Scroll reveal for target cards
+    (() => {
+      const cards = document.querySelectorAll('.target-card');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-6');
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      cards.forEach((c) => io.observe(c));
+    })();
+
+    // ===== UGC carousel =====
+    (() => {
+      if (typeof ugcVideos === 'undefined' || !ugcVideos.length) return;
+      const stage = document.getElementById('ugcStage');
+      const peekLeft = document.getElementById('ugcPeekLeft');
+      const peekRight = document.getElementById('ugcPeekRight');
+      const dotsWrap = document.getElementById('ugcDots');
+      const rail = document.getElementById('ugcRail');
+      const prevBtn = document.getElementById('ugcPrev');
+      const nextBtn = document.getElementById('ugcNext');
+      if (!stage) return;
+
+      let current = 0;
+      let muted = true;
+
+      const wrapIdx = (n) => (n + ugcVideos.length) % ugcVideos.length;
+
+      const renderStage = (idx, direction = 'next') => {
+        const v = ugcVideos[idx];
+        // exit animation
+        stage.style.transition = 'opacity 260ms ease, transform 260ms ease';
+        stage.style.opacity = '0';
+        stage.style.transform = direction === 'next' ? 'scale(0.94) translateX(-8px)' : 'scale(0.94) translateX(8px)';
+
+        setTimeout(() => {
+          stage.innerHTML = `
+            <video
+              src="${v.src}"
+              poster="${v.poster}"
+              class="absolute inset-0 w-full h-full object-cover"
+              playsinline
+              loop
+              ${muted ? 'muted' : ''}
+              autoplay
+            ></video>
+
+            <!-- top gradient -->
+            <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/50 to-transparent pointer-events-none"></div>
+            <!-- bottom gradient -->
+            <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none"></div>
+
+            <!-- mute toggle with label -->
+            <div class="absolute top-4 right-4 z-10">
+              <button id="ugcMute" aria-label="Toggle sound" class="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-full bg-white/20 backdrop-blur border border-white/25 hover:bg-white/30 transition-colors group">
+                <span class="w-7 h-7 rounded-full bg-brand-500 flex items-center justify-center ${muted ? 'animate-pulse' : ''}">
+                  <i data-lucide="${muted ? 'volume-x' : 'volume-2'}" class="size-3.5 text-white"></i>
+                </span>
+                <span class="text-[11px] tracking-wide text-white font-medium">${muted ? 'Tap for sound' : 'Sound on'}</span>
+              </button>
+            </div>
+
+            <!-- play/pause overlay -->
+            <button id="ugcPlayToggle" aria-label="Play / pause" class="absolute inset-0 z-10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/10">
+              <span class="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                <i data-lucide="play" class="size-6 text-neutral-900 ml-0.5"></i>
+              </span>
+            </button>
+
+            <!-- identity pill + quote, bottom -->
+            <div class="absolute bottom-4 left-4 right-4 z-10">
+              <p class="font-serif text-xl md:text-2xl text-white leading-snug drop-shadow-lg">&ldquo;${v.quote}&rdquo;</p>
+              <div class="mt-3 flex items-center gap-2">
+                <div class="px-3 py-1.5 rounded-full bg-white/15 backdrop-blur border border-white/20">
+                  <span class="text-xs text-white font-medium">${v.name}, ${v.age}</span>
+                </div>
+                <div class="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur">
+                  <span class="text-[11px] text-white/70 tracking-wide">${v.city}</span>
+                </div>
+              </div>
+            </div>
+          `;
+
+          // enter animation
+          stage.style.opacity = '0';
+          stage.style.transform = direction === 'next' ? 'scale(0.96) translateX(12px)' : 'scale(0.96) translateX(-12px)';
+          requestAnimationFrame(() => {
+            stage.style.opacity = '1';
+            stage.style.transform = 'scale(1) translateX(0)';
+          });
+
+          // re-render icons
+          if (window.lucide) lucide.createIcons();
+
+          // wire mute button
+          const muteBtn = document.getElementById('ugcMute');
+          const vid = stage.querySelector('video');
+          if (muteBtn && vid) {
+            muteBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              muted = !muted;
+              vid.muted = muted;
+              const iconEl = muteBtn.querySelector('i');
+              const iconWrap = muteBtn.querySelector('span:first-child');
+              const labelEl = muteBtn.querySelector('span:last-child');
+              if (iconEl) iconEl.setAttribute('data-lucide', muted ? 'volume-x' : 'volume-2');
+              if (iconWrap) iconWrap.classList.toggle('animate-pulse', muted);
+              if (labelEl) labelEl.textContent = muted ? 'Tap for sound' : 'Sound on';
+              if (window.lucide) lucide.createIcons();
+            });
+          }
+
+          // play/pause click on video
+          const pt = document.getElementById('ugcPlayToggle');
+          if (pt && vid) {
+            pt.addEventListener('click', () => {
+              if (vid.paused) vid.play(); else vid.pause();
+            });
+          }
+        }, 260);
+      };
+
+      const renderPeeks = () => {
+        const prev = ugcVideos[wrapIdx(current - 1)];
+        const next = ugcVideos[wrapIdx(current + 1)];
+        peekLeft.innerHTML = `<img src="${prev.poster}" class="w-full h-full object-cover" alt=""/>`;
+        peekRight.innerHTML = `<img src="${next.poster}" class="w-full h-full object-cover" alt=""/>`;
+      };
+
+      const renderDots = () => {
+        dotsWrap.innerHTML = ugcVideos.map((_, i) => `
+          <button data-dot="${i}" aria-label="Go to video ${i+1}" class="group h-1.5 transition-all duration-500 rounded-full ${i === current ? 'w-8 bg-brand-400' : 'w-1.5 bg-white/25 hover:bg-white/40'}"></button>
+        `).join('');
+        dotsWrap.querySelectorAll('[data-dot]').forEach((d) => {
+          d.addEventListener('click', () => go(parseInt(d.dataset.dot, 10)));
+        });
+      };
+
+      const renderRail = () => {
+        rail.innerHTML = ugcVideos.map((v, i) => `
+          <button data-thumb="${i}" class="relative flex-shrink-0 w-14 h-20 md:w-16 md:h-24 rounded-xl overflow-hidden transition-all duration-500 ${i === current ? 'ring-2 ring-brand-400 scale-105 opacity-100' : 'opacity-50 hover:opacity-80 hover:scale-105'}">
+            <img src="${v.poster}" class="w-full h-full object-cover" alt="${v.name}"/>
+            ${i === current ? '<div class="absolute inset-0 bg-brand-500/20"></div>' : ''}
+          </button>
+        `).join('');
+        rail.querySelectorAll('[data-thumb]').forEach((t) => {
+          t.addEventListener('click', () => go(parseInt(t.dataset.thumb, 10)));
+        });
+      };
+
+      const go = (idx) => {
+        const direction = idx > current || (idx === 0 && current === ugcVideos.length - 1) ? 'next' : 'prev';
+        current = wrapIdx(idx);
+        renderStage(current, direction);
+        renderPeeks();
+        renderDots();
+        renderRail();
+      };
+
+      prevBtn.addEventListener('click', () => go(current - 1));
+      nextBtn.addEventListener('click', () => go(current + 1));
+      peekLeft.addEventListener('click', () => go(current - 1));
+      peekRight.addEventListener('click', () => go(current + 1));
+
+      // keyboard
+      document.addEventListener('keydown', (e) => {
+        const inView = document.getElementById('ugc').getBoundingClientRect();
+        if (inView.top > window.innerHeight || inView.bottom < 0) return;
+        if (e.key === 'ArrowLeft') go(current - 1);
+        if (e.key === 'ArrowRight') go(current + 1);
+      });
+
+      // init
+      renderStage(current);
+      renderPeeks();
+      renderDots();
+      renderRail();
+    })();
+
+    // Testimonials: auto-rotating slider (one at a time, crossfade)
+    (() => {
+      const slider = document.getElementById('testimonialsSlider');
+      const dotsWrap = document.getElementById('testimonialsDots');
+      const prevBtn = document.getElementById('testimonialsPrev');
+      const nextBtn = document.getElementById('testimonialsNext');
+      if (!slider || !testimonials.length) return;
+
+      let idx = 0;
+      let autoTimer;
+
+      const render = () => {
+        const t = testimonials[idx];
+        slider.style.transition = 'opacity 400ms ease, transform 400ms ease';
+        slider.style.opacity = '0';
+        slider.style.transform = 'translateY(6px)';
+        setTimeout(() => {
+          slider.innerHTML = `
+            <figure class="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-cream-200 text-center">
+              <div class="flex justify-center gap-0.5 mb-5">
+                ${[0,1,2,3,4].map(() => `<i data-lucide="star" class="fill-brand-500 text-brand-500 size-4"></i>`).join('')}
+              </div>
+              <blockquote class="font-serif text-lg md:text-xl text-neutral-800 leading-relaxed italic">&ldquo;${t.body}&rdquo;</blockquote>
+              <figcaption class="mt-6 pt-6 border-t border-cream-200 flex items-center justify-center gap-3">
+                <img src="${t.avatar}" alt="${t.name}" class="w-12 h-12 rounded-full object-cover ring-2 ring-brand-100" loading="lazy" />
+                <div class="text-left">
+                  <div class="text-neutral-900 font-semibold text-sm">${t.name}</div>
+                  <div class="text-neutral-500 text-xs">Age ${t.age}</div>
+                </div>
+              </figcaption>
+            </figure>
+          `;
+          slider.style.opacity = '1';
+          slider.style.transform = 'translateY(0)';
+          if (window.lucide) lucide.createIcons();
+        }, 220);
+
+        // dots
+        dotsWrap.innerHTML = testimonials.map((_, i) => `
+          <button data-tdot="${i}" aria-label="Go to testimonial ${i+1}" class="h-1.5 rounded-full transition-all duration-500 ${i === idx ? 'w-8 bg-brand-500' : 'w-1.5 bg-neutral-300 hover:bg-neutral-400'}"></button>
+        `).join('');
+        dotsWrap.querySelectorAll('[data-tdot]').forEach((d) => {
+          d.addEventListener('click', () => go(parseInt(d.dataset.tdot, 10)));
+        });
+      };
+
+      const go = (i) => {
+        idx = (i + testimonials.length) % testimonials.length;
+        render();
+        restart();
+      };
+
+      const restart = () => {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => go(idx + 1), 5500);
+      };
+
+      prevBtn && prevBtn.addEventListener('click', () => go(idx - 1));
+      nextBtn && nextBtn.addEventListener('click', () => go(idx + 1));
+      slider.addEventListener('mouseenter', () => clearInterval(autoTimer));
+      slider.addEventListener('mouseleave', restart);
+
+      render();
+      restart();
+    })();
+
+    // Booking steps (legacy; section rebuilt as offer card, element may not exist)
+    const bookingStepsEl = document.getElementById('bookingSteps');
+    if (bookingStepsEl) bookingStepsEl.innerHTML = bookingSteps.map(s => `
+      <div class="bg-white rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-500 border border-neutral-100">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-brand-500 to-rose-400 flex items-center justify-center mb-5 shadow-lg shadow-brand-500/20">
+          <i data-lucide="${s.icon}" class="text-white size-6"></i>
+        </div>
+        <h3 class="font-serif text-xl text-neutral-900 mb-3">${s.title}</h3>
+        <p class="text-sm text-neutral-500 leading-relaxed">${s.body}</p>
+      </div>
+    `).join('');
+
+    // FAQ
+    document.getElementById('faqList').innerHTML = faqs.map((f, i) => `
+      <div class="faq-item rounded-2xl border transition-all duration-300 bg-white border-neutral-200 hover:border-brand-200" data-idx="${i}">
+        <button class="faq-toggle w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
+          <span class="font-serif text-lg md:text-xl text-neutral-900">${f.q}</span>
+          <span class="faq-icon flex-none w-8 h-8 rounded-full bg-brand-500/10 flex items-center justify-center text-brand-500 transition-transform duration-500">
+            <i data-lucide="plus" class="size-4"></i>
+          </span>
+        </button>
+        <div class="faq-body grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-out">
+          <div class="overflow-hidden">
+            <div class="faq-inner px-6 pb-6 text-neutral-600 leading-relaxed border-t border-brand-100/50 pt-5 opacity-0 -translate-y-1 transition-all duration-500 delay-100">
+              ${f.a}
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Init icons
+    lucide.createIcons();
+
+    /* -------- INTERACTIONS -------- */
+
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    const logo = document.getElementById('logo');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      const logoText = logo.querySelector('span');
+      if (window.scrollY > 40) {
+        nav.classList.add('bg-white','border-b','border-gray-100','shadow-sm','py-2');
+        nav.classList.remove('bg-neutral-900','py-4');
+        if (logoText) { logoText.classList.remove('text-white'); logoText.classList.add('text-neutral-900'); }
+        navLinks.forEach(l => { l.classList.remove('text-white/90','hover:text-white'); l.classList.add('text-neutral-700','hover:text-brand-500'); });
+        document.getElementById('mobileBtn').classList.remove('text-white');
+        document.getElementById('mobileBtn').classList.add('text-neutral-800');
+      } else {
+        nav.classList.remove('bg-white','border-b','border-gray-100','shadow-sm','py-2');
+        nav.classList.add('bg-neutral-900','py-4');
+        if (logoText) { logoText.classList.add('text-white'); logoText.classList.remove('text-neutral-900'); }
+        navLinks.forEach(l => { l.classList.add('text-white/90','hover:text-white'); l.classList.remove('text-neutral-700','hover:text-brand-500'); });
+        document.getElementById('mobileBtn').classList.add('text-white');
+        document.getElementById('mobileBtn').classList.remove('text-neutral-800');
+      }
+    });
+
+    // Mobile menu
+    document.getElementById('mobileBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Before/After sliders (supports new .portrait-before/.portrait-after structure)
+    document.querySelectorAll('.ba-range').forEach(input => {
+      const card = input.closest('[data-ba]');
+      const before = card.querySelector('.portrait-before');
+      const after = card.querySelector('.portrait-after');
+      const divider = card.querySelector('.ba-divider');
+      if (!before || !after || !divider) return;
+      input.addEventListener('input', e => {
+        const v = e.target.value;
+        before.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+        after.style.clipPath = `inset(0 0 0 ${v}%)`;
+        divider.style.left = `${v}%`;
+      });
+    });
+
+    // FAQ accordion — smooth expand + fade-in content
+    const openFaq = (item) => {
+      const body = item.querySelector('.faq-body');
+      const inner = item.querySelector('.faq-inner');
+      const icon = item.querySelector('.faq-icon');
+      body.classList.remove('grid-rows-[0fr]');
+      body.classList.add('grid-rows-[1fr]');
+      inner.classList.remove('opacity-0','-translate-y-1');
+      inner.classList.add('opacity-100','translate-y-0');
+      icon.classList.add('rotate-180');
+      icon.innerHTML = '<i data-lucide="minus" class="size-4"></i>';
+      item.classList.remove('bg-white','border-neutral-200','hover:border-brand-200');
+      item.classList.add('bg-gradient-to-br','from-brand-50/70','to-rose-50/50','border-brand-200/70','shadow-sm');
+      lucide.createIcons();
+    };
+    const closeFaq = (item) => {
+      const body = item.querySelector('.faq-body');
+      const inner = item.querySelector('.faq-inner');
+      const icon = item.querySelector('.faq-icon');
+      body.classList.remove('grid-rows-[1fr]');
+      body.classList.add('grid-rows-[0fr]');
+      inner.classList.remove('opacity-100','translate-y-0');
+      inner.classList.add('opacity-0','-translate-y-1');
+      icon.classList.remove('rotate-180');
+      icon.innerHTML = '<i data-lucide="plus" class="size-4"></i>';
+      item.classList.add('bg-white','border-neutral-200','hover:border-brand-200');
+      item.classList.remove('bg-gradient-to-br','from-brand-50/70','to-rose-50/50','border-brand-200/70','shadow-sm');
+      lucide.createIcons();
+    };
+
+    document.querySelectorAll('.faq-item').forEach((item, idx) => {
+      const btn = item.querySelector('.faq-toggle');
+      if (idx === 0) openFaq(item);
+      btn.addEventListener('click', () => {
+        const body = item.querySelector('.faq-body');
+        const isOpen = body.classList.contains('grid-rows-[1fr]');
+        document.querySelectorAll('.faq-item').forEach(closeFaq);
+        if (!isOpen) openFaq(item);
+      });
+    });
+  </script>
+
+  <!-- GoHighLevel calendar embed resizer -->
+  <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+</body>
+</html>
